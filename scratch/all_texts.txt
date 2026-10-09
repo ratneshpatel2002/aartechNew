@@ -1,0 +1,584 @@
+0: Aartech
+1: BSE
+2: NSE
+3: 49.80
+4: HOME
+5: ABOUT
+6: WORK
+7: WORK
+8: industries
+9: products
+10: solutions
+11: R&amp;D FACILITIES
+12: BRANDS
+13: MEDIA
+14: TENDERS
+15: INVESTORS
+16: INVESTORS
+17: OVERVIEW
+18: CHAIRMAN'S COMMUNICATION
+19: FINANCIAL REPORTS
+20: SHAREHOLDERS INFORMATION
+21: NOTICES
+22: DISCLOSURES
+23: DOWNLOADS
+24: CONTACTS &amp; GRIEVANCE
+25: CONTACT
+26: BSE
+27: NSE
+28: 49.80
+29: INDUSTRIES
+30: Work spanning 9 major industries &amp; 33 sub-industries.
+31: PRODUCTS
+32: 11+ products adopted across 15 countries.
+33: SOLUTIONS
+34: Over 11+ customized solutions across industries and products.
+35: Our Tailored Solutions
+36: Choose any ONE of the THREE segments below and check out corresponding 2 segments linked with your chosen one.
+37: CHOOSE INDUSTRY
+38: DEFENSE &amp; EXPLORATION
+39: RENEWABLE ENERGY
+40: NON-RENEWABLE ENERGY
+41: POWER TRANSMISSION &amp; DISTRIBUTION
+42: HEAVY ENGINEERING INDUSTRIES
+43: HEALTHCARE
+44: IT &amp; TELECOM
+45: WASTE MANAGEMENT
+46: TRANSPORTATION
+47: CHOOSE PRODUCT
+48: KRANKING ULTRACAPACITORS
+49: BESTCASE
+50: SOLID WASTE TREATMENT
+51: CLIP FAULT CURRENT LIMITORS
+52: CONTROL &amp; RELAY PANELS
+53: BTS 2000
+54: AC &amp; DC UPS
+55: FLYWHEEL
+56: SOLAR DESIGN &amp; SERVICES
+57: LOAD LIMITING
+58: CHOOSE SOLUTION
+59: LOAD LIMITING
+60: RELIABLE ENGINE STARTING
+61: POWER BACKUP UNIT
+62: ENERGY STORAGE
+63: CUSTOMIZED PLASTIC CASE
+64: SOLID WASTE TREATMENT
+65: CONTROL &amp; AUTOMATION
+66: PROCESS CONTINUITY
+67: FAULT CURRENT LIMITING
+68: UNINTERRUPTED POWER SUPPLY
+69: SOLAR DESIGN, ENGINEERING
+70: Selected Industry
+71: Defense &amp; Exploration
+72: Related Products
+73: BTS-2000
+74: Kranking Ultracapacitors
+75: Best Case
+76: Solid Waste Treatment
+77: Solar Design &amp; Services
+78: FLYWHEEL
+79: AC &amp; DC UPS
+80: Load Checker
+81: Related Solutions
+82: Reliable Engine Starting
+83: Uninterrupted Power Supply
+84: Power Backup Unit
+85: Customized Plastic Case
+86: Solid Waste Treatment
+87: Solar Design Engineering
+88: Energy Storage
+89: Load Limiting
+90: Selected Industry
+91: Renewable Energy
+92: Related Products
+93: Control &amp; Relay Panels
+94: BTS 2000
+95: Kranking Ultracapacitors
+96: Best Case
+97: Solid Waste Treatment
+98: Solar Design &amp; Services
+99: FLYWHEEL
+100: Load Checker
+101: Related Solutions
+102: Control &amp; Automation
+103: Process Continuity
+104: Load Limiting
+105: Reliable Engine Starting
+106: Fault Current Limiting
+107: Energy Storage
+108: Customized Plastic Case
+109: Solid Waste Treatment
+110: Solar Design, Engineering
+111: Selected Industry
+112: Non-Renewable Energy
+113: Related Products
+114: Control &amp; Relay Panels
+115: BTS 2000
+116: Kranking Ultracapacitors
+117: CLIP Fault Current Limiters
+118: Best Case
+119: Solid Waste Treatment Products
+120: Load Checker
+121: Related Solutions
+122: Control &amp; Automation
+123: Process Continuity
+124: Load Limiting
+125: Reliable Engine Starting
+126: Fault Current Limiting
+127: Customised Plastic Case
+128: Solid Waste Treatment
+129: Energy Storage
+130: Selected Industry
+131: Power Transmission &amp; Distribution
+132: Related Products
+133: Control &amp; Relay Panels
+134: Kranking Ultracapacitors
+135: Best Case
+136: FLYWHEEL
+137: Load Checkers
+138: Related Solutions
+139: Control &amp; Automation
+140: Customized Plastic Case
+141: Reliable Engine Starting
+142: Power Backup Unit
+143: Energy Storage
+144: Load Limiting
+145: Selected Industry
+146: Heavy Engineering Industries
+147: Related Products
+148: Control &amp; Relay Panels
+149: BTS 2000
+150: Kranking Ultracapacitors
+151: CLIP Fault Current Limiters
+152: Best Case
+153: Solar Design &amp; Services
+154: AC &amp; DC UPS
+155: FLYWHEEL
+156: Load Checker
+157: Related Solutions
+158: Control &amp; Automation
+159: Process Continuity
+160: Load Limiting
+161: Reliable Engine Starting
+162: Fault Current Limiting
+163: Customized Plastic Case
+164: Solid Waste Treatment
+165: Solar Design, Engineering
+166: Uninterrupted Power Supply
+167: Energy Storage
+168: Selected Industry
+169: Healthcare
+170: Related Products
+171: Control &amp; Relay Panels
+172: BTS 2000
+173: Kranking Ultracapacitors
+174: Best Case
+175: Solid Waste Treatment
+176: Solar Design &amp; Services
+177: AC &amp; DC UPS
+178: Load Checker
+179: FLYWHEEL
+180: Related Solutions
+181: Control &amp; Automation
+182: Process Continuity
+183: Power Backup Unit
+184: Customized Plastic Case
+185: Load Limiting
+186: Reliable Engine Starting
+187: Solid Waste Treatment
+188: Solar Design, Engineering
+189: Uninterrupted Power Supply
+190: Energy Storage
+191: Selected Industry
+192: IT &amp; Telecom
+193: Related Products
+194: Kranking Ultracapacitors
+195: Control &amp; Relay Panels
+196: BTS 2000
+197: Best Case
+198: Solar Design &amp; Services
+199: AC &amp; DC UPS
+200: FLYWHEEL
+201: Load Checker
+202: Related Solutions
+203: Control &amp; Automation
+204: Reliable Engine Starting
+205: Power Backup Unit
+206: Customized Plastic Case
+207: Solar Design, Engineering
+208: Uninterrupted Power Supply
+209: Energy Storage
+210: Load Limiting
+211: Selected Industry
+212: Waste Management
+213: Related Products
+214: AC &amp; DC UPS
+215: Solid Waste Treatment Products
+216: Best Case
+217: Related Solutions
+218: Solid Waste Treatment
+219: Customized Plastic Case
+220: Uninterrupted Power Supply
+221: Energy Storage
+222: Selected Industry
+223: Transportation
+224: Related Products
+225: Control &amp; Relay Panels
+226: Bestcase
+227: Kranking Ultracapacitors
+228: Solid Waste Treatment
+229: AC &amp; DC UPS
+230: FLYWHEEL
+231: Related Solutions
+232: Control &amp; Automation
+233: Load Limiting
+234: Power Backup Unit
+235: Reliable Engine Starting
+236: Customized Plastic Case
+237: Solid Waste Treatment
+238: Uninterrupted Power Supply
+239: Energy Storage
+240: Related Industries
+241: Defense &amp; Exploration
+242: Renewable Energy
+243: Non-Renewable Energy
+244: Power Transmission and Distribution
+245: Heavy Engineering Industries
+246: Healthcare
+247: IT and Telecom
+248: Transportation
+249: Selected Product
+250: Kranking Ultracapacitors
+251: Related Solutions
+252: Reliable Engine Starting
+253: Related Industries
+254: Defense &amp; Exploration
+255: Renewable Energy
+256: Non-Renewable Energy
+257: Power Transmission and Distribution
+258: Heavy Engineering Industries
+259: Healthcare
+260: IT and Telecom
+261: Transportation
+262: Waste Management
+263: Selected Product
+264: Bestcase
+265: Related Solutions
+266: Customized Plastic Case
+267: Related Industries
+268: Defense &amp; Exploration
+269: Non-Renewable Energy
+270: Power Transmission and Distribution
+271: Healthcare
+272: IT and Telecom
+273: Transportation
+274: Selected Product
+275: Related Solutions
+276: Customized Plastic Case
+277: Related Industries
+278: Defense &amp; Exploration
+279: Renewable Energy
+280: Non-Renewable Energy
+281: Healthcare
+282: Transportation
+283: Waste Management
+284: Selected Product
+285: Solid Waste Treatment
+286: Related Solutions
+287: Solid Waste Treatment
+288: Related Industries
+289: Power Transmission and Distribution
+290: Heavy Engineering Industries
+291: Selected Product
+292: CLIP Fault Current Limitors
+293: Related Solutions
+294: Fault Current Limiting
+295: Related Industries
+296: Defense &amp; Exploration
+297: Non-Renewable Energy
+298: Power Transmission and Distribution
+299: Heavy Engineering Industries
+300: Healthcare
+301: IT and Telecom
+302: Transportation
+303: Waste Management
+304: Selected Product
+305: Control &amp; Relay Panels
+306: Related Solutions
+307: Control &amp; Automation
+308: Related Industries
+309: Renewable Energy
+310: Non-Renewable Energy
+311: Heavy Engineering Industries
+312: Healthcare
+313: Selected Product
+314: BTS 2000
+315: Related Solutions
+316: Process Continuity
+317: Related Industries
+318: Defense &amp; Exploration
+319: Heavy Engineering Industries
+320: Healthcare
+321: IT and Telecom
+322: Transportation
+323: Waste Management
+324: Selected Product
+325: AC &amp; DC UPS
+326: Related Solutions
+327: Uninterrupted Power Supply
+328: Related Industries
+329: Defense &amp; Exploration
+330: Renewable Energy
+331: Power Transmission and Distribution
+332: Heavy Engineering Industries
+333: Healthcare
+334: IT and Telecom
+335: Transportation
+336: Selected Product
+337: FLYWHEEL
+338: Related Solutions
+339: Energy Storage
+340: Related Industries
+341: Defense &amp; Exploration
+342: Renewable Energy
+343: Heavy Engineering Industries
+344: Healthcare
+345: IT and Telecom
+346: Selected Product
+347: Solar Design &amp; Services
+348: Related Solutions
+349: Solar Design, Engineering
+350: Related Industries
+351: Defense &amp; Exploration
+352: Renewable Energy
+353: Non-Renewable Energy
+354: Power Transmission and Distribution
+355: Heavy Engineering Industries
+356: Healthcare
+357: IT and Telecom
+358: Selected Product
+359: Load Limiting
+360: Related Solutions
+361: Load Limiting
+362: Related Industries
+363: Defense &amp; Exploration
+364: Renewable Energy
+365: Non-Renewable Energy
+366: Power Transmission and Distribution
+367: Heavy Engineering Industries
+368: Healthcare
+369: IT and Telecom
+370: Related Soultion
+371: Load Checker
+372: Selected Soultion
+373: Load Limiting
+374: Related Industries
+375: Defense &amp; Exploration
+376: Renewable Energy
+377: Non-Renewable Energy
+378: Power Transmission and Distribution
+379: Heavy Engineering Industries
+380: Healthcare
+381: IT and Telecom
+382: Transportation
+383: Related Products
+384: Kranking Ultracapacitors
+385: Selected Soultion
+386: Reliable Engine Starting
+387: Related Industries
+388: Defense &amp; Exploration
+389: Non-Renewable Energy
+390: Power Transmission and Distribution
+391: Healthcare
+392: IT and Telecom
+393: Transportation
+394: Related Products
+395: Selected Soultion
+396: Power Backup Unit
+397: Related Industries
+398: Defense &amp; Exploration
+399: Renewable Energy
+400: Power Transmission and Distribution
+401: Heavy Engineering Industries
+402: Healthcare
+403: IT and Telecom
+404: Transportation
+405: Related Products
+406: FLYWHEEL
+407: Selected Soultion
+408: ENERGY STORAGE
+409: Related Industries
+410: Defense &amp; Exploration
+411: Renewable Energy
+412: Non-Renewable Energy
+413: Power Transmission and Distribution
+414: Heavy Engineering Industries
+415: Healthcare
+416: IT and Telecom
+417: Transportation
+418: Waste Management
+419: Related Products
+420: Bestcase
+421: Selected Soultion
+422: Customized Plastic Case
+423: Related Industries
+424: Defense &amp; Exploration
+425: Renewable Energy
+426: Non-Renewable Energy
+427: Healthcare
+428: Transportation
+429: Waste Management
+430: Related Products
+431: Solid Waste Treatment
+432: Selected Soultion
+433: Solid Waste Treatment
+434: Related Industries
+435: Defense &amp; Exploration
+436: Renewable Energy
+437: Non-Renewable Energy
+438: Power Transmission &amp; Distribution
+439: Heavy Engineering Industries
+440: Healthcare
+441: IT &amp; Telecom
+442: Transportation
+443: Related Products
+444: Control &amp; Relay Panels
+445: Selected Soultion
+446: Control &amp; Automation
+447: Related Industries
+448: Renewable Energy
+449: Non-Renewable Energy
+450: Heavy Engineering Industries
+451: Healthcare
+452: Related Products
+453: BTS 2000
+454: Selected Soultion
+455: Process Continuity
+456: Related Industries
+457: Non-Renewable Energy
+458: Heavy Engineering Industries
+459: Related Products
+460: CLIP Fault Current Limiters
+461: Selected Soultion
+462: Fault Current Limiting
+463: Related Industries
+464: Defense &amp; Exploration
+465: Heavy Engineering Industries
+466: Healthcare
+467: IT and Telecom
+468: Transportation
+469: Waste Management
+470: Related Products
+471: AC &amp; DC UPS
+472: Selected Soultion
+473: Uninterrupted Power Supply
+474: Related Industries
+475: Defense &amp; Exploration
+476: Renewable Energy
+477: Heavy Engineering Industries
+478: Healthcare
+479: IT and Telecom
+480: Related Products
+481: Solar Design &amp; Services
+482: Selected Soultion
+483: Solar Design, Engineering
+484: Customers
+485: Our Global Presence
+486: About Us
+487: Living Passions Through Engineering
+488: Aartech Solonics was founded in 1982 with the aim of becoming an “Application Engineering Specialist” company. It won many laurels &amp; major businesses with this approach. It became a public limited company in 1992. We are trusted by the Indian government agencies and policymakers of many other countries. With our future-ready mindset, we assist them in ushering in the right techniques for the challenges at hand.
+489: Over the years, Aartech has evolved into a close-knit team specializing in many domains. Every team member contributes individually to the growth of the company by applying their personal Passions to the world of Engineering.
+490: KNOW MORE
+491: Testimonials
+492: Mr. Jay Prakash Yadav
+493: Manager, Jindal Power Limited
+494: Mr. Jay Prakash Yadav
+495: Manager, Jindal Power Limited
+496: Absolutely customer-centric! AARTECH's experienced team provides incredible support. Their innovative products run our electrical system flawlessly. Almost zero product failures, truly user-friendly.
+497: Mr. Ksh.Premkishan Singh
+498: Senior Manager, NTPC
+499: Mr. Ksh.Premkishan Singh
+500: Senior Manager, NTPC
+501: Working with the AARTECH team was exceptional! Their consistent support turned our collaboration into a delightful experience. I recommend their services to anyone seeking reliability and expertise.
+502: Mr. Virendra Rapartiwar
+503: Executive Engineer, CSTPS
+504: Mr. Virendra Rapartiwar
+505: Executive Engineer, CSTPS
+506: AARTECH Solonics stands out with its innovative and customized solutions. They've tailored their expertise to our needs, solving our challenges with ease and precision, driving our success forward.
+507: Mr. Pankaj Lochan Sahoo
+508: Associate Manager, Adani Power Limited
+509: Mr. Pankaj Lochan Sahoo
+510: Associate Manager, Adani Power Limited
+511: AARTECH Solonics transformed our operations. Their unwavering support during any service hiccups is just remarkable. The HSBT system increased our plant's reliability. They're our ultimate reliability partners!
+512: Mr. Ashim Singh
+513: Assistant General Manager, Hindalco Mahan
+514: Mr. Ashim Singh
+515: Assistant General Manager, Hindalco Mahan
+516: Their team ensures our operations run seamlessly with their precise solutions. Their commitment to excellence is truly commendable. I would highly recommend AARTECH Solonics for their top-notch solutions.
+517: Mr. Soumik Manma
+518: Deputy Manager, Damodar Valley Corporation
+519: Mr. Soumik Manma
+520: Deputy Manager, Damodar Valley Corporation
+521: AARTECH team’s technical expertise is impressive, but it's their friendly approach and commitment to keeping promises that stood out. Our project was completed on time with ease and precision.
+522: MANUFACTURING
+523: Manufacturing Hubs
+524: Unit#1: Mandideep, M.P. :
+525: Located in Mandideep, 20 kms from Bhopal
+526: Occupies 12000 sq. meters of land
+527: Includes 1500 sq. meters of built-up area
+528: Houses machinery, equipment, and SSD warehouse
+529: Supports various product lines
+530: Quality Assurance :
+531: Focus on product quality despite customization
+532: Rigorous diligence in all activities
+533: Quality Assurance Plan (QAP) protocol developed based on SSD requirements
+534: QAP submitted for customer approval as standard
+535: Independent quality assurance audit monitors compliance and deviations
+536: Unit#2: Parwanoo, H.P. :
+537: Situated in Parwanoo, Himachal Pradesh
+538: Supports manufacturing of specific products: BTS 2000
+539: LT microprocessor-based fast bus transfer system SSD
+540: Testing Facility :
+541: Customized testing arrangements for diverse requirements
+542: Factory Acceptance Test (FAT) protocol developed during design
+543: COMMISSIONING
+544: SSD Commissioning Support :
+545: Every SSD has a dedicated team of highly qualified and experienced personnel
+546: Assistance in commissioning system solutions at the customer's location
+547: Swift and responsive support provided
+548: Comprehensive on-site training and orientation delivered as needed
+549: Customer Feedback :
+550: Insights from commissioning activities influence on design and engineering efforts
+551: Used to enhance system solutions based on real-world experience
+552: RESEARCH &amp; DEVELOPMENT
+553: Design &amp; Engineering :
+554: Each SSD conducts distinct design and engineering tasks
+555: Meets custom-specific requirements for desired application solutions
+556: Comprehensive study of design, specification, and interface data
+557: Address additional interface requirements proactively
+558: Adherence to customer wish-lists is a priority
+559: Engineering Process :
+560: Utilizes the latest engineering software tools
+561: Best practices and applicable standards guide the process
+562: We emphasize innovation &amp; customer feedback
+563: KNOW MORE
+564: Follow us
+565: Living Passion Through Engineering
+566: HOME
+567: BRANDS
+568: MEDIA
+569: TENDERS
+570: INVESTORS
+571: CONTACT
+572: ADMIN PORTAL
+573: SOLUTIONS
+574: INDUSTRIES
+575: PRODUCTS
+576: "Ashirwad" E2/57, Arera Colony, Bhopal, Madhya Pradesh (M.P.) India 462016
+577: Toll free no. 18004199409
+578: CONTACT US
+579: Follow us
+580: ©Aartech Solonics Limited. All rights reserved.
+581: Privacy policy
+582: Cookie policy
+583: Admin Portal

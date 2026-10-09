@@ -1,0 +1,664 @@
+[
+  {
+    "section": "section1",
+    "labels": [
+      "Selected Industry",
+      "Related Products",
+      "Related Solutions"
+    ],
+    "items": [
+      "Defense &amp; Exploration",
+      "BTS-2000",
+      "Kranking Ultracapacitors",
+      "Best Case",
+      "Solid Waste Treatment",
+      "Solar Design &amp; Services",
+      "FLYWHEEL",
+      "AC &amp; DC UPS",
+      "Load Checker",
+      "Reliable Engine Starting",
+      "Uninterrupted Power Supply",
+      "Power Backup Unit",
+      "Customized Plastic Case",
+      "Solid Waste Treatment",
+      "Solar Design Engineering",
+      "Energy Storage",
+      "Load Limiting"
+    ],
+    "htmlPreview": "<div class=\"section1 grid grid-cols-1 lg:grid-cols-3 lg:gap-x-[29px]  hidden\"><div class=\"\"><ul><p class=\"lg:hidden block text-box-red uppercase font-Barlow font-bold mt-8\">Selected Industry</p><a href=\"https://aartechsolonics.com/industries/defence-and-exploration\"><li class=\"border border-black py"
+  },
+  {
+    "section": "section2",
+    "labels": [
+      "Selected Industry",
+      "Related Products",
+      "Related Solutions"
+    ],
+    "items": [
+      "Renewable Energy",
+      "Control &amp; Relay Panels",
+      "BTS 2000",
+      "Kranking Ultracapacitors",
+      "Best Case",
+      "Solid Waste Treatment",
+      "Solar Design &amp; Services",
+      "FLYWHEEL",
+      "Load Checker",
+      "Control &amp; Automation",
+      "Process Continuity",
+      "Load Limiting",
+      "Reliable Engine Starting",
+      "Fault Current Limiting",
+      "Energy Storage",
+      "Customized Plastic Case",
+      "Solid Waste Treatment",
+      "Solar Design, Engineering"
+    ],
+    "htmlPreview": "<div class=\"section2 grid grid-cols-1 lg:grid-cols-3 lg:gap-x-[29px]   hidden\"><div class=\"\"><p class=\"lg:hidden block text-box-red uppercase font-Barlow font-bold mt-8\">Selected Industry</p><ul><a href=\"https://aartechsolonics.com/industries/renewable-energy\"><li class=\"our-tailored-class\">Renewabl"
+  },
+  {
+    "section": "section3",
+    "labels": [
+      "Selected Industry",
+      "Related Products",
+      "Related Solutions"
+    ],
+    "items": [
+      "Non-Renewable Energy",
+      "Control &amp; Relay Panels",
+      "BTS 2000",
+      "Kranking Ultracapacitors",
+      "CLIP Fault Current Limiters",
+      "Best Case",
+      "Solid Waste Treatment Products",
+      "Load Checker",
+      "Control &amp; Automation",
+      "Process Continuity",
+      "Load Limiting",
+      "Reliable Engine Starting",
+      "Fault Current Limiting",
+      "Customised Plastic Case",
+      "Solid Waste Treatment",
+      "Energy Storage"
+    ],
+    "htmlPreview": "<div class=\"section3 grid grid-cols-1 lg:grid-cols-3 lg:gap-x-[29px]  hidden\"><div class=\"\"><p class=\"lg:hidden block text-box-red uppercase font-Barlow font-bold mt-8\">Selected Industry</p><ul><a href=\"https://aartechsolonics.com/industries/non-renewable-energy\"><li class=\"our-tailored-class\">Non-R"
+  },
+  {
+    "section": "section4",
+    "labels": [
+      "Selected Industry",
+      "Related Products",
+      "Related Solutions"
+    ],
+    "items": [
+      "Power Transmission &amp; Distribution",
+      "Control &amp; Relay Panels",
+      "Kranking Ultracapacitors",
+      "Best Case",
+      "FLYWHEEL",
+      "Load Checkers",
+      "Control &amp; Automation",
+      "Customized Plastic Case",
+      "Reliable Engine Starting",
+      "Power Backup Unit",
+      "Energy Storage",
+      "Load Limiting"
+    ],
+    "htmlPreview": "<div class=\"section4 grid grid-cols-1 lg:grid-cols-3 lg:gap-x-[29px]   hidden\"><div class=\"\"><p class=\"lg:hidden block text-box-red uppercase font-Barlow font-bold mt-8\">Selected Industry</p><ul><a href=\"https://aartechsolonics.com/industries/power-transmission-and-distribution\"><li class=\"our-tailo"
+  },
+  {
+    "section": "section5",
+    "labels": [
+      "Selected Industry",
+      "Related Products",
+      "Related Solutions"
+    ],
+    "items": [
+      "Heavy Engineering Industries",
+      "Control &amp; Relay Panels",
+      "BTS 2000",
+      "Kranking Ultracapacitors",
+      "CLIP Fault Current Limiters",
+      "Best Case",
+      "Solar Design &amp; Services",
+      "AC &amp; DC UPS",
+      "FLYWHEEL",
+      "Load Checker",
+      "Control &amp; Automation",
+      "Process Continuity",
+      "Load Limiting",
+      "Reliable Engine Starting",
+      "Fault Current Limiting",
+      "Customized Plastic Case",
+      "Solid Waste Treatment",
+      "Solar Design, Engineering",
+      "Uninterrupted Power Supply",
+      "Energy Storage"
+    ],
+    "htmlPreview": "<div class=\"section5 grid grid-cols-1 lg:grid-cols-3 lg:gap-x-[29px]   hidden\"><div class=\"\"><p class=\"lg:hidden block text-box-red uppercase font-Barlow font-bold mt-8\">Selected Industry</p><ul><a href=\"https://aartechsolonics.com/industries/heavy-engineering-industries\"><li class=\"our-tailored-cla"
+  },
+  {
+    "section": "section6",
+    "labels": [
+      "Selected Industry",
+      "Related Products",
+      "Related Solutions"
+    ],
+    "items": [
+      "Healthcare",
+      "Control &amp; Relay Panels",
+      "BTS 2000",
+      "Kranking Ultracapacitors",
+      "Best Case",
+      "Solid Waste Treatment",
+      "Solar Design &amp; Services",
+      "AC &amp; DC UPS",
+      "Load Checker",
+      "FLYWHEEL",
+      "Control &amp; Automation",
+      "Process Continuity",
+      "Power Backup Unit",
+      "Customized Plastic Case",
+      "Load Limiting",
+      "Reliable Engine Starting",
+      "Solid Waste Treatment",
+      "Solar Design, Engineering",
+      "Uninterrupted Power Supply",
+      "Energy Storage"
+    ],
+    "htmlPreview": "<div class=\"section6 grid grid-cols-1 lg:grid-cols-3 lg:gap-x-[29px]   hidden\"><div class=\"\"><p class=\"lg:hidden block text-box-red uppercase font-Barlow font-bold mt-8\">Selected Industry</p><ul><a href=\"https://aartechsolonics.com/industries/health-care\"><li class=\"our-tailored-class\">Healthcare</l"
+  },
+  {
+    "section": "section7",
+    "labels": [
+      "Selected Industry",
+      "Related Products",
+      "Related Solutions"
+    ],
+    "items": [
+      "IT &amp; Telecom",
+      "Kranking Ultracapacitors",
+      "Control &amp; Relay Panels",
+      "BTS 2000",
+      "Best Case",
+      "Solar Design &amp; Services",
+      "AC &amp; DC UPS",
+      "FLYWHEEL",
+      "Load Checker",
+      "Control &amp; Automation",
+      "Reliable Engine Starting",
+      "Power Backup Unit",
+      "Customized Plastic Case",
+      "Solar Design, Engineering",
+      "Uninterrupted Power Supply",
+      "Energy Storage",
+      "Load Limiting"
+    ],
+    "htmlPreview": "<div class=\"section7 grid grid-cols-1 lg:grid-cols-3 lg:gap-x-[29px]   hidden\"><div class=\"\"><p class=\"lg:hidden block text-box-red uppercase font-Barlow font-bold mt-8\">Selected Industry</p><ul><a href=\"https://aartechsolonics.com/industries/it-and-Telecom\"><li class=\"our-tailored-class\">IT &amp; T"
+  },
+  {
+    "section": "section8",
+    "labels": [
+      "Selected Industry",
+      "Related Products",
+      "Related Solutions"
+    ],
+    "items": [
+      "Waste Management",
+      "AC &amp; DC UPS",
+      "Solid Waste Treatment Products",
+      "Best Case",
+      "Solid Waste Treatment",
+      "Customized Plastic Case",
+      "Uninterrupted Power Supply",
+      "Energy Storage"
+    ],
+    "htmlPreview": "<div class=\"section8 grid grid-cols-1 lg:grid-cols-3 lg:gap-x-[29px]   hidden\"><div class=\"\"><p class=\"lg:hidden block text-box-red uppercase font-Barlow font-bold mt-8\">Selected Industry</p><ul><a href=\"https://aartechsolonics.com/industries/waste-management\"><li class=\"our-tailored-class\">Waste Ma"
+  },
+  {
+    "section": "section9",
+    "labels": [
+      "Selected Industry",
+      "Related Products",
+      "Related Solutions"
+    ],
+    "items": [
+      "Transportation",
+      "Control &amp; Relay Panels",
+      "Bestcase",
+      "Kranking Ultracapacitors",
+      "Solid Waste Treatment",
+      "AC &amp; DC UPS",
+      "FLYWHEEL",
+      "Control &amp; Automation",
+      "Load Limiting",
+      "Power Backup Unit",
+      "Reliable Engine Starting",
+      "Customized Plastic Case",
+      "Solid Waste Treatment",
+      "Uninterrupted Power Supply",
+      "Energy Storage"
+    ],
+    "htmlPreview": "<div class=\"section9 grid grid-cols-1 lg:grid-cols-3 lg:gap-x-[29px]   hidden\"><div class=\"\"><p class=\"lg:hidden block text-box-red uppercase font-Barlow font-bold mt-8\">Selected Industry</p><ul><a href=\"https://aartechsolonics.com/industries/transportation\"><li class=\"our-tailored-class\">Transporta"
+  },
+  {
+    "section": "section10",
+    "labels": [
+      "Related Industries",
+      "Selected Product",
+      "Related Solutions"
+    ],
+    "items": [
+      "Defense &amp; Exploration",
+      "Renewable Energy",
+      "Non-Renewable Energy",
+      "Power Transmission and Distribution",
+      "Heavy Engineering Industries",
+      "Healthcare",
+      "IT and Telecom",
+      "Transportation",
+      "Kranking Ultracapacitors",
+      "Reliable Engine Starting"
+    ],
+    "htmlPreview": "<div class=\"section10 grid grid-cols-1 lg:grid-cols-3 lg:gap-x-[29px]   hidden\"><div class=\"\"><p class=\"lg:hidden block text-box-red uppercase font-Barlow font-bold mt-8\">Related Industries</p><ul><a href=\"https://aartechsolonics.com/industries/defence-and-exploration\"><li class=\"our-tailored-class\""
+  },
+  {
+    "section": "section11",
+    "labels": [
+      "Related Industries",
+      "Selected Product",
+      "Related Solutions"
+    ],
+    "items": [
+      "Defense &amp; Exploration",
+      "Renewable Energy",
+      "Non-Renewable Energy",
+      "Power Transmission and Distribution",
+      "Heavy Engineering Industries",
+      "Healthcare",
+      "IT and Telecom",
+      "Transportation",
+      "Waste Management",
+      "Bestcase",
+      "Customized Plastic Case"
+    ],
+    "htmlPreview": "<div class=\"section11 grid grid-cols-1 lg:grid-cols-3 lg:gap-x-[29px]   hidden\"><div class=\"\"><p class=\"lg:hidden block text-box-red uppercase font-Barlow font-bold mt-8\">Related Industries</p><ul><a href=\"https://aartechsolonics.com/industries/defence-and-exploration\"><li class=\"our-tailored-class\""
+  },
+  {
+    "section": "section12",
+    "labels": [
+      "Related Industries",
+      "Selected Product",
+      "Related Solutions"
+    ],
+    "items": [
+      "Defense &amp; Exploration",
+      "Non-Renewable Energy",
+      "Power Transmission and Distribution",
+      "Healthcare",
+      "IT and Telecom",
+      "Transportation",
+      "Customized Plastic Case"
+    ],
+    "htmlPreview": "<div class=\"section12 grid grid-cols-1 lg:grid-cols-3 lg:gap-x-[29px]   hidden\"><div class=\"\"><p class=\"lg:hidden block text-box-red uppercase font-Barlow font-bold mt-8\">Related Industries</p><ul><a href=\"https://aartechsolonics.com/industries/defence-and-exploration\"><li class=\"our-tailored-class\""
+  },
+  {
+    "section": "section13",
+    "labels": [
+      "Related Industries",
+      "Selected Product",
+      "Related Solutions"
+    ],
+    "items": [
+      "Defense &amp; Exploration",
+      "Renewable Energy",
+      "Non-Renewable Energy",
+      "Healthcare",
+      "Transportation",
+      "Waste Management",
+      "Solid Waste Treatment",
+      "Solid Waste Treatment"
+    ],
+    "htmlPreview": "<div class=\"section13 grid grid-cols-1 lg:grid-cols-3 lg:gap-x-[29px]   hidden\"><div class=\"\"><p class=\"lg:hidden block text-box-red uppercase font-Barlow font-bold mt-8\">Related Industries</p><ul><a href=\"https://aartechsolonics.com/industries/defence-and-exploration\"><li class=\"our-tailored-class\""
+  },
+  {
+    "section": "section14",
+    "labels": [
+      "Related Industries",
+      "Selected Product",
+      "Related Solutions"
+    ],
+    "items": [
+      "Power Transmission and Distribution",
+      "Heavy Engineering Industries",
+      "CLIP Fault Current Limitors",
+      "Fault Current Limiting"
+    ],
+    "htmlPreview": "<div class=\"section14 grid grid-cols-1 lg:grid-cols-3 lg:gap-x-[29px]   hidden\"><div class=\"\"><p class=\"lg:hidden block text-box-red uppercase font-Barlow font-bold mt-8\">Related Industries</p><ul><a href=\"https://aartechsolonics.com/industries/power-transmission-and-distribution\"><li class=\"our-tai"
+  },
+  {
+    "section": "section15",
+    "labels": [
+      "Related Industries",
+      "Selected Product",
+      "Related Solutions"
+    ],
+    "items": [
+      "Defense &amp; Exploration",
+      "Non-Renewable Energy",
+      "Power Transmission and Distribution",
+      "Heavy Engineering Industries",
+      "Healthcare",
+      "IT and Telecom",
+      "Transportation",
+      "Waste Management",
+      "Control &amp; Relay Panels",
+      "Control &amp; Automation"
+    ],
+    "htmlPreview": "<div class=\"section15 grid grid-cols-1 lg:grid-cols-3 lg:gap-x-[29px]   hidden\"><div class=\"\"><p class=\"lg:hidden block text-box-red uppercase font-Barlow font-bold mt-8\">Related Industries</p><ul><a href=\"https://aartechsolonics.com/industries/defence-and-exploration\"><li class=\"our-tailored-class\""
+  },
+  {
+    "section": "section16",
+    "labels": [
+      "Related Industries",
+      "Selected Product",
+      "Related Solutions"
+    ],
+    "items": [
+      "Renewable Energy",
+      "Non-Renewable Energy",
+      "Heavy Engineering Industries",
+      "Healthcare",
+      "BTS 2000",
+      "Process Continuity"
+    ],
+    "htmlPreview": "<div class=\"section16 grid grid-cols-1 lg:grid-cols-3 lg:gap-x-[29px]   hidden\"><p class=\"lg:hidden block text-box-red uppercase font-Barlow font-bold mt-8\">Related Industries</p><div class=\"\"><ul><a href=\"https://aartechsolonics.com/industries/renewable-energy\"><li class=\"our-tailored-class\">Renewa"
+  },
+  {
+    "section": "section16",
+    "labels": [
+      "Related Industries",
+      "Selected Product",
+      "Related Solutions"
+    ],
+    "items": [
+      "Defense &amp; Exploration",
+      "Heavy Engineering Industries",
+      "Healthcare",
+      "IT and Telecom",
+      "Transportation",
+      "Waste Management",
+      "AC &amp; DC UPS",
+      "Uninterrupted Power Supply"
+    ],
+    "htmlPreview": "<div class=\"section16 grid grid-cols-1 lg:grid-cols-3 lg:gap-x-[29px]   hidden\"><p class=\"lg:hidden block text-box-red uppercase font-Barlow font-bold mt-8\">Related Industries</p><div class=\"\"><ul><a href=\"https://aartechsolonics.com/industries/defence-and-exploration\"><li class=\"our-tailored-class\""
+  },
+  {
+    "section": "section16",
+    "labels": [
+      "Related Industries",
+      "Selected Product",
+      "Related Solutions"
+    ],
+    "items": [
+      "Defense &amp; Exploration",
+      "Renewable Energy",
+      "Power Transmission and Distribution",
+      "Heavy Engineering Industries",
+      "Healthcare",
+      "IT and Telecom",
+      "Transportation",
+      "FLYWHEEL",
+      "Energy Storage"
+    ],
+    "htmlPreview": "<div class=\"section16 grid grid-cols-1 lg:grid-cols-3 lg:gap-x-[29px]   hidden\"><p class=\"lg:hidden block text-box-red uppercase font-Barlow font-bold mt-8\">Related Industries</p><div class=\"\"><ul><a href=\"https://aartechsolonics.com/industries/defence-and-exploration\"><li class=\"our-tailored-class\""
+  },
+  {
+    "section": "section16",
+    "labels": [
+      "Related Industries",
+      "Selected Product",
+      "Related Solutions"
+    ],
+    "items": [
+      "Defense &amp; Exploration",
+      "Renewable Energy",
+      "Heavy Engineering Industries",
+      "Healthcare",
+      "IT and Telecom",
+      "Solar Design &amp; Services",
+      "Solar Design, Engineering"
+    ],
+    "htmlPreview": "<div class=\"section16 grid grid-cols-1 lg:grid-cols-3 lg:gap-x-[29px]   hidden\"><p class=\"lg:hidden block text-box-red uppercase font-Barlow font-bold mt-8\">Related Industries</p><div class=\"\"><ul><a href=\"https://aartechsolonics.com/industries/defence-and-exploration\"><li class=\"our-tailored-class\""
+  },
+  {
+    "section": "section16",
+    "labels": [
+      "Related Industries",
+      "Selected Product",
+      "Related Solutions"
+    ],
+    "items": [
+      "Defense &amp; Exploration",
+      "Renewable Energy",
+      "Non-Renewable Energy",
+      "Power Transmission and Distribution",
+      "Heavy Engineering Industries",
+      "Healthcare",
+      "IT and Telecom",
+      "Load Limiting",
+      "Load Limiting"
+    ],
+    "htmlPreview": "<div class=\"section16 grid grid-cols-1 lg:grid-cols-3 lg:gap-x-[29px]   hidden\"><p class=\"lg:hidden block text-box-red uppercase font-Barlow font-bold mt-8\">Related Industries</p><div class=\"\"><ul><a href=\"https://aartechsolonics.com/industries/defence-and-exploration\"><li class=\"our-tailored-class\""
+  },
+  {
+    "section": "section17",
+    "labels": [
+      "Related Industries",
+      "Related Soultion",
+      "Selected Soultion"
+    ],
+    "items": [
+      "Defense &amp; Exploration",
+      "Renewable Energy",
+      "Non-Renewable Energy",
+      "Power Transmission and Distribution",
+      "Heavy Engineering Industries",
+      "Healthcare",
+      "IT and Telecom",
+      "Load Checker",
+      "Load Limiting"
+    ],
+    "htmlPreview": "<div class=\"section17 grid grid-cols-1 lg:grid-cols-3 lg:gap-x-[29px]   hidden\"><div class=\"\"><p class=\"lg:hidden block text-box-red uppercase font-Barlow font-bold mt-8\">Related Industries</p><ul><a href=\"https://aartechsolonics.com/industries/defence-and-exploration\"><li class=\"our-tailored-class\""
+  },
+  {
+    "section": "section18",
+    "labels": [
+      "Related Industries",
+      "Related Products",
+      "Selected Soultion"
+    ],
+    "items": [
+      "Defense &amp; Exploration",
+      "Renewable Energy",
+      "Non-Renewable Energy",
+      "Power Transmission and Distribution",
+      "Heavy Engineering Industries",
+      "Healthcare",
+      "IT and Telecom",
+      "Transportation",
+      "Kranking Ultracapacitors",
+      "Reliable Engine Starting"
+    ],
+    "htmlPreview": "<div class=\"section18 grid grid-cols-1 lg:grid-cols-3 lg:gap-x-[29px]   hidden\"><div class=\"\"><p class=\"lg:hidden block text-box-red uppercase font-Barlow font-bold mt-8\">Related Industries</p><ul><a href=\"https://aartechsolonics.com/industries/defence-and-exploration\"><li class=\"our-tailored-class\""
+  },
+  {
+    "section": "section19",
+    "labels": [
+      "Related Industries",
+      "Related Products",
+      "Selected Soultion"
+    ],
+    "items": [
+      "Defense &amp; Exploration",
+      "Non-Renewable Energy",
+      "Power Transmission and Distribution",
+      "Healthcare",
+      "IT and Telecom",
+      "Transportation",
+      "Power Backup Unit"
+    ],
+    "htmlPreview": "<div class=\"section19 grid grid-cols-1 lg:grid-cols-3 lg:gap-x-[29px]   hidden\"><div class=\"\"><p class=\"lg:hidden block text-box-red uppercase font-Barlow font-bold mt-8\">Related Industries</p><ul><a href=\"https://aartechsolonics.com/industries/defence-and-exploration\"><li class=\"our-tailored-class\""
+  },
+  {
+    "section": "section20",
+    "labels": [
+      "Related Industries",
+      "Related Products",
+      "Selected Soultion"
+    ],
+    "items": [
+      "Defense &amp; Exploration",
+      "Renewable Energy",
+      "Power Transmission and Distribution",
+      "Heavy Engineering Industries",
+      "Healthcare",
+      "IT and Telecom",
+      "Transportation",
+      "FLYWHEEL",
+      "ENERGY STORAGE"
+    ],
+    "htmlPreview": "<div class=\"section20 grid grid-cols-1 lg:grid-cols-3 lg:gap-x-[29px]   hidden\"><div class=\"\"><p class=\"lg:hidden block text-box-red uppercase font-Barlow font-bold mt-8\">Related Industries</p><ul><a href=\"https://aartechsolonics.com/industries/defence-and-exploration\"><li class=\"our-tailored-class\""
+  },
+  {
+    "section": "section21",
+    "labels": [
+      "Related Industries",
+      "Related Products",
+      "Selected Soultion"
+    ],
+    "items": [
+      "Defense &amp; Exploration",
+      "Renewable Energy",
+      "Non-Renewable Energy",
+      "Power Transmission and Distribution",
+      "Heavy Engineering Industries",
+      "Healthcare",
+      "IT and Telecom",
+      "Transportation",
+      "Waste Management",
+      "Bestcase",
+      "Customized Plastic Case"
+    ],
+    "htmlPreview": "<div class=\"section21 grid grid-cols-1 lg:grid-cols-3 lg:gap-x-[29px]   hidden\"><div class=\"\"><p class=\"lg:hidden block text-box-red uppercase font-Barlow font-bold mt-8\">Related Industries</p><ul><a href=\"https://aartechsolonics.com/industries/defence-and-exploration\"><li class=\"our-tailored-class\""
+  },
+  {
+    "section": "section22",
+    "labels": [
+      "Related Industries",
+      "Related Products",
+      "Selected Soultion"
+    ],
+    "items": [
+      "Defense &amp; Exploration",
+      "Renewable Energy",
+      "Non-Renewable Energy",
+      "Healthcare",
+      "Transportation",
+      "Waste Management",
+      "Solid Waste Treatment",
+      "Solid Waste Treatment"
+    ],
+    "htmlPreview": "<div class=\"section22 grid grid-cols-1 lg:grid-cols-3 lg:gap-x-[29px]   hidden\"><div class=\"\"><p class=\"lg:hidden block text-box-red uppercase font-Barlow font-bold mt-8\">Related Industries</p><ul><a href=\"https://aartechsolonics.com/industries/defence-and-exploration\"><li class=\"our-tailored-class\""
+  },
+  {
+    "section": "section23",
+    "labels": [
+      "Related Industries",
+      "Related Products",
+      "Selected Soultion"
+    ],
+    "items": [
+      "Defense &amp; Exploration",
+      "Renewable Energy",
+      "Non-Renewable Energy",
+      "Power Transmission &amp; Distribution",
+      "Heavy Engineering Industries",
+      "Healthcare",
+      "IT &amp; Telecom",
+      "Transportation",
+      "Control &amp; Relay Panels",
+      "Control &amp; Automation"
+    ],
+    "htmlPreview": "<div class=\"section23 grid grid-cols-1 lg:grid-cols-3 lg:gap-x-[29px]   hidden\"><div class=\"\"><p class=\"lg:hidden block text-box-red uppercase font-Barlow font-bold mt-8\">Related Industries</p><ul><a href=\"https://aartechsolonics.com/industries/defence-and-exploration\"><li class=\"our-tailored-class\""
+  },
+  {
+    "section": "section24",
+    "labels": [
+      "Related Industries",
+      "Related Products",
+      "Selected Soultion"
+    ],
+    "items": [
+      "Renewable Energy",
+      "Non-Renewable Energy",
+      "Heavy Engineering Industries",
+      "Healthcare",
+      "BTS 2000",
+      "Process Continuity"
+    ],
+    "htmlPreview": "<div class=\"section24 grid grid-cols-1 lg:grid-cols-3 lg:gap-x-[29px]   hidden\"><div class=\"\"><p class=\"lg:hidden block text-box-red uppercase font-Barlow font-bold mt-8\">Related Industries</p><ul><a href=\"https://aartechsolonics.com/industries/renewable-energy\"><li class=\"our-tailored-class\">Renewa"
+  },
+  {
+    "section": "section25",
+    "labels": [
+      "Related Industries",
+      "Related Products",
+      "Selected Soultion"
+    ],
+    "items": [
+      "Non-Renewable Energy",
+      "Heavy Engineering Industries",
+      "CLIP Fault Current Limiters",
+      "Fault Current Limiting"
+    ],
+    "htmlPreview": "<div class=\"section25 grid grid-cols-1 lg:grid-cols-3 lg:gap-x-[29px]   hidden\"><div class=\"\"><p class=\"lg:hidden block text-box-red uppercase font-Barlow font-bold mt-8\">Related Industries</p><ul><a href=\"https://aartechsolonics.com/industries/non-renewable-energy\"><li class=\"our-tailored-class\">No"
+  },
+  {
+    "section": "section25",
+    "labels": [
+      "Related Industries",
+      "Related Products",
+      "Selected Soultion"
+    ],
+    "items": [
+      "Defense &amp; Exploration",
+      "Heavy Engineering Industries",
+      "Healthcare",
+      "IT and Telecom",
+      "Transportation",
+      "Waste Management",
+      "AC &amp; DC UPS",
+      "Uninterrupted Power Supply"
+    ],
+    "htmlPreview": "<div class=\"section25 grid grid-cols-1 lg:grid-cols-3 lg:gap-x-[29px]   hidden\"><div class=\"\"><p class=\"lg:hidden block text-box-red uppercase font-Barlow font-bold mt-8\">Related Industries</p><ul><a href=\"https://aartechsolonics.com/industries/defence-and-exploration\"><li class=\"our-tailored-class\""
+  },
+  {
+    "section": "section25",
+    "labels": [
+      "Related Industries",
+      "Related Products",
+      "Selected Soultion"
+    ],
+    "items": [
+      "Defense &amp; Exploration",
+      "Renewable Energy",
+      "Heavy Engineering Industries",
+      "Healthcare",
+      "IT and Telecom",
+      "Solar Design &amp; Services",
+      "Solar Design, Engineering"
+    ],
+    "htmlPreview": "<div class=\"section25 grid grid-cols-1 lg:grid-cols-3 lg:gap-x-[29px]   hidden\"><div class=\"\"><p class=\"lg:hidden block text-box-red uppercase font-Barlow font-bold mt-8\">Related Industries</p><ul><a href=\"https://aartechsolonics.com/industries/defence-and-exploration\"><li class=\"our-tailored-class\""
+  }
+]

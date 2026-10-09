@@ -1,0 +1,604 @@
+[
+  {
+    "type": "Industry",
+    "name": "Defense & Exploration",
+    "related": {
+      "Products": [
+        "BTS-2000",
+        "Kranking Ultracapacitors",
+        "Best Case",
+        "Solid Waste Treatment",
+        "Solar Design & Services",
+        "FLYWHEEL",
+        "AC & DC UPS",
+        "Load Checker"
+      ],
+      "Solutions": [
+        "Reliable Engine Starting",
+        "Uninterrupted Power Supply",
+        "Power Backup Unit",
+        "Customized Plastic Case",
+        "Solid Waste Treatment",
+        "Solar Design Engineering",
+        "Energy Storage",
+        "Load Limiting"
+      ]
+    }
+  },
+  {
+    "type": "Industry",
+    "name": "Renewable Energy",
+    "related": {
+      "Products": [
+        "Control & Relay Panels",
+        "BTS 2000",
+        "Kranking Ultracapacitors",
+        "Best Case",
+        "Solid Waste Treatment",
+        "Solar Design & Services",
+        "FLYWHEEL",
+        "Load Checker"
+      ],
+      "Solutions": [
+        "Control & Automation",
+        "Process Continuity",
+        "Load Limiting",
+        "Reliable Engine Starting",
+        "Fault Current Limiting",
+        "Energy Storage",
+        "Customized Plastic Case",
+        "Solid Waste Treatment",
+        "Solar Design, Engineering"
+      ]
+    }
+  },
+  {
+    "type": "Industry",
+    "name": "Non-Renewable Energy",
+    "related": {
+      "Products": [
+        "Control & Relay Panels",
+        "BTS 2000",
+        "Kranking Ultracapacitors",
+        "CLIP Fault Current Limiters",
+        "Best Case",
+        "Solid Waste Treatment Products",
+        "Load Checker"
+      ],
+      "Solutions": [
+        "Control & Automation",
+        "Process Continuity",
+        "Load Limiting",
+        "Reliable Engine Starting",
+        "Fault Current Limiting",
+        "Customised Plastic Case",
+        "Solid Waste Treatment",
+        "Energy Storage"
+      ]
+    }
+  },
+  {
+    "type": "Industry",
+    "name": "Power Transmission & Distribution",
+    "related": {
+      "Products": [
+        "Control & Relay Panels",
+        "Kranking Ultracapacitors",
+        "Best Case",
+        "FLYWHEEL",
+        "Load Checkers"
+      ],
+      "Solutions": [
+        "Control & Automation",
+        "Customized Plastic Case",
+        "Reliable Engine Starting",
+        "Power Backup Unit",
+        "Energy Storage",
+        "Load Limiting"
+      ]
+    }
+  },
+  {
+    "type": "Industry",
+    "name": "Heavy Engineering Industries",
+    "related": {
+      "Products": [
+        "Control & Relay Panels",
+        "BTS 2000",
+        "Kranking Ultracapacitors",
+        "CLIP Fault Current Limiters",
+        "Best Case",
+        "Solar Design & Services",
+        "AC & DC UPS",
+        "FLYWHEEL",
+        "Load Checker"
+      ],
+      "Solutions": [
+        "Control & Automation",
+        "Process Continuity",
+        "Load Limiting",
+        "Reliable Engine Starting",
+        "Fault Current Limiting",
+        "Customized Plastic Case",
+        "Solid Waste Treatment",
+        "Solar Design, Engineering",
+        "Uninterrupted Power Supply",
+        "Energy Storage"
+      ]
+    }
+  },
+  {
+    "type": "Industry",
+    "name": "Healthcare",
+    "related": {
+      "Products": [
+        "Control & Relay Panels",
+        "BTS 2000",
+        "Kranking Ultracapacitors",
+        "Best Case",
+        "Solid Waste Treatment",
+        "Solar Design & Services",
+        "AC & DC UPS",
+        "Load Checker",
+        "FLYWHEEL"
+      ],
+      "Solutions": [
+        "Control & Automation",
+        "Process Continuity",
+        "Power Backup Unit",
+        "Customized Plastic Case",
+        "Load Limiting",
+        "Reliable Engine Starting",
+        "Solid Waste Treatment",
+        "Solar Design, Engineering",
+        "Uninterrupted Power Supply",
+        "Energy Storage"
+      ]
+    }
+  },
+  {
+    "type": "Industry",
+    "name": "IT & Telecom",
+    "related": {
+      "Products": [
+        "Kranking Ultracapacitors",
+        "Control & Relay Panels",
+        "BTS 2000",
+        "Best Case",
+        "Solar Design & Services",
+        "AC & DC UPS",
+        "FLYWHEEL",
+        "Load Checker"
+      ],
+      "Solutions": [
+        "Control & Automation",
+        "Reliable Engine Starting",
+        "Power Backup Unit",
+        "Customized Plastic Case",
+        "Solar Design, Engineering",
+        "Uninterrupted Power Supply",
+        "Energy Storage",
+        "Load Limiting"
+      ]
+    }
+  },
+  {
+    "type": "Industry",
+    "name": "Waste Management",
+    "related": {
+      "Products": [
+        "AC & DC UPS",
+        "Solid Waste Treatment Products",
+        "Best Case"
+      ],
+      "Solutions": [
+        "Solid Waste Treatment",
+        "Customized Plastic Case",
+        "Uninterrupted Power Supply",
+        "Energy Storage"
+      ]
+    }
+  },
+  {
+    "type": "Industry",
+    "name": "Transportation",
+    "related": {
+      "Products": [
+        "Control & Relay Panels",
+        "Bestcase",
+        "Kranking Ultracapacitors",
+        "Solid Waste Treatment",
+        "AC & DC UPS",
+        "FLYWHEEL"
+      ],
+      "Solutions": [
+        "Control & Automation",
+        "Load Limiting",
+        "Power Backup Unit",
+        "Reliable Engine Starting",
+        "Customized Plastic Case",
+        "Solid Waste Treatment",
+        "Uninterrupted Power Supply",
+        "Energy Storage"
+      ]
+    }
+  },
+  {
+    "type": "Product",
+    "name": "Kranking Ultracapacitors",
+    "related": {
+      "Industries": [
+        "Defense & Exploration",
+        "Renewable Energy",
+        "Non-Renewable Energy",
+        "Power Transmission and Distribution",
+        "Heavy Engineering Industries",
+        "Healthcare",
+        "IT and Telecom",
+        "Transportation"
+      ],
+      "Solutions": [
+        "Reliable Engine Starting"
+      ]
+    }
+  },
+  {
+    "type": "Product",
+    "name": "Bestcase",
+    "related": {
+      "Industries": [
+        "Defense & Exploration",
+        "Renewable Energy",
+        "Non-Renewable Energy",
+        "Power Transmission and Distribution",
+        "Heavy Engineering Industries",
+        "Healthcare",
+        "IT and Telecom",
+        "Transportation",
+        "Waste Management"
+      ],
+      "Solutions": [
+        "Customized Plastic Case"
+      ]
+    }
+  },
+  {
+    "type": "Product",
+    "name": "Customized Plastic Case",
+    "related": {
+      "Industries": [
+        "Defense & Exploration",
+        "Non-Renewable Energy",
+        "Power Transmission and Distribution",
+        "Healthcare",
+        "IT and Telecom",
+        "Transportation"
+      ],
+      "Solutions": [
+        "Customized Plastic Case"
+      ]
+    }
+  },
+  {
+    "type": "Product",
+    "name": "Solid Waste Treatment",
+    "related": {
+      "Industries": [
+        "Defense & Exploration",
+        "Renewable Energy",
+        "Non-Renewable Energy",
+        "Healthcare",
+        "Transportation",
+        "Waste Management"
+      ],
+      "Solutions": [
+        "Solid Waste Treatment"
+      ]
+    }
+  },
+  {
+    "type": "Product",
+    "name": "CLIP Fault Current Limitors",
+    "related": {
+      "Industries": [
+        "Power Transmission and Distribution",
+        "Heavy Engineering Industries"
+      ],
+      "Solutions": [
+        "Fault Current Limiting"
+      ]
+    }
+  },
+  {
+    "type": "Product",
+    "name": "Control & Relay Panels",
+    "related": {
+      "Industries": [
+        "Defense & Exploration",
+        "Non-Renewable Energy",
+        "Power Transmission and Distribution",
+        "Heavy Engineering Industries",
+        "Healthcare",
+        "IT and Telecom",
+        "Transportation",
+        "Waste Management"
+      ],
+      "Solutions": [
+        "Control & Automation"
+      ]
+    }
+  },
+  {
+    "type": "Product",
+    "name": "BTS 2000",
+    "related": {
+      "Industries": [
+        "Renewable Energy",
+        "Non-Renewable Energy",
+        "Heavy Engineering Industries",
+        "Healthcare"
+      ],
+      "Solutions": [
+        "Process Continuity"
+      ]
+    }
+  },
+  {
+    "type": "Product",
+    "name": "AC & DC UPS",
+    "related": {
+      "Industries": [
+        "Defense & Exploration",
+        "Heavy Engineering Industries",
+        "Healthcare",
+        "IT and Telecom",
+        "Transportation",
+        "Waste Management"
+      ],
+      "Solutions": [
+        "Uninterrupted Power Supply"
+      ]
+    }
+  },
+  {
+    "type": "Product",
+    "name": "FLYWHEEL",
+    "related": {
+      "Industries": [
+        "Defense & Exploration",
+        "Renewable Energy",
+        "Power Transmission and Distribution",
+        "Heavy Engineering Industries",
+        "Healthcare",
+        "IT and Telecom",
+        "Transportation"
+      ],
+      "Solutions": [
+        "Energy Storage"
+      ]
+    }
+  },
+  {
+    "type": "Product",
+    "name": "Solar Design & Services",
+    "related": {
+      "Industries": [
+        "Defense & Exploration",
+        "Renewable Energy",
+        "Heavy Engineering Industries",
+        "Healthcare",
+        "IT and Telecom"
+      ],
+      "Solutions": [
+        "Solar Design, Engineering"
+      ]
+    }
+  },
+  {
+    "type": "Product",
+    "name": "Load Limiting",
+    "related": {
+      "Industries": [
+        "Defense & Exploration",
+        "Renewable Energy",
+        "Non-Renewable Energy",
+        "Power Transmission and Distribution",
+        "Heavy Engineering Industries",
+        "Healthcare",
+        "IT and Telecom"
+      ],
+      "Solutions": [
+        "Load Limiting"
+      ]
+    }
+  },
+  {
+    "type": "Solution",
+    "name": "Load Limiting",
+    "related": {
+      "Industries": [
+        "Defense & Exploration",
+        "Renewable Energy",
+        "Non-Renewable Energy",
+        "Power Transmission and Distribution",
+        "Heavy Engineering Industries",
+        "Healthcare",
+        "IT and Telecom"
+      ],
+      "Solution": [
+        "Load Checker"
+      ]
+    }
+  },
+  {
+    "type": "Solution",
+    "name": "Reliable Engine Starting",
+    "related": {
+      "Industries": [
+        "Defense & Exploration",
+        "Renewable Energy",
+        "Non-Renewable Energy",
+        "Power Transmission and Distribution",
+        "Heavy Engineering Industries",
+        "Healthcare",
+        "IT and Telecom",
+        "Transportation"
+      ],
+      "Products": [
+        "Kranking Ultracapacitors"
+      ]
+    }
+  },
+  {
+    "type": "Solution",
+    "name": "Power Backup Unit",
+    "related": {
+      "Industries": [
+        "Defense & Exploration",
+        "Non-Renewable Energy",
+        "Power Transmission and Distribution",
+        "Healthcare",
+        "IT and Telecom",
+        "Transportation"
+      ],
+      "Products": [
+        "Power Backup Unit"
+      ]
+    }
+  },
+  {
+    "type": "Solution",
+    "name": "ENERGY STORAGE",
+    "related": {
+      "Industries": [
+        "Defense & Exploration",
+        "Renewable Energy",
+        "Power Transmission and Distribution",
+        "Heavy Engineering Industries",
+        "Healthcare",
+        "IT and Telecom",
+        "Transportation"
+      ],
+      "Products": [
+        "FLYWHEEL"
+      ]
+    }
+  },
+  {
+    "type": "Solution",
+    "name": "Customized Plastic Case",
+    "related": {
+      "Industries": [
+        "Defense & Exploration",
+        "Renewable Energy",
+        "Non-Renewable Energy",
+        "Power Transmission and Distribution",
+        "Heavy Engineering Industries",
+        "Healthcare",
+        "IT and Telecom",
+        "Transportation",
+        "Waste Management"
+      ],
+      "Products": [
+        "Bestcase"
+      ]
+    }
+  },
+  {
+    "type": "Solution",
+    "name": "Solid Waste Treatment",
+    "related": {
+      "Industries": [
+        "Defense & Exploration",
+        "Renewable Energy",
+        "Non-Renewable Energy",
+        "Healthcare",
+        "Transportation",
+        "Waste Management"
+      ],
+      "Products": [
+        "Solid Waste Treatment"
+      ]
+    }
+  },
+  {
+    "type": "Solution",
+    "name": "Control & Automation",
+    "related": {
+      "Industries": [
+        "Defense & Exploration",
+        "Renewable Energy",
+        "Non-Renewable Energy",
+        "Power Transmission & Distribution",
+        "Heavy Engineering Industries",
+        "Healthcare",
+        "IT & Telecom",
+        "Transportation"
+      ],
+      "Products": [
+        "Control & Relay Panels"
+      ]
+    }
+  },
+  {
+    "type": "Solution",
+    "name": "Process Continuity",
+    "related": {
+      "Industries": [
+        "Renewable Energy",
+        "Non-Renewable Energy",
+        "Heavy Engineering Industries",
+        "Healthcare"
+      ],
+      "Products": [
+        "BTS 2000"
+      ]
+    }
+  },
+  {
+    "type": "Solution",
+    "name": "Fault Current Limiting",
+    "related": {
+      "Industries": [
+        "Non-Renewable Energy",
+        "Heavy Engineering Industries"
+      ],
+      "Products": [
+        "CLIP Fault Current Limiters"
+      ]
+    }
+  },
+  {
+    "type": "Solution",
+    "name": "Uninterrupted Power Supply",
+    "related": {
+      "Industries": [
+        "Defense & Exploration",
+        "Heavy Engineering Industries",
+        "Healthcare",
+        "IT and Telecom",
+        "Transportation",
+        "Waste Management"
+      ],
+      "Products": [
+        "AC & DC UPS"
+      ]
+    }
+  },
+  {
+    "type": "Solution",
+    "name": "Solar Design, Engineering",
+    "related": {
+      "Industries": [
+        "Defense & Exploration",
+        "Renewable Energy",
+        "Heavy Engineering Industries",
+        "Healthcare",
+        "IT and Telecom"
+      ],
+      "Products": [
+        "Solar Design & Services"
+      ]
+    }
+  }
+]
