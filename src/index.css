@@ -1067,3 +1067,348 @@ body {
     transition: none;
   }
 }
+
+/* ==========================================================================
+   Testimonials-2 Inspired 3D Isometric Card & Modal Design System
+   Brand Colors: Indigo (#0C013D), Red (#C80001), Crisp White (#FFFFFF)
+   ========================================================================== */
+
+.t2-section {
+  --blue: #0C013D;
+  --red: #C80001;
+  --white: #FFFFFF;
+}
+
+.t2-stack {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(24px, 3.5vw, 40px);
+  padding: 0 24px 24px 0;
+}
+
+.t2-card {
+  --d: 16px;
+  position: relative;
+  background: #FFFFFF;
+  border: 3px solid #0C013D;
+  padding: clamp(20px, 2.5vw, 32px);
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 14px clamp(20px, 2.5vw, 32px);
+  align-items: start;
+  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+  cursor: pointer;
+  text-align: left;
+  border-radius: 0 !important;
+}
+
+.t2-card.t2-stagger {
+  margin-left: clamp(0px, 6.5vw, 80px);
+}
+
+.t2-card::before,
+.t2-card::after {
+  content: "";
+  position: absolute;
+  background: #C80001;
+  border: 3px solid #0C013D;
+  transition: width 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), height 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+  pointer-events: none;
+  border-radius: 0 !important;
+}
+
+/* 3D Isometric Bevel on the Right */
+.t2-card::before {
+  top: -3px;
+  left: calc(100% + 3px);
+  width: var(--d);
+  height: calc(100% + 6px);
+  border-left: 0;
+  transform-origin: 0 0;
+  transform: skewY(45deg);
+}
+
+/* 3D Isometric Bevel on the Bottom */
+.t2-card::after {
+  left: -3px;
+  top: calc(100% + 3px);
+  height: var(--d);
+  width: calc(100% + 6px);
+  border-top: 0;
+  transform-origin: 0 0;
+  transform: skewX(45deg);
+}
+
+/* Physical 3D Depression Press on Hover */
+.t2-card:hover,
+.t2-card:focus-visible {
+  --d: 4px;
+  transform: translate(12px, 12px);
+}
+
+.t2-card.t2-out {
+  opacity: 0;
+  transform: translateX(var(--shift, -36px));
+}
+
+/* Enlarged Premium Portrait Card in Testimonial */
+.t2-face {
+  width: clamp(124px, 14vw, 156px);
+  height: clamp(160px, 18vw, 204px);
+  border: 3.5px solid #0C013D;
+  background: #C80001;
+  color: #FFFFFF;
+  overflow: hidden;
+  grid-row: span 2;
+  display: grid;
+  place-items: center;
+  font-family: 'Barlow Semi Condensed', 'Barlow', sans-serif;
+  font-weight: 800;
+  font-size: 36px;
+  flex-shrink: 0;
+  border-radius: 0 !important;
+  position: relative;
+  box-shadow: 6px 6px 0 rgba(12, 1, 61, 0.22);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.t2-card:hover .t2-face {
+  transform: translate(-2px, -2px);
+  box-shadow: 8px 8px 0 #C80001;
+}
+
+.t2-face img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.t2-card:hover .t2-face img {
+  transform: scale(1.04);
+}
+
+.t2-quote {
+  margin: 0;
+  font-size: clamp(16px, 1.45vw, 18.5px);
+  line-height: 1.6;
+  font-weight: 500;
+  color: #0C013D;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.t2-by {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+  margin-top: 10px;
+}
+
+.t2-by b {
+  font-family: 'Barlow Semi Condensed', 'Barlow', sans-serif;
+  font-weight: 800;
+  font-size: clamp(21px, 1.85vw, 25px);
+  line-height: 1.1;
+  color: #0C013D;
+}
+
+.t2-by .t2-role-tag {
+  background: #0C013D;
+  color: #FFFFFF;
+  padding: 4px 11px;
+  font-family: 'Barlow Semi Condensed', 'Barlow', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-radius: 0 !important;
+}
+
+.t2-by em {
+  font-style: normal;
+  font-family: 'Barlow Semi Condensed', 'Barlow', sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  color: #C80001;
+  border-bottom: 2px solid #C80001;
+  margin-left: auto;
+  transition: letter-spacing 0.2s ease;
+}
+
+.t2-card:hover .t2-by em {
+  letter-spacing: 0.08em;
+}
+
+/* Blueprint / Hatch Pattern Overlay for the Modal */
+.t2-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: grid;
+  place-items: center;
+  padding: clamp(16px, 3vw, 32px);
+  background: repeating-linear-gradient(135deg, rgba(12, 1, 61, 0.25) 0 2px, rgba(255, 255, 255, 0.96) 2px 16px);
+  backdrop-filter: blur(4px);
+  overflow-y: auto;
+}
+
+.t2-pop {
+  position: relative;
+  width: min(1040px, 100%);
+  max-height: min(90vh, 760px);
+  background: #FFFFFF;
+  border: 3.5px solid #0C013D;
+  box-shadow: 18px 18px 0 #C80001;
+  border-radius: 0 !important;
+  display: flex;
+  overflow: hidden;
+}
+
+.t2-pop-in {
+  display: grid;
+  grid-template-columns: minmax(280px, 380px) 1fr;
+  width: 100%;
+  min-height: 0;
+  background: #FFFFFF;
+}
+
+.t2-pop-photo {
+  background: #C80001;
+  padding: clamp(24px, 3.5vw, 38px);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  border-right: 3.5px solid #0C013D;
+  overflow: hidden;
+}
+
+.t2-big {
+  width: 100%;
+  max-width: 300px;
+  aspect-ratio: 4 / 5.4;
+  border: 4.5px solid #FFFFFF;
+  background: #0C013D;
+  box-shadow: 12px 12px 0 #0C013D;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  color: #FFFFFF;
+  font-family: 'Barlow Semi Condensed', sans-serif;
+  font-weight: 800;
+  font-size: 88px;
+  position: sticky;
+  top: 0;
+  border-radius: 0 !important;
+}
+
+.t2-big img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+}
+
+.t2-pop-text {
+  padding: clamp(24px, 3.5vw, 46px);
+  overflow-y: auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.t2-pop-close {
+  position: absolute;
+  top: -3px;
+  right: -3px;
+  width: 52px;
+  height: 52px;
+  display: grid;
+  place-items: center;
+  background: #0C013D;
+  color: #FFFFFF;
+  border: 3.5px solid #0C013D;
+  z-index: 10;
+  transition: background 0.2s, transform 0.12s;
+  cursor: pointer;
+  border-radius: 0 !important;
+}
+
+.t2-pop-close:hover {
+  background: #C80001;
+  border-color: #0C013D;
+}
+
+.t2-pop-close:active {
+  transform: scale(0.92);
+}
+
+@media (max-width: 860px) {
+  .t2-card.t2-stagger {
+    margin-left: 0;
+  }
+  .t2-card {
+    --d: 12px;
+  }
+  .t2-face {
+    width: 110px;
+    height: 148px;
+  }
+  .t2-stack {
+    padding-right: 16px;
+  }
+  .t2-pop {
+    box-shadow: 12px 12px 0 #C80001;
+  }
+  .t2-pop-in {
+    grid-template-columns: 1fr;
+    overflow-y: auto;
+  }
+  .t2-pop-photo {
+    border-right: 0;
+    border-bottom: 3.5px solid #0C013D;
+    padding: 24px;
+  }
+  .t2-big {
+    max-width: 240px;
+    aspect-ratio: 4 / 5;
+  }
+}
+
+@media (max-width: 560px) {
+  .t2-card {
+    grid-template-columns: auto 1fr;
+    gap: 14px;
+    padding: 16px;
+    --d: 8px;
+  }
+  .t2-card:hover {
+    --d: 2px;
+    transform: translate(6px, 6px);
+  }
+  .t2-face {
+    width: 96px;
+    height: 128px;
+    grid-row: span 2;
+  }
+  .t2-by em {
+    margin-left: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .t2-card,
+  .t2-card::before,
+  .t2-card::after {
+    transition: none !important;
+  }
+}
+
+

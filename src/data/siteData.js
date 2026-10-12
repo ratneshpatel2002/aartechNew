@@ -74,48 +74,84 @@ export const testimonials = [
     name: "Mr. Jay Prakash Yadav",
     role: "Manager",
     company: "Jindal Power Limited",
+    sector: "Thermal Power & Grid Reliability",
+    ini: "JY",
     image: "/assets/testimonial_1.webp",
-    text: "Absolutely customer-centric! AARTECH's experienced team provides incredible support. Their innovative products run our electrical system flawlessly. Almost zero product failures, truly user-friendly."
+    text: "Absolutely customer-centric! AARTECH's experienced team provides incredible support. Their innovative products run our electrical system flawlessly with almost zero product failures, truly user-friendly.",
+    full: [
+      "We partnered with AARTECH Solonics for their advanced bus transfer and power switching systems across our thermal generation units. Their engineering responsiveness and deep domain expertise have been instrumental in maintaining zero unplanned downtime.",
+      "The reliability of their solutions is unmatched—almost zero failures in grueling round-the-clock operating conditions. Their team's proactive commissioning support and prompt turnaround during critical outages have made them an indispensable engineering partner for Jindal Power."
+    ]
   },
   {
     id: 2,
     name: "Mr. Ksh. Premkishan Singh",
     role: "Senior Manager",
     company: "NTPC",
+    sector: "Public Sector Power Generation",
+    ini: "PS",
     image: "/assets/testimonial_2.webp",
-    text: "Working with the AARTECH team was exceptional! Their consistent support turned our collaboration into a delightful experience. I recommend their services to anyone seeking reliability and expertise."
+    text: "Working with the AARTECH team was exceptional! Their consistent support turned our collaboration into a delightful experience. I recommend their services to anyone seeking reliability and expertise.",
+    full: [
+      "At NTPC, reliability is not optional—it is a national grid benchmark. AARTECH Solonics has consistently proven that their specialized bus transfer systems and custom engineering panels meet the highest public sector standards.",
+      "Beyond the technical precision of their products, what sets them apart is their dedication to on-site support and seamless project handover. Their engineers stayed on-site through every stage of commissioning to ensure flawless synchronization."
+    ]
   },
   {
     id: 3,
     name: "Mr. Virendra Rapartiwar",
     role: "Executive Engineer",
     company: "CSTPS",
+    sector: "Heavy Industrial Utilities",
+    ini: "VR",
     image: "/assets/testimonial_3.webp",
-    text: "AARTECH Solonics stands out with its innovative and customized solutions. They've tailored their expertise to our needs, solving our challenges with ease and precision, driving our success forward."
+    text: "AARTECH Solonics stands out with its innovative and customized solutions. They've tailored their expertise to our needs, solving our challenges with ease and precision, driving our success forward.",
+    full: [
+      "When dealing with legacy retrofit challenges in critical substations, standard off-the-shelf products simply do not work. AARTECH designed and manufactured tailor-made solutions specifically configured for our station's transient electrical requirements.",
+      "Their proactive engineering approach solved long-standing tripping issues, enhancing overall system resilience and driving our operational success forward with absolute precision."
+    ]
   },
   {
     id: 4,
     name: "Mr. Pankaj Lochan Sahoo",
     role: "Associate Manager",
     company: "Adani Power Limited",
+    sector: "Supercritical Power Plant Operations",
+    ini: "PS",
     image: "/assets/testimonial_4.webp",
-    text: "AARTECH Solonics transformed our operations. Their unwavering support during any service hiccups is just remarkable. The HSBT system increased our plant's reliability. They're our ultimate reliability partners!"
+    text: "AARTECH Solonics transformed our operations. Their unwavering support during any service hiccups is just remarkable. The HSBT system increased our plant's reliability. They're our ultimate reliability partners!",
+    full: [
+      "Implementing AARTECH's High Speed Bus Transfer (HSBT) system was a turning point for our auxiliary power continuity. The microsecond transfer times effectively shielded our boiler feed pumps and continuous drives from voltage dips.",
+      "Their field service squad mobilizes within hours whenever technical assistance is required. They are truly our ultimate reliability partners in utility-scale power operations."
+    ]
   },
   {
     id: 5,
     name: "Mr. Ashim Singh",
     role: "Assistant General Manager",
     company: "Hindalco Mahan",
+    sector: "Smelter & Metals Continuous Process",
+    ini: "AS",
     image: "/assets/testimonial_5.webp",
-    text: "Their team ensures our operations run seamlessly with their precise solutions. Their commitment to excellence is truly commendable. I would highly recommend AARTECH Solonics for their top-notch solutions."
+    text: "Their team ensures our operations run seamlessly with their precise solutions. Their commitment to excellence is truly commendable. I would highly recommend AARTECH Solonics for their top-notch solutions.",
+    full: [
+      "In metal smelting, an electrical interruption of just a few minutes causes catastrophic molten metal freeze. AARTECH's fault limiters and bus transfer systems safeguard our production lines 24 hours a day, 365 days a year.",
+      "Their technical mastery, meticulous quality assurance, and adherence to committed timelines have earned our highest trust across multiple plant expansion phases."
+    ]
   },
   {
     id: 6,
     name: "Mr. Soumik Manma",
     role: "Deputy Manager",
     company: "Damodar Valley Corporation",
+    sector: "Hydro & Thermal Grid Infrastructure",
+    ini: "SM",
     image: "/assets/testimonial_6.webp",
-    text: "AARTECH team’s technical expertise is impressive, but it's their friendly approach and commitment to keeping promises that stood out. Our project was completed on time with ease and precision."
+    text: "AARTECH team’s technical expertise is impressive, but it's their friendly approach and commitment to keeping promises that stood out. Our project was completed on time with ease and precision.",
+    full: [
+      "From initial technical alignment and QAP clearance to final site synchronization, AARTECH Solonics delivered exactly as promised without cost or schedule overruns.",
+      "Their engineers combine world-class application knowledge with a collaborative, customer-first attitude. Working with them has been an exemplary experience in public infrastructure engineering."
+    ]
   }
 ];
 
