@@ -168,7 +168,7 @@ export default function Hero({ onOpenAbout, onOpenHistory }) {
             Living Passion Through Engineering
           </h1>
 
-          {/* Exact RIL-Style Buttons: "About Us" and "Our History" */}
+          {/* Layered Rectangular Transparent Buttons (modeled after assetbutton.jpg white banner) */}
           <ul className="flex flex-wrap items-center justify-start gap-4 sm:gap-6 list-none p-0 m-0">
             <li>
               <a
@@ -179,10 +179,40 @@ export default function Hero({ onOpenAbout, onOpenHistory }) {
                     onOpenAbout();
                   }
                 }}
-                className="group inline-flex items-center justify-center px-6 py-2.5 sm:px-[24px] sm:py-[11px] rounded-[46px] border border-white bg-transparent hover:bg-[#DE0001] hover:border-[#DE0001] text-white text-[16px] sm:text-[18px] font-normal leading-normal transition-all duration-300 ease-in-out cursor-pointer drop-shadow-md"
+                className="group relative inline-flex items-center justify-center p-[4px] border border-white/40 bg-black/25 hover:border-white transition-all duration-300 cursor-pointer shadow-[0_4px_16px_rgba(0,0,0,0.35)] hover:shadow-[0_8px_24px_rgba(0,0,0,0.55)] hover:-translate-y-0.5 rounded-none"
               >
-                <span>About Us</span>
-                <ArrowRight size={16} className="ml-2.5 transition-transform duration-300 group-hover:translate-x-1" />
+                <div className="relative flex items-center justify-center px-6 py-2.5 sm:px-7 sm:py-3 border border-white/80 bg-white/[0.07] group-hover:bg-[#DE0001] group-hover:border-[#DE0001] transition-all duration-300 rounded-none pr-8 sm:pr-9">
+                  <span className="text-white text-[15px] sm:text-[17px] font-semibold tracking-wider uppercase drop-shadow-sm">
+                    About Us
+                  </span>
+                  <ArrowRight size={16} className="ml-2.5 text-white transition-transform duration-300 group-hover:translate-x-1" />
+                  
+                  {/* Curled Folded Dog-Ear Corner from assetbutton design */}
+                  <div className="absolute -bottom-[1px] -right-[1px] w-3.5 h-3.5 pointer-events-none overflow-hidden">
+                    <svg
+                      className="w-full h-full"
+                      viewBox="0 0 14 14"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      {/* Crease shadow */}
+                      <polygon points="0,14 14,0 14,14" fill="rgba(0,0,0,0.4)" />
+                      {/* Curled flap with smooth edge and gradient fill */}
+                      <path
+                        d="M0 14 Q 5 5 14 0 L 0 0 Z"
+                        fill="url(#dogEarAbout)"
+                        stroke="rgba(255,255,255,0.85)"
+                        strokeWidth="0.75"
+                      />
+                      <defs>
+                        <linearGradient id="dogEarAbout" x1="0" y1="0" x2="14" y2="14" gradientUnits="userSpaceOnUse">
+                          <stop stopColor="#ffffff" stopOpacity="0.95" />
+                          <stop offset="100%" stopColor="#d1d5db" stopOpacity="0.75" />
+                        </linearGradient>
+                      </defs>
+                    </svg>
+                  </div>
+                </div>
               </a>
             </li>
             <li>
@@ -194,10 +224,40 @@ export default function Hero({ onOpenAbout, onOpenHistory }) {
                     onOpenHistory();
                   }
                 }}
-                className="group inline-flex items-center justify-center px-6 py-2.5 sm:px-[24px] sm:py-[11px] rounded-[46px] border border-white bg-transparent hover:bg-[#DE0001] hover:border-[#DE0001] text-white text-[16px] sm:text-[18px] font-normal leading-normal transition-all duration-300 ease-in-out cursor-pointer drop-shadow-md"
+                className="group relative inline-flex items-center justify-center p-[4px] border border-white/40 bg-black/25 hover:border-white transition-all duration-300 cursor-pointer shadow-[0_4px_16px_rgba(0,0,0,0.35)] hover:shadow-[0_8px_24px_rgba(0,0,0,0.55)] hover:-translate-y-0.5 rounded-none"
               >
-                <span>Our History</span>
-                <ArrowRight size={16} className="ml-2.5 transition-transform duration-300 group-hover:translate-x-1" />
+                <div className="relative flex items-center justify-center px-6 py-2.5 sm:px-7 sm:py-3 border border-white/80 bg-white/[0.07] group-hover:bg-[#DE0001] group-hover:border-[#DE0001] transition-all duration-300 rounded-none pr-8 sm:pr-9">
+                  <span className="text-white text-[15px] sm:text-[17px] font-semibold tracking-wider uppercase drop-shadow-sm">
+                    Our History
+                  </span>
+                  <ArrowRight size={16} className="ml-2.5 text-white transition-transform duration-300 group-hover:translate-x-1" />
+                  
+                  {/* Curled Folded Dog-Ear Corner from assetbutton design */}
+                  <div className="absolute -bottom-[1px] -right-[1px] w-3.5 h-3.5 pointer-events-none overflow-hidden">
+                    <svg
+                      className="w-full h-full"
+                      viewBox="0 0 14 14"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      {/* Crease shadow */}
+                      <polygon points="0,14 14,0 14,14" fill="rgba(0,0,0,0.4)" />
+                      {/* Curled flap with smooth edge and gradient fill */}
+                      <path
+                        d="M0 14 Q 5 5 14 0 L 0 0 Z"
+                        fill="url(#dogEarHistory)"
+                        stroke="rgba(255,255,255,0.85)"
+                        strokeWidth="0.75"
+                      />
+                      <defs>
+                        <linearGradient id="dogEarHistory" x1="0" y1="0" x2="14" y2="14" gradientUnits="userSpaceOnUse">
+                          <stop stopColor="#ffffff" stopOpacity="0.95" />
+                          <stop offset="100%" stopColor="#d1d5db" stopOpacity="0.75" />
+                        </linearGradient>
+                      </defs>
+                    </svg>
+                  </div>
+                </div>
               </a>
             </li>
           </ul>

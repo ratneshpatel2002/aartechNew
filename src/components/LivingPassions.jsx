@@ -1,92 +1,132 @@
-import React from 'react';
+import React, { useState, useRef, useCallback } from 'react';
 import { ArrowRight } from 'lucide-react';
 
 export default function LivingPassions({ onOpenInquiry }) {
+  const [selectedYear, setSelectedYear] = useState('all');
+  
+  const photoRef = useRef(null);
+
+  // Handle milestone year selection with zoom & focal pan
+  const handleSelectYear = useCallback((year) => {
+    setSelectedYear((prev) => (prev === year ? 'all' : year));
+  }, []);
+
+  // Subtle interactive parallax on mouse move
+  const handlePointerMove = useCallback((e) => {
+    if (e.pointerType !== 'mouse' || !photoRef.current) return;
+    const rect = photoRef.current.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!prefersReducedMotion) {
+      const px = (x / rect.width - 0.5) * -12;
+      const py = (y / rect.height - 0.5) * -8;
+      photoRef.current.style.setProperty('--px', `${px}px`);
+      photoRef.current.style.setProperty('--py', `${py}px`);
+    }
+  }, []);
+
+  // Reset parallax on pointer leave
+  const handlePointerLeave = useCallback(() => {
+    if (!photoRef.current) return;
+    photoRef.current.style.setProperty('--px', '0px');
+    photoRef.current.style.setProperty('--py', '0px');
+  }, []);
+
   return (
-    <section id="about" className="w-full bg-[#FDF2DF] text-[#0C013D] relative overflow-hidden">
-      <div className="w-full grid grid-cols-1 lg:grid-cols-2 items-stretch">
-        
-        {/* Left Column (Warm Cream Canvas) */}
-        <div className="bg-[#FDF2DF] px-6 sm:px-12 lg:px-16 xl:px-20 py-10 sm:py-14 lg:py-16 xl:py-20 flex flex-col justify-between relative">
-          
-          {/* Top Content Block */}
+    <section 
+      id="about" 
+      className="aartech-about-hero border-b border-[#2E2A57]"
+      data-year={selectedYear}
+    >
+      {/* High-Clarity Team Photo with Focal Zoom & Seamless Edge Blend */}
+      <div 
+        ref={photoRef}
+        className="aartech-about-photo"
+        id="photo"
+        onPointerMove={handlePointerMove}
+        onPointerLeave={handlePointerLeave}
+      >
+        {/* Crystal-clear full-colour photo layer (No tint, zero sepia) */}
+        <div 
+          className="aartech-about-layer" 
+          role="img" 
+          aria-label="The Aartech engineering team seated outdoors"
+          style={{ backgroundImage: "url('/assets/about_demo_team_clear.jpg')" }}
+        />
+        {/* Soft edge blend into website theme canvas */}
+        <div className="aartech-about-blend" />
+      </div>
+
+      {/* Main Content & Narrative Block */}
+      <div className="aartech-about-content">
+        <div className="aartech-about-copy">
+          {/* Tag: — ABOUT US */}
+          <div className="flex items-center gap-3 mb-4 sm:mb-5">
+            <span className="w-8 h-[2px] bg-[#C4A467]" />
+            <span className="text-[12px] sm:text-[13px] font-bold tracking-[0.25em] text-[#C4A467] uppercase font-Barlow tracking-widest">
+              ABOUT US
+            </span>
+          </div>
+
+          {/* Heading in original Aartech font (Antonio) with rising animation */}
+          <h2 className="aartech-about-h1">
+            <span><i>Living Passions</i></span>
+            <span><i>Through</i></span>
+            <span><i>Engineering</i></span>
+          </h2>
+
+          {/* Description Lead Text in original Barlow */}
+          <p className="aartech-about-lead">
+            Over the years, Aartech has evolved into a close-knit team specializing in many domains. Every team member contributes to the growth of the company by applying their personal passions to the world of engineering.
+          </p>
+
+          {/* Action CTA Button (Strictly sharp corners: rounded-none) */}
           <div>
-            {/* Tag: — ABOUT US */}
-            <div className="flex items-center gap-3 mb-5 sm:mb-7">
-              <span className="w-7 h-[1.5px] bg-[#9E8160]" />
-              <span className="text-[12px] sm:text-[13px] font-bold tracking-[0.25em] text-[#0C013D] uppercase font-Barlow">
-                ABOUT US
-              </span>
-            </div>
-
-            {/* Headline in Editorial Serif: Living Passions Through Engineering */}
-            <h2 className="font-editorial text-4xl sm:text-5xl lg:text-[52px] xl:text-[58px] text-[#C80001] font-normal leading-[1.12] mb-5 sm:mb-6 tracking-tight">
-              Living Passions<br />
-              Through<br />
-              Engineering
-            </h2>
-
-            {/* Description Body Text */}
-            <p className="text-slate-700 text-sm sm:text-base lg:text-[17px] leading-relaxed max-w-lg mb-7 sm:mb-9 font-Barlow">
-              Over the years, Aartech has evolved into a close-knit team specializing in many domains. Every team member contributes to the growth of the company by applying their personal passions to the world of engineering.
-            </p>
-
-            {/* Pill Button: Meet Aartech → */}
-            <div>
-              <button
-                type="button"
-                onClick={onOpenInquiry}
-                className="inline-flex items-center gap-3 px-7 py-3 rounded-full border border-[#0C013D] text-[#0C013D] text-sm sm:text-base font-medium font-Barlow hover:bg-[#0C013D] hover:text-white transition-all duration-300 group shadow-sm hover:shadow"
-              >
-                <span>Meet Aartech</span>
-                <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-              </button>
-            </div>
+            <button
+              type="button"
+              onClick={onOpenInquiry}
+              className="aartech-about-btn group"
+            >
+              <span>Meet Aartech</span>
+              <ArrowRight size={17} aria-hidden="true" />
+            </button>
           </div>
 
-          {/* Bottom Milestones Block */}
-          <div className="mt-8 sm:mt-12 lg:mt-14">
-            {/* Horizontal Line Divider */}
-            <div className="w-full h-px bg-[#0C013D]/15 mb-6 sm:mb-8" />
+          {/* Horizontal Rule Divider */}
+          <div className="aartech-about-rule" />
 
-            {/* Milestones Row */}
-            <div className="grid grid-cols-2 gap-6 sm:gap-10">
-              {/* 1982 */}
-              <div>
-                <div className="font-editorial text-3xl sm:text-4xl lg:text-[44px] text-[#0C013D] font-normal mb-1.5 leading-none">
-                  1982
-                </div>
-                <p className="text-xs sm:text-[13px] text-slate-600 font-Barlow leading-snug max-w-[200px]">
-                  Founded as an Application Engineering Specialist
-                </p>
-              </div>
+          {/* Milestones Group */}
+          <div className="aartech-about-stats" role="group" aria-label="Company milestones">
+            <button
+              type="button"
+              className="aartech-about-stat"
+              data-year="1982"
+              aria-pressed={selectedYear === '1982'}
+              onClick={() => handleSelectYear('1982')}
+            >
+              <b>1982</b>
+              <small>Founded as an Application Engineering Specialist</small>
+            </button>
 
-              {/* 1992 */}
-              <div>
-                <div className="font-editorial text-3xl sm:text-4xl lg:text-[44px] text-[#0C013D] font-normal mb-1.5 leading-none">
-                  1992
-                </div>
-                <p className="text-xs sm:text-[13px] text-slate-600 font-Barlow leading-snug max-w-[200px]">
-                  Became a public limited company
-                </p>
-              </div>
-            </div>
+            <button
+              type="button"
+              className="aartech-about-stat"
+              data-year="1992"
+              aria-pressed={selectedYear === '1992'}
+              onClick={() => handleSelectYear('1992')}
+            >
+              <b>1992</b>
+              <small>Became a public limited company</small>
+            </button>
           </div>
 
-          {/* Center Vertical Dashed Divider on Desktop */}
-          <div className="hidden lg:block absolute right-0 top-0 bottom-0 w-[1px] border-r-2 border-dashed border-[#AFD1E2] pointer-events-none" />
+          {/* Clean Milestone Hint */}
+          <div className="aartech-about-hint">
+            Select a year to focus on key company milestones.
+          </div>
         </div>
-
-        {/* Right Column (Team Group Photo - Full Height) */}
-        <div className="w-full h-full min-h-[360px] sm:min-h-[460px] lg:min-h-full overflow-hidden bg-slate-100 relative">
-          <img
-            src="/assets/about_team_photo_2x.jpg"
-            alt="Aartech Solonics Engineering Team"
-            className="w-full h-full object-cover object-top block select-none"
-            loading="eager"
-          />
-        </div>
-
       </div>
     </section>
   );

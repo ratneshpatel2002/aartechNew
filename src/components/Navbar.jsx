@@ -29,7 +29,7 @@ export default function Navbar({ onOpenInquiry, onOpenAbout, onOpenHistory }) {
 
   return (
     <>
-      {/* Dynamic Corporate Header: Transparent at top with two tiers; White with black text and only lower tier on scroll */}
+      {/* Dynamic Corporate Header: Frosted glass at top with two tiers; White with black text and only lower tier on scroll */}
       <header 
         role="banner"
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 font-Barlow px-6 sm:px-10 lg:px-16 xl:px-20 2xl:px-24 ${
@@ -38,7 +38,17 @@ export default function Navbar({ onOpenInquiry, onOpenAbout, onOpenHistory }) {
             : 'bg-transparent text-white pt-8 sm:pt-10 lg:pt-12 xl:pt-14 pb-5 lg:pb-6'
         }`}
       >
-        <div className="w-full max-w-[1520px] mx-auto">
+        {/* Faded blackish gradient overlay that naturally blends into the background picture without blur */}
+        {!isScrolled && (
+          <div 
+            className="absolute inset-x-0 top-0 h-[115%] pointer-events-none -z-10 transition-opacity duration-300"
+            style={{
+              background: 'linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.7) 45%, rgba(0, 0, 0, 0.45) 75%, rgba(0, 0, 0, 0.15) 90%, transparent 100%)',
+            }}
+          />
+        )}
+
+        <div className="w-full max-w-[1520px] mx-auto relative z-10">
           
           {/* TIER 1: UPPER NAVBAR (Visible when not scrolling, removed while scrolling down) */}
           {!isScrolled && (
@@ -231,13 +241,24 @@ export default function Navbar({ onOpenInquiry, onOpenAbout, onOpenHistory }) {
           {/* TIER 2: LOWER NAVBAR (Only tier shown on scroll down, with black font and white background) */}
           <div className={`w-full flex items-center justify-between transition-all duration-300 ${isScrolled ? 'pt-0' : 'pt-2.5 sm:pt-3'}`}>
             
-            {/* Left Side: Brand Logo */}
+            {/* Left Side: Brand Logo (Adaptive based on background pictures / scroll state) */}
             <div className="flex items-center shrink-0">
-              <a href="/" className="flex items-center group" aria-label="Aartech Solonics">
+              <a href="/" className="flex items-center group relative h-11 sm:h-12 lg:h-13" aria-label="Aartech Solonics">
+                {/* White logo for hero / background pictures */}
+                <img 
+                  src="/assets/logo-white.png" 
+                  alt="Aartech Solonics" 
+                  className={`h-11 sm:h-12 lg:h-13 w-auto object-contain transition-all duration-300 group-hover:scale-105 ${
+                    isScrolled ? 'opacity-0 absolute inset-0 pointer-events-none' : 'opacity-100'
+                  }`}
+                />
+                {/* Standard colored logo for scrolled white navbar */}
                 <img 
                   src="/assets/logo.webp" 
                   alt="Aartech Solonics" 
-                  className="h-11 sm:h-12 lg:h-13 w-auto object-contain transition-all duration-300 group-hover:scale-105"
+                  className={`h-11 sm:h-12 lg:h-13 w-auto object-contain transition-all duration-300 group-hover:scale-105 ${
+                    isScrolled ? 'opacity-100' : 'opacity-0 absolute inset-0 pointer-events-none'
+                  }`}
                 />
               </a>
             </div>

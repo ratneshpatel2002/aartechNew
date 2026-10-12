@@ -1,0 +1,833 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Small Curiosities</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Hanken+Grotesk:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --paper: #ECE9F5;
+      --ink: #1F1B3A;
+      --muted: #5B5878;
+      --serif: "Young Serif", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+      --sans: "Hanken Grotesk", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      --ease: cubic-bezier(.7, 0, .2, 1);
+      box-sizing: border-box;
+      padding-top: env(safe-area-inset-top, 0px);
+      padding-bottom: env(safe-area-inset-bottom, 0px);
+
+
+
+
+
+
+
+
+
+
+    }
+
+    @media (prefers-color-scheme:dark) {
+      :root:not([data-theme="light"]) {
+        --paper: #16132B;
+        --ink: #EDEAF8;
+        --muted: #A5A1C4;
+      }
+    }
+
+    :root[data-theme="dark"] {
+      --paper: #16132B;
+      --ink: #EDEAF8;
+      --muted: #A5A1C4;
+    }
+
+    html {
+      scroll-padding-top: env(safe-area-inset-top, 0px);
+    }
+
+    html,
+    body {
+      height: 100%;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: inherit;
+    }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--sans);
+      overflow: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    /* ---------- Home ---------- */
+    #home {
+      position: fixed;
+      inset: 0;
+      background: var(--paper);
+      color: var(--ink);
+      display: flex;
+      align-items: center;
+      padding: calc(clamp(1.5rem, 5vw, 5rem) + env(safe-area-inset-top, 0px)) clamp(1.5rem, 5vw, 5rem) calc(clamp(1.5rem, 5vw, 5rem) + env(safe-area-inset-bottom, 0px));
+      overflow: hidden;
+      transition: transform 1s var(--ease);
+    }
+
+    #home.away {
+      transform: scale(.94);
+    }
+
+    .mark {
+      position: absolute;
+      left: clamp(1.5rem, 5vw, 5rem);
+      top: calc(1.6rem + env(safe-area-inset-top, 0px));
+      margin: 0;
+      font: 400 1.05rem/1 var(--serif);
+    }
+
+    .intro {
+      position: relative;
+      z-index: 2;
+    }
+
+    h1 {
+      margin: 0;
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: clamp(2.6rem, 7vw, 6.4rem);
+      line-height: 1.08;
+      letter-spacing: -.02em;
+      max-width: 11.5em;
+    }
+
+    .hint {
+      margin: 1.6rem 0 0;
+      max-width: 30ch;
+      font-size: 1.02rem;
+      line-height: 1.55;
+      color: var(--muted);
+    }
+
+    .pick {
+      position: relative;
+      display: inline-block;
+    }
+
+    .pick-btn {
+      color: var(--paper);
+      background: var(--ink);
+      border: 0;
+      border-radius: 999px;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: inherit;
+      letter-spacing: inherit;
+      line-height: inherit;
+      font-style: italic;
+      padding: 0 .4em .06em .46em;
+      display: inline-flex;
+      align-items: center;
+      gap: .26em;
+      transition: transform .35s var(--ease);
+    }
+
+    .pick-btn:hover {
+      transform: translateY(-.04em) rotate(-1.2deg);
+    }
+
+    .pick-btn:focus-visible {
+      outline: 3px solid var(--ink);
+      outline-offset: 4px;
+    }
+
+    .pick-btn svg {
+      width: .46em;
+      height: .46em;
+      transition: transform .45s var(--ease);
+      margin-top: .06em;
+    }
+
+    .pick-btn[aria-expanded="true"] svg {
+      transform: rotate(180deg);
+    }
+
+    .menu {
+      position: absolute;
+      left: 0;
+      top: calc(100% + .4rem);
+      z-index: 5;
+      width: min(23rem, calc(100vw - 2rem));
+      margin: 0;
+      padding: .4rem;
+      list-style: none;
+      background: var(--paper);
+      color: var(--ink);
+      border: 1.5px solid var(--ink);
+      border-radius: 1.4rem;
+      font: 400 1rem/1.3 var(--sans);
+      letter-spacing: 0;
+      font-style: normal;
+      text-align: left;
+      clip-path: inset(0 0 100% 0 round 1.4rem);
+      opacity: 0;
+      visibility: hidden;
+      transition: clip-path .5s var(--ease), opacity .2s ease, visibility 0s linear .5s;
+    }
+
+    .menu.open {
+      clip-path: inset(0 0 0 0 round 1.4rem);
+      opacity: 1;
+      visibility: visible;
+      transition: clip-path .55s var(--ease), opacity .2s ease, visibility 0s;
+    }
+
+    .opt {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      column-gap: .9rem;
+      row-gap: .1rem;
+      align-items: center;
+      width: 100%;
+      padding: .7rem .85rem;
+      border: 0;
+      border-radius: 1rem;
+      background: none;
+      color: inherit;
+      text-align: left;
+      cursor: pointer;
+      transition: background .25s ease, color .25s ease;
+    }
+
+    .opt .dot {
+      grid-row: span 2;
+      width: 1.7rem;
+      height: 1.7rem;
+      border-radius: 50%;
+      background: var(--c);
+    }
+
+    .opt b {
+      font: 400 1.3rem/1.15 var(--serif);
+    }
+
+    .opt small {
+      font-size: .86rem;
+      opacity: .7;
+    }
+
+    .opt:hover,
+    .opt:focus-visible {
+      background: var(--ink);
+      color: var(--paper);
+      outline: none;
+    }
+
+    .orbs {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      background: var(--c);
+      width: var(--s);
+      height: var(--s);
+      left: var(--x);
+      top: var(--y);
+      transition: transform .7s var(--ease), opacity .5s ease;
+      animation: orbIn 1.2s var(--ease) backwards;
+      animation-delay: calc(var(--i) * 120ms + 150ms);
+    }
+
+    .orbs.has-hover .orb {
+      opacity: .3;
+    }
+
+    .orbs.has-hover .orb.on {
+      opacity: 1;
+      transform: scale(1.1);
+    }
+
+    @keyframes orbIn {
+      from {
+        transform: scale(.4);
+        opacity: 0;
+      }
+
+      to {
+        transform: none;
+        opacity: 1;
+      }
+    }
+
+    @media (max-width:700px) {
+      #home {
+        align-items: flex-start;
+        padding-top: calc(5.5rem + env(safe-area-inset-top, 0px));
+      }
+
+      .orb {
+        width: var(--ms);
+        height: var(--ms);
+        left: var(--mx);
+        top: var(--my);
+      }
+    }
+
+    /* ---------- Topic pages ---------- */
+    .topic {
+      position: fixed;
+      inset: 0;
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      background: var(--bg);
+      color: var(--fg);
+      clip-path: circle(0px at 50% 50%);
+    }
+
+    .topic svg.art {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .bar {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: calc(1.25rem + env(safe-area-inset-top, 0px)) clamp(1.25rem, 5vw, 4rem) 0;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: .55rem;
+      cursor: pointer;
+      font: 500 .95rem/1 var(--sans);
+      color: inherit;
+      background: transparent;
+      border: 1.5px solid currentColor;
+      border-radius: 999px;
+      padding: .8rem 1.15rem;
+      transition: background .3s ease, color .3s ease;
+    }
+
+    .btn svg {
+      width: 1.05em;
+      height: 1.05em;
+      flex: none;
+    }
+
+    .btn:hover {
+      background: var(--fg);
+      color: var(--bg);
+    }
+
+    .btn:focus-visible {
+      outline: 2px solid currentColor;
+      outline-offset: 3px;
+    }
+
+    .body {
+      position: relative;
+      z-index: 2;
+      flex: 1;
+      overflow-y: auto;
+      padding: clamp(1.5rem, 5vh, 3.5rem) clamp(1.25rem, 5vw, 4rem) 36vh;
+    }
+
+    .title {
+      margin: 0 0 1.6rem;
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: clamp(3.4rem, 12.5vw, 11rem);
+      line-height: .98;
+      letter-spacing: -.03em;
+      max-width: 9em;
+    }
+
+    .title:focus {
+      outline: none;
+    }
+
+    .w {
+      display: inline-block;
+      overflow: hidden;
+      vertical-align: top;
+      padding-bottom: .1em;
+      margin-bottom: -.1em;
+    }
+
+    .w>span {
+      display: inline-block;
+      transform: translateY(108%);
+    }
+
+    .lede {
+      margin: 0 0 2.2rem;
+      max-width: 38ch;
+      font: 400 clamp(1.05rem, 1.6vw, 1.3rem)/1.55 var(--sans);
+    }
+
+    .notes {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 16rem));
+      gap: 2rem 2.5rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .notes li {
+      border-left: 1.5px solid currentColor;
+      padding-left: 1rem;
+      font: 400 .98rem/1.55 var(--sans);
+    }
+
+    .notes strong {
+      display: block;
+      margin-bottom: .3rem;
+      font: 400 1.2rem/1.2 var(--serif);
+    }
+
+    .fade {
+      opacity: 0;
+      transform: translateY(14px);
+    }
+
+    .art .layer {
+      opacity: 0;
+      transform: translateY(70px);
+    }
+
+    .topic.in .w>span {
+      transform: none;
+      transition: transform .95s var(--ease);
+      transition-delay: calc(var(--i) * 80ms);
+    }
+
+    .topic.in .fade {
+      opacity: 1;
+      transform: none;
+      transition: opacity .7s ease, transform .8s var(--ease);
+      transition-delay: calc(.3s + var(--i) * 100ms);
+    }
+
+    .topic.in .art .layer {
+      opacity: 1;
+      transform: none;
+      transition: opacity .9s ease, transform 1.3s var(--ease);
+      transition-delay: calc(var(--i) * 120ms);
+    }
+
+    @media (max-width:760px) {
+      .topic svg.art {
+        height: 42vh;
+      }
+
+      .body {
+        padding-bottom: 46vh;
+      }
+
+      .notes {
+        grid-template-columns: 1fr;
+        gap: 1.4rem;
+      }
+
+      .btn {
+        padding: .7rem 1rem;
+        font-size: .9rem;
+      }
+    }
+
+    @media (prefers-reduced-motion:reduce) {
+      .orb {
+        animation: none;
+      }
+
+      #home {
+        transition: none;
+      }
+
+      .w>span,
+      .fade,
+      .art .layer {
+        transform: none !important;
+        opacity: 1 !important;
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <main id="home">
+    <div class="orbs" id="orbs" aria-hidden="true"></div>
+    <p class="mark">Small curiosities</p>
+    <div class="intro">
+      <h1>Today I’d like to learn about <span class="pick"><button class="pick-btn" id="pickBtn" type="button"
+            aria-haspopup="menu" aria-expanded="false" aria-controls="menu">something<svg viewBox="0 0 24 24"
+              fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"
+              aria-hidden="true">
+              <path d="M6 9l6 6 6-6" />
+            </svg></button>
+          <ul class="menu" id="menu" role="menu" aria-label="Topics"></ul>
+        </span>.</h1>
+      <p class="hint">Open the menu and choose a topic. The next page opens from wherever you click.</p>
+    </div>
+  </main>
+
+  <script>
+    (function () {
+      /* ---------- helpers ---------- */
+      function rng(seed) { return function () { seed = (seed * 16807) % 2147483647; return seed / 2147483647; }; }
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var EASE = 'cubic-bezier(.7,0,.2,1)';
+      var VB = 'viewBox="0 0 1440 900" preserveAspectRatio="xMaxYMax slice" aria-hidden="true"';
+
+      /* ---------- illustrations ---------- */
+      function artOcean() {
+        return '<svg class="art" ' + VB + '>' +
+          '<g class="layer" style="--i:0"><circle cx="1150" cy="430" r="82" fill="#E6F4EF" opacity=".92"/></g>' +
+          '<g class="layer" style="--i:1"><path fill="#17707F" d="M0 650 C180 600 360 700 540 650 S900 600 1080 650 S1300 690 1440 640 V900 H0Z"/></g>' +
+          '<g class="layer" style="--i:2"><path fill="#2A9094" d="M0 720 C200 680 380 770 600 720 S980 680 1200 725 S1380 750 1440 720 V900 H0Z"/></g>' +
+          '<g class="layer" style="--i:3"><path fill="#8FD3C4" d="M0 800 C240 770 420 840 680 800 S1060 770 1260 805 S1400 820 1440 800 V900 H0Z"/></g>' +
+          '</svg>';
+      }
+
+      function pines(seed, count, base, hMin, hMax, color) {
+        var r = rng(seed), out = '';
+        for (var i = 0; i < count; i++) {
+          var x = i * (1440 / count) + (r() * 40 - 20);
+          var H = hMin + r() * (hMax - hMin) + (x > 900 ? r() * 130 : 0);
+          var w = H * .42, b = base;
+          var y1 = b - H * .68, y2 = b - H * .36;
+          var pts = [
+            [x, b - H], [x + w * .26, y1], [x + w * .12, y1], [x + w * .38, y2], [x + w * .2, y2], [x + w * .5, b],
+            [x - w * .5, b], [x - w * .2, y2], [x - w * .38, y2], [x - w * .12, y1], [x - w * .26, y1]
+          ].map(function (p) { return p[0].toFixed(1) + ',' + p[1].toFixed(1); }).join(' ');
+          out += '<polygon points="' + pts + '" fill="' + color + '"/>';
+        }
+        return out;
+      }
+      function artForest() {
+        return '<svg class="art" ' + VB + '>' +
+          '<g class="layer" style="--i:0"><circle cx="1140" cy="400" r="64" fill="#D9E8A8" opacity=".85"/></g>' +
+          '<g class="layer" style="--i:1">' + pines(11, 17, 800, 130, 200, '#4A7249') + '</g>' +
+          '<g class="layer" style="--i:2">' + pines(23, 14, 855, 150, 250, '#38593A') + '</g>' +
+          '<g class="layer" style="--i:3">' + pines(37, 10, 905, 160, 280, '#1B2E1E') + '<rect x="0" y="880" width="1440" height="40" fill="#1B2E1E"/></g>' +
+          '</svg>';
+      }
+
+      function artDesert() {
+        return '<svg class="art" ' + VB + '>' +
+          '<g class="layer" style="--i:0"><circle cx="1090" cy="520" r="120" fill="#F7DB9A"/></g>' +
+          '<g class="layer" style="--i:1"><path fill="#D08A44" d="M0 700 C220 620 420 660 640 710 S1020 760 1220 670 S1380 630 1440 650 V900 H0Z"/></g>' +
+          '<g class="layer" style="--i:2"><path fill="#B2652F" d="M0 770 C260 700 480 740 720 790 S1100 830 1300 750 S1400 730 1440 740 V900 H0Z"/></g>' +
+          '<g class="layer" style="--i:3"><path fill="#86442A" d="M0 840 C300 800 560 850 820 850 S1200 870 1440 820 V900 H0Z"/></g>' +
+          '</svg>';
+      }
+
+      function artNight() {
+        var r = rng(5), s = '', s2 = '';
+        for (var i = 0; i < 150; i++) {
+          var x = r() * 1440, y = r() * 640, rad = .8 + r() * 1.5, o = (.3 + r() * .7).toFixed(2);
+          var c = '<circle cx="' + x.toFixed(0) + '" cy="' + y.toFixed(0) + '" r="' + rad.toFixed(1) + '" fill="#F1ECFF" opacity="' + o + '"/>';
+          if (i % 2) s += c; else s2 += c;
+        }
+        return '<svg class="art" ' + VB + '>' +
+          '<defs><mask id="moonmask"><rect width="1440" height="900" fill="#fff"/><circle cx="1184" cy="398" r="62" fill="#000"/></mask></defs>' +
+          '<g class="layer" style="--i:0">' + s2 + '</g>' +
+          '<g class="layer" style="--i:1">' + s + '<circle cx="1150" cy="420" r="72" fill="#F1ECFF" mask="url(#moonmask)"/></g>' +
+          '<g class="layer" style="--i:2"><path fill="#2B2A66" d="M0 760 C260 690 520 740 760 710 S1160 650 1440 720 V900 H0Z"/></g>' +
+          '<g class="layer" style="--i:3"><path fill="#15142F" d="M0 830 C300 790 600 850 900 820 S1300 790 1440 830 V900 H0Z"/></g>' +
+          '</svg>';
+      }
+
+      function flower(x, y, s, c) {
+        var p = '';
+        for (var k = 0; k < 5; k++) {
+          var a = k * 72 * Math.PI / 180 - Math.PI / 2;
+          p += '<circle cx="' + (x + Math.cos(a) * 11 * s).toFixed(1) + '" cy="' + (y + Math.sin(a) * 11 * s).toFixed(1) + '" r="' + (9 * s).toFixed(1) + '" fill="' + c + '"/>';
+        }
+        return p + '<circle cx="' + x + '" cy="' + y + '" r="' + (4 * s).toFixed(1) + '" fill="#C95B7B"/>';
+      }
+      function artBlossom() {
+        var r = rng(9);
+        var pts = [[1380, 105], [1300, 140], [1240, 195], [1160, 240], [1090, 250], [1000, 275], [930, 305], [870, 350], [830, 395],
+        [1060, 215], [1010, 175], [950, 150], [1235, 215], [1250, 290], [1205, 345], [1340, 170], [1120, 285], [900, 255]];
+        var a = '', b = '';
+        pts.forEach(function (p, i) {
+          var f = flower(p[0] + (r() * 16 - 8) | 0, p[1] + (r() * 16 - 8) | 0, .8 + r() * .7, r() > .35 ? '#FFF0F3' : '#FFD3DD');
+          if (i % 2) a += f; else b += f;
+        });
+        var petals = '';
+        for (var i = 0; i < 30; i++) {
+          petals += '<ellipse cx="' + (r() * 1440).toFixed(0) + '" cy="' + (560 + r() * 320).toFixed(0) + '" rx="7" ry="4" fill="#FFF0F3" opacity=".9" transform="rotate(' + (r() * 180 | 0) + ' 0 0)" style="transform-box:fill-box;transform-origin:center"/>';
+        }
+        return '<svg class="art" ' + VB + '>' +
+          '<g class="layer" style="--i:0"><g fill="none" stroke="#5A2A3E" stroke-linecap="round">' +
+          '<path stroke-width="9" d="M1440 90 C1300 130 1230 230 1090 250 S900 300 820 400"/>' +
+          '<path stroke-width="6" d="M1090 250 C1040 190 1000 160 930 150"/>' +
+          '<path stroke-width="5" d="M1240 195 C1255 260 1250 310 1205 350"/></g></g>' +
+          '<g class="layer" style="--i:1">' + b + '</g>' +
+          '<g class="layer" style="--i:2">' + a + '</g>' +
+          '<g class="layer" style="--i:3"><path fill="#E48FA5" d="M0 810 C300 760 600 840 900 800 S1300 770 1440 810 V900 H0Z"/>' + petals + '</g>' +
+          '<g class="layer" style="--i:4"><path fill="#C96B86" d="M0 860 C320 830 640 880 960 855 S1340 835 1440 860 V900 H0Z"/></g>' +
+          '</svg>';
+      }
+
+      /* ---------- content ---------- */
+      var TOPICS = [
+        {
+          id: 'ocean', name: 'Ocean', hint: 'Tides, depth and salt', orb: '#1E7F8C',
+          bg: '#0E4A5A', fg: '#E6F4EF', title: 'The long blue',
+          lede: 'Most of the planet is water, and most of that water is far darker and colder than the shore suggests.',
+          notes: [['Tides', 'Pulled by the Moon, the sea rises and falls about twice a day along most coasts.'],
+          ['Depth', 'Sunlight fades out around 200 metres down. Below that, life runs on its own light or on what drifts from above.'],
+          ['Salt', 'Rivers carry minerals to the sea over millions of years. The water keeps them when it evaporates.']],
+          art: artOcean,
+          o: { s: '34vmin', x: '60vw', y: '6vh', ms: '46vw', mx: '6vw', my: '64vh' }
+        },
+        {
+          id: 'forest', name: 'Forest', hint: 'Rings, leaves and shade', orb: '#4F7A4B',
+          bg: '#2E4630', fg: '#EEF1DC', title: 'Under the canopy',
+          lede: 'A forest is slow and layered: tall crowns, shrubs, moss, and a floor of leaves that never stops becoming soil.',
+          notes: [['Rings', 'Trees in temperate climates add one ring of wood a year, wide in good seasons and narrow in dry ones.'],
+          ['Leaf litter', 'Fallen leaves are broken down by fungi and insects, which hands nutrients back to the roots.'],
+          ['Layers', 'Light drops off quickly from crown to floor, so plants near the ground are built for shade.']],
+          art: artForest,
+          o: { s: '26vmin', x: '78vw', y: '38vh', ms: '38vw', mx: '46vw', my: '60vh' }
+        },
+        {
+          id: 'desert', name: 'Desert', hint: 'Dunes and dry air', orb: '#E3A94D',
+          bg: '#E3B25B', fg: '#3A2410', title: 'Dry country',
+          lede: 'Deserts are defined by how little rain they get, not by how hot they are. Cold ones count too.',
+          notes: [['Dunes', 'Wind lifts sand grains and drops them again, so a dune slowly walks downwind.'],
+          ['Cacti', 'Their stems swell with stored water, and spines shade the surface and cut down airflow.'],
+          ['Cold nights', 'With little cloud or moisture to hold heat, the ground cools fast once the sun is gone.']],
+          art: artDesert,
+          o: { s: '30vmin', x: '52vw', y: '48vh', ms: '42vw', mx: '54vw', my: '72vh' }
+        },
+        {
+          id: 'night', name: 'Night sky', hint: 'Planets, stars and the Moon', orb: '#3A3585',
+          bg: '#1C1B3F', fg: '#F1ECFF', title: 'After dark',
+          lede: 'Away from city lights, a few thousand stars are visible with no equipment at all. Give your eyes twenty minutes to adjust.',
+          notes: [['Planets', 'They shine steadily, while stars twinkle as their light passes through moving air.'],
+          ['Old light', 'Sunlight reaches us in about eight minutes. Light from the nearest other star takes over four years.'],
+          ['The Moon', 'It rises roughly fifty minutes later each night, which is why its phase shifts through the month.']],
+          art: artNight,
+          o: { s: '22vmin', x: '84vw', y: '4vh', ms: '30vw', mx: '-6vw', my: '84vh' }
+        },
+        {
+          id: 'blossom', name: 'Blossom', hint: 'A few days of color', orb: '#F0A9B8',
+          bg: '#F0B7C2', fg: '#4A1F33', title: 'Brief bloom',
+          lede: 'Flowering trees put everything into a few days of color, then let it go all at once.',
+          notes: [['Hanami', 'In Japan, picnicking under cherry trees in bloom is a custom that goes back centuries.'],
+          ['Timing', 'Warm spells bring blossom forward, and a cold snap can hold it back by a week or more.'],
+          ['Petal fall', 'Wind and rain strip the flowers fast, which is part of why people make time to go and look.']],
+          art: artBlossom,
+          o: { s: '18vmin', x: '70vw', y: '70vh', ms: '28vw', mx: '38vw', my: '86vh' }
+        }
+      ];
+
+      var ICON = {
+        down: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>',
+        left: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>',
+        right: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>'
+      };
+
+      /* ---------- home: orbs + menu ---------- */
+      var home = document.getElementById('home');
+      var orbs = document.getElementById('orbs');
+      var pickBtn = document.getElementById('pickBtn');
+      var menu = document.getElementById('menu');
+
+      TOPICS.forEach(function (t, i) {
+        var o = document.createElement('div');
+        o.className = 'orb'; o.dataset.id = t.id;
+        o.style.cssText = '--c:' + t.orb + ';--i:' + i + ';--s:' + t.o.s + ';--x:' + t.o.x + ';--y:' + t.o.y + ';--ms:' + t.o.ms + ';--mx:' + t.o.mx + ';--my:' + t.o.my;
+        orbs.appendChild(o);
+
+        var li = document.createElement('li'); li.setAttribute('role', 'none');
+        li.innerHTML = '<button class="opt" type="button" role="menuitem" data-id="' + t.id + '" style="--c:' + t.orb + '"><span class="dot"></span><b>' + t.name + '</b><small>' + t.hint + '</small></button>';
+        menu.appendChild(li);
+      });
+      var items = Array.prototype.slice.call(menu.querySelectorAll('.opt'));
+
+      function lightOrb(id) {
+        orbs.classList.toggle('has-hover', !!id);
+        Array.prototype.forEach.call(orbs.children, function (o) { o.classList.toggle('on', o.dataset.id === id); });
+      }
+      items.forEach(function (it) {
+        it.addEventListener('mouseenter', function () { lightOrb(it.dataset.id); });
+        it.addEventListener('focus', function () { lightOrb(it.dataset.id); });
+        it.addEventListener('mouseleave', function () { lightOrb(null); });
+        it.addEventListener('blur', function () { lightOrb(null); });
+        it.addEventListener('click', function () {
+          var r = it.getBoundingClientRect();
+          var cx = r.left + r.width / 2, cy = r.top + r.height / 2;
+          closeMenu(false);
+          openTopic(it.dataset.id, cx, cy);
+        });
+      });
+
+      var menuOpen = false;
+      function openMenu(focusFirst) {
+        menuOpen = true;
+        menu.style.left = '0px';
+        var pr = pickBtn.getBoundingClientRect();
+        var mw = Math.min(368, window.innerWidth - 32);
+        var overflow = pr.left + mw - (window.innerWidth - 16);
+        if (overflow > 0) menu.style.left = (-overflow) + 'px';
+        menu.classList.add('open');
+        pickBtn.setAttribute('aria-expanded', 'true');
+        if (focusFirst) setTimeout(function () { items[0].focus(); }, 30);
+      }
+      function closeMenu(refocus) {
+        menuOpen = false;
+        menu.classList.remove('open');
+        pickBtn.setAttribute('aria-expanded', 'false');
+        lightOrb(null);
+        if (refocus) pickBtn.focus();
+      }
+      pickBtn.addEventListener('click', function () { menuOpen ? closeMenu(false) : openMenu(false); });
+      pickBtn.addEventListener('keydown', function (e) {
+        if (e.key === 'ArrowDown') { e.preventDefault(); openMenu(true); }
+      });
+      menu.addEventListener('keydown', function (e) {
+        var i = items.indexOf(document.activeElement);
+        if (e.key === 'ArrowDown') { e.preventDefault(); items[(i + 1) % items.length].focus(); }
+        else if (e.key === 'ArrowUp') { e.preventDefault(); items[(i - 1 + items.length) % items.length].focus(); }
+        else if (e.key === 'Home') { e.preventDefault(); items[0].focus(); }
+        else if (e.key === 'End') { e.preventDefault(); items[items.length - 1].focus(); }
+        else if (e.key === 'Tab') { closeMenu(false); }
+      });
+      document.addEventListener('click', function (e) {
+        if (menuOpen && !e.target.closest('.pick')) closeMenu(false);
+      });
+
+      /* ---------- topic pages ---------- */
+      var current = null, busy = false;
+
+      function buildTopic(t, idx) {
+        var next = TOPICS[(idx + 1) % TOPICS.length];
+        var el = document.createElement('section');
+        el.className = 'topic';
+        el.setAttribute('aria-label', t.name);
+        el.style.setProperty('--bg', t.bg);
+        el.style.setProperty('--fg', t.fg);
+        var words = t.title.split(' ').map(function (w, i) {
+          return '<span class="w"><span style="--i:' + i + '">' + w + '</span></span>';
+        }).join(' ');
+        el.innerHTML = t.art() +
+          '<div class="bar">' +
+          '<button class="btn back" type="button">' + ICON.left + 'All topics</button>' +
+          '<button class="btn next" type="button">Next: ' + next.name + ICON.right + '</button>' +
+          '</div>' +
+          '<div class="body">' +
+          '<h2 class="title" tabindex="-1">' + words + '</h2>' +
+          '<p class="lede fade" style="--i:0">' + t.lede + '</p>' +
+          '<ul class="notes">' + t.notes.map(function (n, i) {
+            return '<li class="fade" style="--i:' + (i + 1) + '"><strong>' + n[0] + '</strong>' + n[1] + '</li>';
+          }).join('') + '</ul>' +
+          '</div>';
+        el.querySelector('.back').addEventListener('click', closeTopic);
+        el.querySelector('.next').addEventListener('click', function (e) {
+          var r = e.currentTarget.getBoundingClientRect();
+          openTopic(next.id, r.left + r.width / 2, r.top + r.height / 2);
+        });
+        return el;
+      }
+
+      function radiusFrom(x, y) {
+        return Math.hypot(Math.max(x, window.innerWidth - x), Math.max(y, window.innerHeight - y)) + 4;
+      }
+
+      function openTopic(id, x, y) {
+        if (busy) return;
+        busy = true;
+        var idx = TOPICS.findIndex(function (t) { return t.id === id; });
+        var el = buildTopic(TOPICS[idx], idx);
+        var previous = current;
+        document.body.appendChild(el);
+        current = el;
+
+        home.classList.add('away');
+        home.setAttribute('inert', ''); home.setAttribute('aria-hidden', 'true');
+
+        var from = 'circle(0px at ' + x + 'px ' + y + 'px)';
+        var to = 'circle(' + radiusFrom(x, y) + 'px at ' + x + 'px ' + y + 'px)';
+        el.style.clipPath = from;
+
+        var anim = el.animate([{ clipPath: from }, { clipPath: to }], { duration: reduce ? 1 : 1000, easing: EASE, fill: 'forwards' });
+        setTimeout(function () { el.classList.add('in'); }, reduce ? 0 : 380);
+
+        anim.finished.then(function () {
+          el.style.clipPath = 'none';
+          anim.cancel();
+          if (previous) previous.remove();
+          busy = false;
+          var h = el.querySelector('.title');
+          if (h) h.focus({ preventScroll: true });
+        }).catch(function () { busy = false; });
+      }
+
+      function closeTopic() {
+        if (busy || !current) return;
+        busy = true;
+        var el = current;
+        var b = el.querySelector('.back').getBoundingClientRect();
+        var x = b.left + b.width / 2, y = b.top + b.height / 2;
+
+        var from = 'circle(' + radiusFrom(x, y) + 'px at ' + x + 'px ' + y + 'px)';
+        var to = 'circle(0px at ' + x + 'px ' + y + 'px)';
+        el.style.clipPath = from;
+        el.classList.remove('in');
+        home.classList.remove('away');
+
+        var anim = el.animate([{ clipPath: from }, { clipPath: to }], { duration: reduce ? 1 : 850, easing: EASE, fill: 'forwards' });
+        anim.finished.then(function () {
+          el.remove();
+          current = null;
+          home.removeAttribute('inert'); home.removeAttribute('aria-hidden');
+          busy = false;
+          pickBtn.focus({ preventScroll: true });
+        }).catch(function () { busy = false; });
+      }
+
+      document.addEventListener('keydown', function (e) {
+        if (e.key !== 'Escape') return;
+        if (current) closeTopic();
+        else if (menuOpen) closeMenu(true);
+      });
+    })();
+  </script>
+</body>
+
+</html>

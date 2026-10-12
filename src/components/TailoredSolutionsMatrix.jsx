@@ -1,26 +1,210 @@
-import React, { useState, useMemo, useRef, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronDown, ArrowRight, Sparkles, Check, RefreshCw } from 'lucide-react';
-import data from '../data/tailoredSolutionsData.json';
+import React, { useState, useRef, useEffect } from 'react';
 import { clients } from '../data/siteData';
+import MachineAssemblyScroll from './MachineAssemblyScroll';
+import SegmentExplorerModal from './SegmentExplorerModal';
 
-// Helper to normalize strings for comparison
-const norm = (str) => (str || '').toLowerCase().replace(/[^a-z0-9]/g, '');
+const INDUSTRY_OPTIONS = [
+  { name: 'Defence & Exploration', hint: 'Mission-critical power & pulsed energy', color: '#0C013D', topicId: 'defense & exploration' },
+  { name: 'Renewable Energy', hint: 'Solar, wind & hybrid storage systems', color: '#1E7F8C', topicId: 'renewable energy' },
+  { name: 'Non-Renewable Energy', hint: 'Thermal, nuclear & hydro generation', color: '#D08A44', topicId: 'non-renewable energy' },
+  { name: 'Heavy Engineering Industries', hint: 'Fast bus transfer & dynamic loads', color: '#86442A', topicId: 'heavy engineering industries' },
+  { name: 'Health Care', hint: 'Zero interruption hospital backup', color: '#17707F', topicId: 'health care' },
+  { name: 'Transportation', hint: 'Metro rail & locomotive traction', color: '#3A3585', topicId: 'transportation' },
+  { name: 'Waste Water Treatment', hint: 'Pumping continuity & automation', color: '#4F7A4B', topicId: 'waste water treatment' }
+];
+
+const PRODUCT_OPTIONS = [
+  { name: 'BTS 2000', hint: 'Fast Bus Transfer System controller', color: '#0C013D', topicId: 'bts 2000' },
+  { name: 'Control & Relay Panel (CRP)', hint: 'Protection & metering cubicles', color: '#17707F', topicId: 'control & relay panel (crp)' },
+  { name: 'FCM (Fast Bus Transfer)', hint: 'Microsecond high-speed transfer', color: '#B80001', topicId: 'fcm' },
+  { name: 'Ultra Capacitors', hint: 'Instant cold cranking modules', color: '#2A9094', topicId: 'ultra capacitors' },
+  { name: 'Kraning', hint: 'Crane dynamic braking systems', color: '#D08A44', topicId: 'kraning' },
+  { name: 'Load Limiter', hint: 'Intelligent demand management', color: '#3A3585', topicId: 'load limiter' },
+  { name: 'Flywheel', hint: 'Kinetic energy buffer storage', color: '#8FD3C4', topicId: 'flywheel' },
+  { name: 'Solid State Relay', hint: 'High endurance solid state switching', color: '#86442A', topicId: 'solid state relay' }
+];
+
+const SOLUTION_OPTIONS = [
+  { name: 'Bus Transfer Schemes', hint: 'Sub-cycle power source changeover', color: '#0C013D', topicId: 'bus transfer schemes' },
+  { name: 'Pulse Power Applications', hint: 'High voltage capacitor discharge', color: '#B80001', topicId: 'pulse power applications' },
+  { name: 'Solar Rooftop / Offgrid', hint: 'Industrial hybrid solar microgrid', color: '#2A9094', topicId: 'solar rooftop / offgrid installations' },
+  { name: 'Custom Polymer Enclosures', hint: 'Non-metallic IP67 field housings', color: '#4F7A4B', topicId: 'custom polymer enclosures' },
+  { name: 'Engine Starting Solutions', hint: 'Sub-zero cold start modules', color: '#B80001', topicId: 'engine starting solutions' },
+  { name: 'UPS / Inverter Solutions', hint: 'Industrial continuity inverters', color: '#17707F', topicId: 'ups / inverter solutions' }
+];
+
+const BRAND_CLIENTS = [
+  {
+    id: 0,
+    name: "NTPC Limited",
+    renderLogo: () => (
+      <svg viewBox="0 0 150 44" className="h-8 sm:h-9 w-auto" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g transform="translate(2, 2)">
+          <path d="M12 2C8 7 5 14 7 21c2 6 7 11 13 13-3-2-6-7-7-12-1-5 2-10 6-15-2 2-5 6-7 12z" fill="#00843D" />
+          <path d="M19 5c-3 3-4 8-2 13 2 5 6 9 11 11-2-2-5-6-6-10-1-4 2-8 5-12-2 1-4 5-7 8z" fill="#005B94" />
+          <text x="36" y="22" fontFamily="'Antonio', sans-serif" fontWeight="700" fontSize="22" fill="#005B94" letterSpacing="0.04em">NTPC</text>
+          <text x="37" y="32" fontFamily="'Barlow', sans-serif" fontWeight="700" fontSize="8" fill="#00843D" letterSpacing="0.14em">LIMITED</text>
+        </g>
+      </svg>
+    )
+  },
+  {
+    id: 1,
+    name: "Adani Power",
+    renderLogo: () => (
+      <svg viewBox="0 0 150 44" className="h-8 sm:h-9 w-auto" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g transform="translate(4, 4)">
+          <path d="M4 22C4 12 12 4 22 4" stroke="#7B1FA2" strokeWidth="4" strokeLinecap="round" />
+          <path d="M11 25C11 17 17 11 25 11" stroke="#00A3E0" strokeWidth="4" strokeLinecap="round" />
+          <path d="M18 28C18 22 22 18 28 18" stroke="#133B5C" strokeWidth="4" strokeLinecap="round" />
+          <text x="34" y="21" fontFamily="'Barlow', sans-serif" fontWeight="800" fontSize="19" fill="#133B5C" letterSpacing="-0.02em">adani</text>
+          <text x="35" y="31" fontFamily="'Barlow', sans-serif" fontWeight="700" fontSize="8.5" fill="#00A3E0" letterSpacing="0.16em">POWER</text>
+        </g>
+      </svg>
+    )
+  },
+  {
+    id: 2,
+    name: "Jindal Power",
+    renderLogo: () => (
+      <svg viewBox="0 0 150 44" className="h-8 sm:h-9 w-auto" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g transform="translate(4, 4)">
+          <polygon points="12,2 20,16 13,16 18,30 6,15 13,15" fill="#D8232A" />
+          <text x="27" y="21" fontFamily="'Antonio', sans-serif" fontWeight="700" fontSize="21" fill="#1B365D" letterSpacing="0.04em">JINDAL</text>
+          <text x="28" y="31" fontFamily="'Barlow', sans-serif" fontWeight="700" fontSize="8.5" fill="#D8232A" letterSpacing="0.18em">POWER</text>
+        </g>
+      </svg>
+    )
+  },
+  {
+    id: 3,
+    name: "Hindalco Mahan",
+    renderLogo: () => (
+      <svg viewBox="0 0 160 44" className="h-8 sm:h-9 w-auto" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g transform="translate(4, 4)">
+          <circle cx="14" cy="18" r="6" fill="#DA291C" />
+          <path d="M14 6v3M14 27v3M4 18h3M21 18h3M7 11l2 2M19 23l2 2M7 25l2-2M19 13l2-2" stroke="#F2A900" strokeWidth="1.8" strokeLinecap="round" />
+          <text x="30" y="20" fontFamily="'Antonio', sans-serif" fontWeight="700" fontSize="20" fill="#DA291C" letterSpacing="0.04em">HINDALCO</text>
+          <text x="31" y="30" fontFamily="'Barlow', sans-serif" fontWeight="600" fontSize="7.5" fill="#475569" letterSpacing="0.12em">ADITYA BIRLA GROUP</text>
+        </g>
+      </svg>
+    )
+  },
+  {
+    id: 4,
+    name: "CSTPS",
+    renderLogo: () => (
+      <svg viewBox="0 0 150 44" className="h-8 sm:h-9 w-auto" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g transform="translate(4, 4)">
+          <rect x="3" y="6" width="20" height="23" rx="2" fill="#0A2540" />
+          <path d="M13 8l-4 10h5l-3 9 7-11h-5z" fill="#C8102E" />
+          <text x="30" y="21" fontFamily="'Antonio', sans-serif" fontWeight="700" fontSize="21" fill="#0A2540" letterSpacing="0.04em">CSTPS</text>
+          <text x="31" y="31" fontFamily="'Barlow', sans-serif" fontWeight="700" fontSize="8" fill="#C8102E" letterSpacing="0.12em">MAHAGENCO</text>
+        </g>
+      </svg>
+    )
+  },
+  {
+    id: 5,
+    name: "Damodar Valley Corporation",
+    renderLogo: () => (
+      <svg viewBox="0 0 160 44" className="h-8 sm:h-9 w-auto" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g transform="translate(4, 4)">
+          <circle cx="15" cy="18" r="12" stroke="#003E7E" strokeWidth="2.2" fill="#F8FAFC" />
+          <path d="M8 18c3-2 10-2 14 0M8 22c3-2 10-2 14 0" stroke="#138808" strokeWidth="1.8" strokeLinecap="round" />
+          <text x="34" y="20" fontFamily="'Antonio', sans-serif" fontWeight="700" fontSize="21" fill="#003E7E" letterSpacing="0.05em">DVC</text>
+          <text x="35" y="30" fontFamily="'Barlow', sans-serif" fontWeight="600" fontSize="7.5" fill="#138808" letterSpacing="0.1em">DAMODAR VALLEY CORP</text>
+        </g>
+      </svg>
+    )
+  },
+  {
+    id: 6,
+    name: "Indian Oil",
+    renderLogo: () => (
+      <svg viewBox="0 0 150 44" className="h-8 sm:h-9 w-auto" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g transform="translate(4, 4)">
+          <circle cx="15" cy="18" r="13" fill="#F47920" />
+          <rect x="2" y="14" width="26" height="7.5" fill="#002B49" />
+          <text x="34" y="21" fontFamily="'Barlow', sans-serif" fontWeight="800" fontSize="17" fill="#002B49" letterSpacing="0.02em">IndianOil</text>
+          <text x="35" y="31" fontFamily="'Barlow', sans-serif" fontWeight="600" fontSize="7.5" fill="#F47920" letterSpacing="0.16em">PUBLIC SECTOR</text>
+        </g>
+      </svg>
+    )
+  },
+  {
+    id: 7,
+    name: "BHEL",
+    renderLogo: () => (
+      <svg viewBox="0 0 150 44" className="h-8 sm:h-9 w-auto" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g transform="translate(4, 4)">
+          <polygon points="15,3 25,9 25,25 15,31 5,25 5,9" stroke="#004C87" strokeWidth="2.2" fill="#F8FAFC" />
+          <circle cx="15" cy="17" r="4.5" fill="#C8102E" />
+          <text x="33" y="21" fontFamily="'Antonio', sans-serif" fontWeight="700" fontSize="22" fill="#004C87" letterSpacing="0.06em">BHEL</text>
+          <text x="34" y="31" fontFamily="'Barlow', sans-serif" fontWeight="600" fontSize="8" fill="#475569" letterSpacing="0.12em">POWER SECTOR</text>
+        </g>
+      </svg>
+    )
+  },
+  {
+    id: 8,
+    name: "Power Grid Corporation",
+    renderLogo: () => (
+      <svg viewBox="0 0 160 44" className="h-8 sm:h-9 w-auto" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g transform="translate(4, 4)">
+          <path d="M8 29L14 5l6 24M10 20h8M12 12h4" stroke="#003399" strokeWidth="1.8" strokeLinecap="round" />
+          <circle cx="14" cy="5" r="2.5" fill="#008040" />
+          <text x="30" y="20" fontFamily="'Antonio', sans-serif" fontWeight="700" fontSize="19" fill="#008040" letterSpacing="0.04em">POWERGRID</text>
+          <text x="31" y="30" fontFamily="'Barlow', sans-serif" fontWeight="600" fontSize="7.5" fill="#003399" letterSpacing="0.12em">CORP OF INDIA</text>
+        </g>
+      </svg>
+    )
+  },
+  {
+    id: 9,
+    name: "Tata Power",
+    renderLogo: () => (
+      <svg viewBox="0 0 150 44" className="h-8 sm:h-9 w-auto" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g transform="translate(4, 4)">
+          <path d="M6 8c4 0 7 3.5 7 8s-3 8-7 8M20 8c-4 0-7 3.5-7 8s3 8 7 8" stroke="#00509E" strokeWidth="2.5" strokeLinecap="round" />
+          <text x="29" y="20" fontFamily="'Antonio', sans-serif" fontWeight="700" fontSize="20" fill="#00509E" letterSpacing="0.05em">TATA POWER</text>
+          <text x="30" y="30" fontFamily="'Barlow', sans-serif" fontWeight="600" fontSize="7.5" fill="#475569" letterSpacing="0.14em">LEADERSHIP WITH TRUST</text>
+        </g>
+      </svg>
+    )
+  },
+  {
+    id: 10,
+    name: "State Electricity Boards",
+    renderLogo: () => (
+      <svg viewBox="0 0 160 44" className="h-8 sm:h-9 w-auto" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g transform="translate(4, 4)">
+          <polygon points="14,2 24,14 16,14 22,30 8,15 15,15" fill="#F59E0B" />
+          <text x="30" y="20" fontFamily="'Antonio', sans-serif" fontWeight="700" fontSize="18" fill="#0284C7" letterSpacing="0.04em">STATE ELECTRICITY</text>
+          <text x="31" y="30" fontFamily="'Barlow', sans-serif" fontWeight="600" fontSize="7.5" fill="#475569" letterSpacing="0.12em">BOARDS & DISCOMS</text>
+        </g>
+      </svg>
+    )
+  }
+];
 
 export default function TailoredSolutionsMatrix({ onOpenInquiry }) {
-  const { dropdownLists, pathways } = data;
-
-  // Active selection state: 'Industry' | 'Product' | 'Solution' | null
-  const [activeType, setActiveType] = useState(null);
-  const [activeItem, setActiveItem] = useState(null);
+  // Modal explorer state
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalItem, setModalItem] = useState(null);
+  const [clickCoords, setClickCoords] = useState(null);
 
   // Marquee hover pause state
   const [isMarqueePaused, setIsMarqueePaused] = useState(false);
 
-  // Dropdown open states
-  const [openDropdown, setOpenDropdown] = useState(null); // 'industry' | 'product' | 'solution' | null
+  // Dropdown open states: 'industry' | 'product' | 'solution' | null
+  const [openDropdown, setOpenDropdown] = useState(null);
 
-  // Dropdown refs for click-outside detection
+  // Section ref for scroll-based assembly animation tracking
+  const sectionRef = useRef(null);
+  const trackRef = useRef(null);
+  const stageRef = useRef(null);
+  // Dropdown ref for click-outside detection
   const dropdownRef = useRef(null);
 
   useEffect(() => {
@@ -33,444 +217,347 @@ export default function TailoredSolutionsMatrix({ onOpenInquiry }) {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-  // Find pathway based on current active selection
-  const currentPathway = useMemo(() => {
-    if (!activeType || !activeItem) return null;
-    const itemNorm = norm(activeItem);
-
-    return pathways.find((p) => {
-      const typeMatches = p.type.toLowerCase() === activeType.toLowerCase();
-      if (!typeMatches) return false;
-      const pNorm = norm(p.name);
-      return pNorm === itemNorm || pNorm.includes(itemNorm) || itemNorm.includes(pNorm);
-    }) || null;
-  }, [activeType, activeItem, pathways]);
-
-  // Derived related lists from pathway
-  const relatedData = useMemo(() => {
-    if (!currentPathway) {
-      return { industries: [], products: [], solutions: [] };
+  // Selection handlers - Open popup directly and close dropdown
+  const handleSelectIndustry = (ind, e = null) => {
+    const topicId = typeof ind === 'object' && ind.topicId ? ind.topicId : ind;
+    if (e && e.currentTarget) {
+      const r = e.currentTarget.getBoundingClientRect();
+      setClickCoords({ x: r.left + r.width / 2, y: r.top + r.height / 2 });
+    } else {
+      setClickCoords({ x: window.innerWidth / 2, y: window.innerHeight / 2 });
     }
+    setOpenDropdown(null);
+    setModalItem(topicId);
+    setIsModalOpen(true);
+  };
 
-    const res = { industries: [], products: [], solutions: [] };
-    currentPathway.columns?.forEach((col) => {
-      const header = (col.header || '').toLowerCase();
-      if (header.includes('industry')) {
-        res.industries = col.items.map((i) => i.title);
-      } else if (header.includes('product')) {
-        res.products = col.items.map((i) => i.title);
-      } else if (header.includes('solution') || header.includes('soultion')) {
-        res.solutions = col.items.map((i) => i.title);
-      }
-    });
+  const handleSelectProduct = (prod, e = null) => {
+    const topicId = typeof prod === 'object' && prod.topicId ? prod.topicId : prod;
+    if (e && e.currentTarget) {
+      const r = e.currentTarget.getBoundingClientRect();
+      setClickCoords({ x: r.left + r.width / 2, y: r.top + r.height / 2 });
+    } else {
+      setClickCoords({ x: window.innerWidth / 2, y: window.innerHeight / 2 });
+    }
+    setOpenDropdown(null);
+    setModalItem(topicId);
+    setIsModalOpen(true);
+  };
 
-    return res;
-  }, [currentPathway]);
+  const handleSelectSolution = (sol, e = null) => {
+    const topicId = typeof sol === 'object' && sol.topicId ? sol.topicId : sol;
+    if (e && e.currentTarget) {
+      const r = e.currentTarget.getBoundingClientRect();
+      setClickCoords({ x: r.left + r.width / 2, y: r.top + r.height / 2 });
+    } else {
+      setClickCoords({ x: window.innerWidth / 2, y: window.innerHeight / 2 });
+    }
+    setOpenDropdown(null);
+    setModalItem(topicId);
+    setIsModalOpen(true);
+  };
 
-  // Handlers
-  const handleSelectIndustry = (ind) => {
-    setActiveType('Industry');
-    setActiveItem(ind);
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setModalItem(null);
     setOpenDropdown(null);
   };
 
-  const handleSelectProduct = (prod) => {
-    setActiveType('Product');
-    setActiveItem(prod);
-    setOpenDropdown(null);
-  };
-
-  const handleSelectSolution = (sol) => {
-    setActiveType('Solution');
-    setActiveItem(sol);
-    setOpenDropdown(null);
-  };
-
-  const handleClearSelection = () => {
-    setActiveType(null);
-    setActiveItem(null);
-    setOpenDropdown(null);
-  };
-
-  // 4x duplicated clients for uninterrupted 60fps infinite loop across all resolutions
-  const quadClients = [...clients, ...clients, ...clients, ...clients];
+  // 4x duplicated clients for uninterrupted 60fps infinite loop
+  const quadClients = [...BRAND_CLIENTS, ...BRAND_CLIENTS, ...BRAND_CLIENTS, ...BRAND_CLIENTS];
 
   return (
     <section
+      ref={sectionRef}
       id="tailored-solutions"
       aria-label="Tailored To Your Needs"
-      className="w-full bg-white text-[#0C013D] relative overflow-hidden scroll-mt-20 selection:bg-[#0C013D] selection:text-white border-b border-slate-200"
+      className="w-full bg-white text-[#0C013D] relative overflow-visible scroll-mt-20 selection:bg-[#0C013D] selection:text-white border-b border-slate-200"
     >
       <span id="matrix" className="absolute -top-28 left-0 pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 pt-12 pb-14 lg:pt-16 lg:pb-16 relative z-10">
-        {/* Top Section: Eyebrow + Headline + Paragraph + Hero Image */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-          {/* Left Text Block */}
-          <div className="lg:col-span-7">
+      {/* Pinned Scroll Track for Model Assembly: stays disassembled until reaching page 2, then pins while assembling */}
+      <div
+        id="assembly-scroll-track"
+        ref={trackRef}
+        className="relative w-full overflow-visible"
+        style={{ minHeight: '230vh' }}
+      >
+        {/* Sticky Viewport Stage: Pinned below navbar while scroll drives assembly */}
+        <div
+          id="assembly-stage"
+          ref={stageRef}
+          className="sticky top-16 sm:top-20 w-full min-h-[calc(100vh-4rem)] sm:min-h-[calc(100vh-5rem)] flex items-center overflow-visible z-10 py-6"
+        >
+          <div className="w-full max-w-7xl mx-auto px-6 sm:px-10 lg:pl-16 lg:pr-4 xl:pr-6">
+            {/* Unified 2-Column Section: Left (Headline + Description + Dropdown Selectors) | Right (Full CAD Machine Assembly Model) */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 xl:gap-12 items-center">
+          {/* Left Block: Text + Dropdown Selectors (Shifted to the right) */}
+          <div className="lg:col-span-5 flex flex-col justify-center lg:translate-x-6 xl:translate-x-10 2xl:translate-x-12">
             {/* Eyebrow with gold dash */}
-            <div className="flex items-center gap-3 mb-4">
+            <div className="flex items-center gap-3 mb-3">
               <span className="w-6 h-[2px] bg-[#C4A467] inline-block" />
-              <span className="text-xs font-bold tracking-[0.2em] uppercase text-[#0C013D]/75">
+              <span className="text-xs sm:text-sm font-bold tracking-[0.2em] uppercase text-[#0C013D]/75">
                 TAILORED TO YOUR NEEDS
               </span>
             </div>
 
-            {/* Main Headline in Aartech's original font (Antonio) and #B80001 */}
-            <h2 className="font-antonio text-3xl sm:text-4xl lg:text-[46px] text-[#B80001] font-normal tracking-wide uppercase leading-tight mb-5">
+            {/* Main Headline in Aartech's original font (Antonio) and #B80001 (Enlarged) */}
+            <h2 className="font-antonio text-4xl sm:text-5xl lg:text-[52px] xl:text-[60px] text-[#B80001] font-normal tracking-wide uppercase leading-[1.08] mb-4 sm:mb-5">
               Our Tailored Solutions
             </h2>
 
-            {/* Description Subtext in #0C013D */}
-            <p className="text-[#0C013D]/80 text-base sm:text-[17px] font-normal leading-relaxed max-w-xl">
+            {/* Description Subtext in #0C013D (Enlarged) */}
+            <p className="text-[#0C013D]/85 text-base sm:text-lg lg:text-[19px] xl:text-xl font-normal leading-relaxed mb-6 sm:mb-7">
               Choose any <strong className="font-semibold text-[#0C013D]">ONE</strong> of the <strong className="font-semibold text-[#0C013D]">THREE</strong> segments below and check out corresponding 2 segments linked with your chosen one.
             </p>
-          </div>
 
-          {/* Right Hero Image: mac.jpg */}
-          <div className="lg:col-span-5 flex justify-center lg:justify-end">
-            <div className="relative rounded-2xl overflow-hidden shadow-lg border border-slate-200 max-w-[420px] w-full group bg-slate-50">
-              <img
-                src="/assets/mac.jpg"
-                alt="Aartech Solonics Kranking Ultracapacitor engineering system"
-                className="w-full h-auto object-cover block transform transition-transform duration-700 group-hover:scale-105"
-                loading="eager"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0C013D]/10 to-transparent pointer-events-none" />
+            {/* Dropdown Section Sub-header */}
+            <div className="flex items-center justify-between gap-2 mb-3.5">
+              <span className="text-sm sm:text-base lg:text-[17px] font-semibold text-[#0C013D]">
+                Choose one segment to see related segments:
+              </span>
             </div>
-          </div>
-        </div>
 
-        {/* Horizontal Divider */}
-        <div className="w-full h-px bg-slate-200 my-8 lg:my-10" />
-
-        {/* Middle Section: Dropdown Row */}
-        <div>
-          <div className="flex items-center justify-between mb-4">
-            <p className="text-[#0C013D] text-base sm:text-[17px] font-medium">
-              Choose one segment to see related segments.
-            </p>
-            {activeItem && (
-              <button
-                onClick={handleClearSelection}
-                className="inline-flex items-center gap-1.5 text-xs text-[#0C013D]/70 hover:text-[#DE0001] transition-colors underline font-medium"
-              >
-                <RefreshCw size={12} />
-                <span>Reset selection</span>
-              </button>
-            )}
-          </div>
-
-          {/* 3 Dropdown Selectors */}
-          <div ref={dropdownRef} className="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-5 mb-6 relative">
-            {/* 1. Choose Industry */}
-            <div className="relative">
-              <button
-                type="button"
-                onClick={() => setOpenDropdown(openDropdown === 'industry' ? null : 'industry')}
-                className={`w-full rounded-full border px-6 py-3.5 flex items-center justify-between text-base transition-all duration-200 cursor-pointer ${
-                  activeType === 'Industry'
-                    ? 'border-[#0C013D] bg-[#0C013D] text-white shadow-md font-semibold'
-                    : 'border-slate-300 bg-slate-50/70 hover:bg-slate-100 hover:border-[#0C013D]/50 text-[#0C013D] font-medium'
-                }`}
-              >
-                <span className="truncate pr-2">
-                  {activeType === 'Industry' ? activeItem : 'Choose Industry'}
-                </span>
-                <ChevronDown
-                  className={`w-4 h-4 transition-transform duration-200 shrink-0 ${
-                    activeType === 'Industry' ? 'text-white' : 'text-[#0C013D]/70'
-                  } ${openDropdown === 'industry' ? 'rotate-180' : ''}`}
-                />
-              </button>
-
-              {/* Dropdown Menu */}
-              <AnimatePresence>
-                {openDropdown === 'industry' && (
-                  <motion.div
-                    initial={{ opacity: 0, y: -6 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -6 }}
-                    transition={{ duration: 0.15 }}
-                    className="absolute top-full left-0 right-0 mt-2 z-50 bg-white border border-slate-200 rounded-2xl shadow-2xl py-2 max-h-72 overflow-y-auto"
+            {/* 3 Dropdown Segment Selectors: Row 1 (Industry & Product styled matching screenshot), Row 2 (Solution centered in the middle below) */}
+            <div ref={dropdownRef} className="space-y-4 sm:space-y-5 w-full">
+              {/* Row 1: Industry and Product placed close together */}
+              <div className="grid grid-cols-2 gap-2 sm:gap-2.5 lg:gap-3">
+                {/* 1. Industry Button (Chevron Left matching dark button 'Contact sales' in screenshot) */}
+                <div className="pick w-full">
+                  <button
+                    type="button"
+                    aria-haspopup="menu"
+                    aria-expanded={openDropdown === 'industry'}
+                    onClick={() => setOpenDropdown(openDropdown === 'industry' ? null : 'industry')}
+                    className="chevron-btn chevron-btn-left bg-[#333144] hover:bg-[#252332] text-white shadow-md cursor-pointer"
                   >
-                    {dropdownLists.industries.map((ind, idx) => {
-                      const isSelected = activeType === 'Industry' && norm(activeItem) === norm(ind);
-                      return (
-                        <button
-                          key={idx}
-                          type="button"
-                          onClick={() => handleSelectIndustry(ind)}
-                          className={`w-full px-5 py-2.5 text-left text-sm transition-colors flex items-center justify-between ${
-                            isSelected
-                              ? 'bg-[#0C013D] text-white font-semibold'
-                              : 'text-[#0C013D] hover:bg-slate-100'
-                          }`}
-                        >
-                          <span className="truncate">{ind}</span>
-                          {isSelected && <Check size={14} className="shrink-0 text-white" />}
-                        </button>
-                      );
-                    })}
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-
-            {/* 2. Choose Product */}
-            <div className="relative">
-              <button
-                type="button"
-                onClick={() => setOpenDropdown(openDropdown === 'product' ? null : 'product')}
-                className={`w-full rounded-full border px-6 py-3.5 flex items-center justify-between text-base transition-all duration-200 cursor-pointer ${
-                  activeType === 'Product'
-                    ? 'border-[#0C013D] bg-[#0C013D] text-white shadow-md font-semibold'
-                    : 'border-slate-300 bg-slate-50/70 hover:bg-slate-100 hover:border-[#0C013D]/50 text-[#0C013D] font-medium'
-                }`}
-              >
-                <span className="truncate pr-2">
-                  {activeType === 'Product' ? activeItem : 'Choose Product'}
-                </span>
-                <ChevronDown
-                  className={`w-4 h-4 transition-transform duration-200 shrink-0 ${
-                    activeType === 'Product' ? 'text-white' : 'text-[#0C013D]/70'
-                  } ${openDropdown === 'product' ? 'rotate-180' : ''}`}
-                />
-              </button>
-
-              {/* Dropdown Menu */}
-              <AnimatePresence>
-                {openDropdown === 'product' && (
-                  <motion.div
-                    initial={{ opacity: 0, y: -6 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -6 }}
-                    transition={{ duration: 0.15 }}
-                    className="absolute top-full left-0 right-0 mt-2 z-50 bg-white border border-slate-200 rounded-2xl shadow-2xl py-2 max-h-72 overflow-y-auto"
-                  >
-                    {dropdownLists.products.map((prod, idx) => {
-                      const isSelected = activeType === 'Product' && norm(activeItem) === norm(prod);
-                      return (
-                        <button
-                          key={idx}
-                          type="button"
-                          onClick={() => handleSelectProduct(prod)}
-                          className={`w-full px-5 py-2.5 text-left text-sm transition-colors flex items-center justify-between ${
-                            isSelected
-                              ? 'bg-[#0C013D] text-white font-semibold'
-                              : 'text-[#0C013D] hover:bg-slate-100'
-                          }`}
-                        >
-                          <span className="truncate">{prod}</span>
-                          {isSelected && <Check size={14} className="shrink-0 text-white" />}
-                        </button>
-                      );
-                    })}
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-
-            {/* 3. Choose Solution */}
-            <div className="relative">
-              <button
-                type="button"
-                onClick={() => setOpenDropdown(openDropdown === 'solution' ? null : 'solution')}
-                className={`w-full rounded-full border px-6 py-3.5 flex items-center justify-between text-base transition-all duration-200 cursor-pointer ${
-                  activeType === 'Solution'
-                    ? 'border-[#0C013D] bg-[#0C013D] text-white shadow-md font-semibold'
-                    : 'border-slate-300 bg-slate-50/70 hover:bg-slate-100 hover:border-[#0C013D]/50 text-[#0C013D] font-medium'
-                }`}
-              >
-                <span className="truncate pr-2">
-                  {activeType === 'Solution' ? activeItem : 'Choose Solution'}
-                </span>
-                <ChevronDown
-                  className={`w-4 h-4 transition-transform duration-200 shrink-0 ${
-                    activeType === 'Solution' ? 'text-white' : 'text-[#0C013D]/70'
-                  } ${openDropdown === 'solution' ? 'rotate-180' : ''}`}
-                />
-              </button>
-
-              {/* Dropdown Menu */}
-              <AnimatePresence>
-                {openDropdown === 'solution' && (
-                  <motion.div
-                    initial={{ opacity: 0, y: -6 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -6 }}
-                    transition={{ duration: 0.15 }}
-                    className="absolute top-full left-0 right-0 mt-2 z-50 bg-white border border-slate-200 rounded-2xl shadow-2xl py-2 max-h-72 overflow-y-auto"
-                  >
-                    {dropdownLists.solutions.map((sol, idx) => {
-                      const isSelected = activeType === 'Solution' && norm(activeItem) === norm(sol);
-                      return (
-                        <button
-                          key={idx}
-                          type="button"
-                          onClick={() => handleSelectSolution(sol)}
-                          className={`w-full px-5 py-2.5 text-left text-sm transition-colors flex items-center justify-between ${
-                            isSelected
-                              ? 'bg-[#0C013D] text-white font-semibold'
-                              : 'text-[#0C013D] hover:bg-slate-100'
-                          }`}
-                        >
-                          <span className="truncate">{sol}</span>
-                          {isSelected && <Check size={14} className="shrink-0 text-white" />}
-                        </button>
-                      );
-                    })}
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-          </div>
-        </div>
-
-        {/* Dynamic Connected Segments Results Drawer (Visible when a segment is selected) */}
-        <AnimatePresence>
-          {activeItem && currentPathway && (
-            <motion.div
-              initial={{ opacity: 0, height: 0, y: 15 }}
-              animate={{ opacity: 1, height: 'auto', y: 0 }}
-              exit={{ opacity: 0, height: 0, y: 15 }}
-              transition={{ duration: 0.3 }}
-              className="mt-6 mb-8 overflow-hidden"
-            >
-              <div className="p-6 sm:p-8 rounded-2xl bg-slate-50 border border-slate-200 shadow-xl">
-                {/* Header bar of the active pathway */}
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-200">
-                  <div className="flex items-center gap-3">
-                    <div className="w-9 h-9 rounded-xl bg-[#0C013D] text-white flex items-center justify-center shrink-0 shadow">
-                      <Sparkles size={18} />
+                    <div className="flex items-center justify-center gap-2 sm:gap-3 mx-auto">
+                      <div className="flex flex-col text-left">
+                        <span className="text-[10px] sm:text-[11px] uppercase font-bold tracking-widest text-slate-300 leading-tight">
+                          Industry
+                        </span>
+                        <span className="truncate text-xs sm:text-sm lg:text-[14px] font-black uppercase tracking-wide text-white leading-tight">
+                          Choose Industry
+                        </span>
+                      </div>
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2.8"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        aria-hidden="true"
+                        className={`arrow-icon text-white transition-transform duration-300 ease-[cubic-bezier(.7,0,.2,1)] shrink-0 ${
+                          openDropdown === 'industry' ? 'rotate-180' : ''
+                        }`}
+                      >
+                        <path d="M6 9l6 6 6-6" />
+                      </svg>
                     </div>
-                    <div>
-                      <span className="text-[11px] uppercase tracking-widest text-[#0C013D]/70 font-bold block">
-                        Linked Segments For {activeType}
+                  </button>
+
+                  <ul
+                    className={`menu ${openDropdown === 'industry' ? 'open' : ''} max-h-80 overflow-y-auto w-full sm:w-[360px]`}
+                    role="menu"
+                  >
+                    <li role="none" className="px-3.5 py-2 bg-slate-100 border-b border-slate-200 flex items-center justify-between text-[#0C013D]">
+                      <span className="text-[11px] font-bold uppercase tracking-wider">
+                        Industry Options
                       </span>
-                      <h3 className="text-xl sm:text-2xl font-bold text-[#0C013D] tracking-wide">
-                        {activeItem}
-                      </h3>
-                    </div>
-                  </div>
-
-                  <div className="flex items-center gap-3">
-                    <button
-                      onClick={handleClearSelection}
-                      className="px-3.5 py-1.5 text-xs text-[#0C013D] hover:bg-slate-200 border border-slate-300 rounded-full transition-colors font-medium"
-                    >
-                      Clear
-                    </button>
-                    <button
-                      onClick={() => onOpenInquiry && onOpenInquiry(`Consultation for ${activeItem} (${activeType})`)}
-                      className="px-5 py-2 bg-[#0C013D] hover:bg-[#DE0001] text-white text-xs font-bold uppercase tracking-wider rounded-full shadow transition-colors inline-flex items-center gap-2"
-                    >
-                      <span>Request RFQ</span>
-                      <ArrowRight size={13} />
-                    </button>
-                  </div>
+                      <span className="text-[10px] text-slate-500 font-medium">
+                        Opens ripple popup
+                      </span>
+                    </li>
+                    {INDUSTRY_OPTIONS.map((item, idx) => (
+                      <li key={idx} role="none">
+                        <button
+                          type="button"
+                          role="menuitem"
+                          className="opt"
+                          style={{ '--c': item.color }}
+                          onClick={(e) => handleSelectIndustry(item, e)}
+                        >
+                          <span className="dot" style={{ backgroundColor: item.color }} />
+                          <b>{item.name}</b>
+                          <small>{item.hint}</small>
+                        </button>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
 
-                {/* 3 Related Columns: Linked Industries, Products, Solutions */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-6">
-                  {/* Linked Industries */}
-                  <div>
-                    <h4 className="text-xs font-bold uppercase tracking-wider text-[#0C013D]/80 mb-3 flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#0C013D]" />
-                      <span>Linked Industries ({relatedData.industries.length})</span>
-                    </h4>
-                    <div className="space-y-1.5">
-                      {relatedData.industries.length > 0 ? (
-                        relatedData.industries.map((ind, i) => (
-                          <button
-                            key={i}
-                            onClick={() => handleSelectIndustry(ind)}
-                            className="w-full text-left px-3.5 py-2 text-xs rounded-lg bg-white hover:bg-[#0C013D] text-[#0C013D] hover:text-white transition-colors border border-slate-200 shadow-sm flex items-center justify-between group font-medium"
-                          >
-                            <span className="truncate">{ind}</span>
-                            <ArrowRight size={12} className="opacity-0 group-hover:opacity-100 transition-opacity text-white" />
-                          </button>
-                        ))
-                      ) : (
-                        <p className="text-xs text-slate-400 italic">Selected category</p>
-                      )}
+                {/* 2. Product Button (Chevron Right matching bright green button 'Start now' in screenshot) */}
+                <div className="pick w-full">
+                  <button
+                    type="button"
+                    aria-haspopup="menu"
+                    aria-expanded={openDropdown === 'product'}
+                    onClick={() => setOpenDropdown(openDropdown === 'product' ? null : 'product')}
+                    className="chevron-btn chevron-btn-right bg-[#28E99F] hover:bg-[#20D690] text-[#0C013D] shadow-md cursor-pointer"
+                  >
+                    <div className="flex items-center justify-center gap-2 sm:gap-3 mx-auto">
+                      <div className="flex flex-col text-left">
+                        <span className="text-[10px] sm:text-[11px] uppercase font-bold tracking-widest text-[#0C013D]/70 leading-tight">
+                          Product
+                        </span>
+                        <span className="truncate text-xs sm:text-sm lg:text-[14px] font-black uppercase tracking-wide text-[#0C013D] leading-tight">
+                          Choose Product
+                        </span>
+                      </div>
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2.8"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        aria-hidden="true"
+                        className={`arrow-icon text-[#0C013D] transition-transform duration-300 ease-[cubic-bezier(.7,0,.2,1)] shrink-0 ${
+                          openDropdown === 'product' ? 'rotate-180' : ''
+                        }`}
+                      >
+                        <path d="M6 9l6 6 6-6" />
+                      </svg>
                     </div>
-                  </div>
+                  </button>
 
-                  {/* Linked Products */}
-                  <div>
-                    <h4 className="text-xs font-bold uppercase tracking-wider text-[#0C013D]/80 mb-3 flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#0C013D]" />
-                      <span>Linked Products ({relatedData.products.length})</span>
-                    </h4>
-                    <div className="space-y-1.5">
-                      {relatedData.products.length > 0 ? (
-                        relatedData.products.map((prod, i) => (
-                          <button
-                            key={i}
-                            onClick={() => handleSelectProduct(prod)}
-                            className="w-full text-left px-3.5 py-2 text-xs rounded-lg bg-white hover:bg-[#0C013D] text-[#0C013D] hover:text-white transition-colors border border-slate-200 shadow-sm flex items-center justify-between group font-medium"
-                          >
-                            <span className="truncate">{prod}</span>
-                            <ArrowRight size={12} className="opacity-0 group-hover:opacity-100 transition-opacity text-white" />
-                          </button>
-                        ))
-                      ) : (
-                        <p className="text-xs text-slate-400 italic">Selected category</p>
-                      )}
-                    </div>
-                  </div>
-
-                  {/* Linked Solutions */}
-                  <div>
-                    <h4 className="text-xs font-bold uppercase tracking-wider text-[#0C013D]/80 mb-3 flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#0C013D]" />
-                      <span>Linked Solutions ({relatedData.solutions.length})</span>
-                    </h4>
-                    <div className="space-y-1.5">
-                      {relatedData.solutions.length > 0 ? (
-                        relatedData.solutions.map((sol, i) => (
-                          <button
-                            key={i}
-                            onClick={() => handleSelectSolution(sol)}
-                            className="w-full text-left px-3.5 py-2 text-xs rounded-lg bg-white hover:bg-[#0C013D] text-[#0C013D] hover:text-white transition-colors border border-slate-200 shadow-sm flex items-center justify-between group font-medium"
-                          >
-                            <span className="truncate">{sol}</span>
-                            <ArrowRight size={12} className="opacity-0 group-hover:opacity-100 transition-opacity text-white" />
-                          </button>
-                        ))
-                      ) : (
-                        <p className="text-xs text-slate-400 italic">Selected category</p>
-                      )}
-                    </div>
-                  </div>
+                  <ul
+                    className={`menu ${openDropdown === 'product' ? 'open' : ''} right-0 left-auto max-h-80 overflow-y-auto w-full sm:w-[360px]`}
+                    role="menu"
+                  >
+                    <li role="none" className="px-3.5 py-2 bg-slate-100 border-b border-slate-200 flex items-center justify-between text-[#0C013D]">
+                      <span className="text-[11px] font-bold uppercase tracking-wider">
+                        Product Options
+                      </span>
+                      <span className="text-[10px] text-slate-500 font-medium">
+                        Opens ripple popup
+                      </span>
+                    </li>
+                    {PRODUCT_OPTIONS.map((item, idx) => (
+                      <li key={idx} role="none">
+                        <button
+                          type="button"
+                          role="menuitem"
+                          className="opt"
+                          style={{ '--c': item.color }}
+                          onClick={(e) => handleSelectProduct(item, e)}
+                        >
+                          <span className="dot" style={{ backgroundColor: item.color }} />
+                          <b>{item.name}</b>
+                          <small>{item.hint}</small>
+                        </button>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+
+              {/* Row 2: Solution Button placed below the two buttons and in the middle (Chevron matching Crimson brand) */}
+              <div className="flex justify-center w-full">
+                <div className="w-full sm:w-[calc(50%-1.25rem)] pick">
+                  <button
+                    type="button"
+                    aria-haspopup="menu"
+                    aria-expanded={openDropdown === 'solution'}
+                    onClick={() => setOpenDropdown(openDropdown === 'solution' ? null : 'solution')}
+                    className="chevron-btn chevron-btn-right bg-[#B80001] hover:bg-[#9E0001] text-white shadow-md cursor-pointer"
+                  >
+                    <div className="flex items-center justify-center gap-2 sm:gap-3 mx-auto">
+                      <div className="flex flex-col text-left">
+                        <span className="text-[10px] sm:text-[11px] uppercase font-bold tracking-widest text-red-200 leading-tight">
+                          Solution
+                        </span>
+                        <span className="truncate text-xs sm:text-sm lg:text-[14px] font-black uppercase tracking-wide text-white leading-tight">
+                          Choose Solution
+                        </span>
+                      </div>
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2.8"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        aria-hidden="true"
+                        className={`arrow-icon text-white transition-transform duration-300 ease-[cubic-bezier(.7,0,.2,1)] shrink-0 ${
+                          openDropdown === 'solution' ? 'rotate-180' : ''
+                        }`}
+                      >
+                        <path d="M6 9l6 6 6-6" />
+                      </svg>
+                    </div>
+                  </button>
+
+                  <ul
+                    className={`menu ${openDropdown === 'solution' ? 'open' : ''} left-1/2 -translate-x-1/2 max-h-80 overflow-y-auto w-full sm:w-[360px]`}
+                    role="menu"
+                  >
+                    <li role="none" className="px-3.5 py-2 bg-red-50 border-b border-red-100 flex items-center justify-between text-[#B80001]">
+                      <span className="text-[11px] font-bold uppercase tracking-wider">
+                        Solution Options
+                      </span>
+                      <span className="text-[10px] text-red-400 font-medium">
+                        Opens ripple popup
+                      </span>
+                    </li>
+                    {SOLUTION_OPTIONS.map((item, idx) => (
+                      <li key={idx} role="none">
+                        <button
+                          type="button"
+                          role="menuitem"
+                          className="opt"
+                          style={{ '--c': item.color }}
+                          onClick={(e) => handleSelectSolution(item, e)}
+                        >
+                          <span className="dot" style={{ backgroundColor: item.color }} />
+                          <b>{item.name}</b>
+                          <small>{item.hint}</small>
+                        </button>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Right Sided Interactive CAD Machine Assembly on Scroll (Enlarged and positioned to the right) */}
+          <div className="lg:col-span-7 flex items-center justify-end w-full overflow-visible">
+            <div className="w-full lg:w-[125%] xl:w-[135%] 2xl:w-[140%] flex justify-end ml-auto lg:translate-x-12 xl:translate-x-20 2xl:translate-x-28">
+              <div className="w-full">
+                <MachineAssemblyScroll
+                  parentSectionRef={trackRef}
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+          </div>
+        </div>
       </div>
 
+
+
+      {/* Segment Explorer Popup Modal */}
+      <SegmentExplorerModal
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+        initialItem={modalItem}
+        clickCoords={clickCoords}
+      />
+
       {/* Full-Width Customers Marquee Section (#0C013D background) */}
-      <div
-        className="w-full border-t border-white/10 bg-[#0C013D] py-10 lg:py-14 relative overflow-hidden"
-        onMouseEnter={() => setIsMarqueePaused(true)}
-        onMouseLeave={() => setIsMarqueePaused(false)}
-      >
+      <div className="w-full border-t border-white/10 bg-[#0C013D] py-10 lg:py-14 relative overflow-hidden">
         {/* Header container aligned with page margins */}
         <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 mb-8">
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-2">
-            <div>
-              <span className="text-xs font-bold uppercase tracking-widest text-[#DE0001] block mb-1">
-                Ecosystem & Partners
-              </span>
-              <h3 className="font-antonio text-3xl sm:text-4xl text-white uppercase tracking-wide font-normal">
-                Customers
-              </h3>
-            </div>
-            <p className="text-xs sm:text-sm font-medium text-slate-300">
-              Trusted by Fortune 500 utilities, defense forces & Navratna enterprises
-            </p>
+          <div>
+            <span className="text-xs font-bold uppercase tracking-widest text-[#DE0001] block mb-1">
+              Ecosystem & Partners
+            </span>
+            <h3 className="font-antonio text-3xl sm:text-4xl text-white uppercase tracking-wide font-normal">
+              Customers
+            </h3>
           </div>
         </div>
 
@@ -491,15 +578,12 @@ export default function TailoredSolutionsMatrix({ onOpenInquiry }) {
               {quadClients.map((client, idx) => (
                 <div
                   key={idx}
-                  className="flex items-center justify-center p-4 rounded-xl border border-white/10 bg-white/[0.04] hover:bg-white/[0.09] hover:border-white/25 hover:shadow-lg transition-all duration-300 w-40 sm:w-48 h-24 shrink-0 group cursor-pointer"
+                  onMouseEnter={() => setIsMarqueePaused(true)}
+                  onMouseLeave={() => setIsMarqueePaused(false)}
+                  className="flex items-center justify-center px-4 py-2.5 rounded-none bg-white border border-slate-200/90 shadow-md hover:shadow-2xl hover:scale-105 transition-all duration-300 w-48 sm:w-56 h-20 sm:h-22 shrink-0 cursor-pointer select-none group"
                   title={client.name}
                 >
-                  <img
-                    src={client.logo}
-                    alt={client.name}
-                    className="max-h-12 sm:max-h-14 max-w-[120px] w-auto object-contain opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-300"
-                    loading="eager"
-                  />
+                  {client.renderLogo()}
                 </div>
               ))}
             </div>
