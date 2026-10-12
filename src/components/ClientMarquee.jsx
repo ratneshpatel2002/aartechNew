@@ -26,13 +26,13 @@ export default function ClientMarquee() {
           {doubleClients.map((client, idx) => (
             <div 
               key={idx}
-              className="flex items-center justify-center p-3 rounded-lg border border-slate-100 bg-white hover:border-[#DE0001]/40 hover:shadow-md transition-all duration-300 w-36 h-20 shrink-0 group"
+              className="flex items-center justify-center px-5 py-3 sm:px-6 sm:py-4 rounded-none border border-slate-100 bg-white hover:border-[#DE0001]/40 hover:shadow-md transition-all duration-300 w-60 sm:w-72 lg:w-80 h-24 sm:h-28 lg:h-32 shrink-0 group"
               title={client.name}
             >
               <img 
                 src={client.logo} 
                 alt={client.name}
-                className="max-h-12 max-w-[110px] w-auto object-contain filter grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-300"
+                className="max-h-[52px] sm:max-h-[64px] lg:max-h-[74px] max-w-[85%] w-auto object-contain filter grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-300"
               />
             </div>
           ))}

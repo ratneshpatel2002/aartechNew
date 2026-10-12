@@ -1,5 +1,4 @@
 import React from 'react';
-import { Linkedin } from 'lucide-react';
 
 export default function Footer({ onOpenInquiry }) {
   const scrollToSection = (id) => {
@@ -30,16 +29,37 @@ export default function Footer({ onOpenInquiry }) {
               Living Passions Through Engineering
             </p>
 
-            {/* LinkedIn Link */}
+            {/* LinkedIn Official Link Badge */}
             <div className="pt-2">
               <a
                 href="https://www.linkedin.com/company/aartech-solonics-limited/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-xs sm:text-sm text-slate-300 hover:text-white transition-colors group"
+                aria-label="Connect with Aartech Solonics on LinkedIn"
+                className="inline-flex items-center gap-3 px-3.5 py-2 rounded-none bg-slate-900/90 hover:bg-[#0A66C2]/15 border border-slate-700/80 hover:border-[#0A66C2] transition-all duration-300 group cursor-pointer shadow-sm"
               >
-                <Linkedin size={16} className="text-[#DE0001] fill-current group-hover:scale-110 transition-transform" />
-                <span className="font-Barlow font-medium">LinkedIn</span>
+                {/* Official LinkedIn Bug Logo */}
+                <svg
+                  className="w-7 h-7 shrink-0 transition-transform duration-300 group-hover:scale-110 drop-shadow-sm"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true"
+                >
+                  <rect width="24" height="24" rx="4" fill="#0A66C2" />
+                  <path
+                    d="M19 19H16.08V14.42C16.08 13.33 16.06 11.93 14.56 11.93C13.04 11.93 12.81 13.12 12.81 14.34V19H9.89V9.5H12.69V10.8H12.73C13.12 10.06 14.07 9.28 15.49 9.28C18.45 9.28 19 11.23 19 13.77V19ZM6.46 8.2C5.52 8.2 4.76 7.44 4.76 6.5C4.76 5.56 5.52 4.8 6.46 4.8C7.4 4.8 8.16 5.56 8.16 6.5C8.16 7.44 7.4 8.2 6.46 8.2ZM7.92 19H5V9.5H7.92V19Z"
+                    fill="white"
+                  />
+                </svg>
+                <div className="flex flex-col text-left">
+                  <span className="text-[10px] uppercase tracking-wider text-slate-400 font-Barlow font-semibold group-hover:text-slate-300 transition-colors">
+                    Official Page
+                  </span>
+                  <span className="text-sm font-Barlow font-bold text-white group-hover:text-[#38bdf8] transition-colors leading-tight">
+                    LinkedIn
+                  </span>
+                </div>
               </a>
             </div>
           </div>
@@ -190,6 +210,27 @@ export default function Footer({ onOpenInquiry }) {
             &copy; Aartech Solonics Limited. All rights reserved.
           </div>
           <div className="flex items-center gap-6">
+            <a
+              href="https://www.linkedin.com/company/aartech-solonics-limited/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Aartech Solonics on LinkedIn"
+              className="inline-flex items-center gap-1.5 text-slate-300 hover:text-white transition-colors group"
+            >
+              <svg
+                className="w-4 h-4 shrink-0 transition-transform duration-200 group-hover:scale-110"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect width="24" height="24" rx="3" fill="#0A66C2" />
+                <path
+                  d="M19 19H16.08V14.42C16.08 13.33 16.06 11.93 14.56 11.93C13.04 11.93 12.81 13.12 12.81 14.34V19H9.89V9.5H12.69V10.8H12.73C13.12 10.06 14.07 9.28 15.49 9.28C18.45 9.28 19 11.23 19 13.77V19ZM6.46 8.2C5.52 8.2 4.76 7.44 4.76 6.5C4.76 5.56 5.52 4.8 6.46 4.8C7.4 4.8 8.16 5.56 8.16 6.5C8.16 7.44 7.4 8.2 6.46 8.2ZM7.92 19H5V9.5H7.92V19Z"
+                  fill="white"
+                />
+              </svg>
+              <span className="font-Barlow font-medium">LinkedIn</span>
+            </a>
             <button 
               onClick={onOpenInquiry} 
               className="hover:text-white transition-colors cursor-pointer"

@@ -16,21 +16,21 @@ export default function EngineeringPassionCTA({ onOpenInquiry }) {
             </span>
           </div>
 
-          {/* Editorial Serif Headline */}
-          <h2 className="font-editorial text-4xl sm:text-5xl lg:text-[56px] xl:text-[64px] font-normal text-[#0C013D] leading-[1.12] tracking-tight">
+          {/* Main Headline in original website font (Antonio) */}
+          <h2 className="font-antonio text-4xl sm:text-5xl lg:text-[56px] xl:text-[64px] font-bold text-[#0C013D] uppercase tracking-wide leading-[1.08]">
             Your challenge. Our engineering passion.
           </h2>
         </div>
 
-        {/* Right CTA Pill Button */}
+        {/* Right CTA Edged Button with Meet Aartech Hover Sweep Animation */}
         <div className="shrink-0 self-start lg:self-center">
           <button
             type="button"
             onClick={onOpenInquiry}
-            className="inline-flex items-center gap-3 px-8 sm:px-9 py-3.5 sm:py-4 rounded-full border border-[#0C013D] text-[#0C013D] text-sm sm:text-base font-medium font-Barlow hover:bg-[#0C013D] hover:text-white transition-all duration-300 shadow-sm group cursor-pointer"
+            className="aartech-cta-btn group"
           >
             <span>Talk to our team</span>
-            <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+            <ArrowRight size={18} aria-hidden="true" />
           </button>
         </div>
 

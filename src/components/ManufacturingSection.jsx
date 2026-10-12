@@ -179,28 +179,90 @@ export default function ManufacturingSection({ onOpenInquiry }) {
           </div>
         </div>
 
-        {/* Tab Switcher: Unit 1 vs Unit 2 */}
-        <div className="flex items-center justify-center flex-wrap gap-3 mb-8">
-          {facilities.map((fac) => {
-            const isActive = activeTab === fac.id;
-            return (
+        {/* Tab Switcher: Unit 1 Mandideep vs Unit 2 Parwanoo styled matching Tailored Solutions upper two buttons */}
+        <div className="flex justify-center mb-8 sm:mb-10 w-full">
+          <div className="w-full max-w-md sm:max-w-lg md:max-w-xl grid grid-cols-2 gap-2 sm:gap-3">
+            {/* 1. Unit 1 Mandideep Button (Chevron Left matching dark button from Tailored Solutions) */}
+            <div className="w-full">
               <button
-                key={fac.id}
-                onClick={() => setActiveTab(fac.id)}
-                className={`px-5 py-3 rounded-xl font-Barlow text-xs sm:text-sm font-bold uppercase tracking-wider transition-all duration-200 flex items-center gap-2.5 cursor-pointer ${
-                  isActive
-                    ? 'bg-[#0C013D] text-white shadow-md'
-                    : 'bg-slate-100 text-slate-600 hover:bg-slate-200 hover:text-[#0C013D]'
+                type="button"
+                aria-pressed={activeTab === 'unit1'}
+                onClick={() => setActiveTab('unit1')}
+                className={`chevron-btn chevron-btn-left bg-[#333144] hover:bg-[#252332] text-white shadow-md cursor-pointer transition-all duration-300 ${
+                  activeTab === 'unit1'
+                    ? 'opacity-100 scale-[1.02] filter drop-shadow(0 8px 18px rgba(12, 1, 61, 0.35))'
+                    : 'opacity-70 hover:opacity-95 scale-100'
                 }`}
               >
-                <span className={`w-2 h-2 rounded-full ${isActive ? 'bg-[#DE0001]' : 'bg-slate-400'}`} />
-                <span>{fac.title.split(':')[0]} — {fac.title.split(':')[1]?.trim().split(',')[0]}</span>
+                <div className="flex items-center justify-center gap-2 sm:gap-3 mx-auto">
+                  <div className="flex flex-col text-left">
+                    <span className="text-[10px] sm:text-[11px] uppercase font-bold tracking-widest text-slate-300 leading-tight font-Barlow">
+                      Unit 1
+                    </span>
+                    <span className="truncate text-xs sm:text-sm lg:text-[14px] font-black uppercase tracking-wide text-white leading-tight font-Barlow">
+                      Mandideep
+                    </span>
+                  </div>
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.8"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    aria-hidden="true"
+                    className={`arrow-icon text-white transition-transform duration-300 ease-[cubic-bezier(.7,0,.2,1)] shrink-0 ${
+                      activeTab === 'unit1' ? 'rotate-180' : ''
+                    }`}
+                  >
+                    <path d="M6 9l6 6 6-6" />
+                  </svg>
+                </div>
               </button>
-            );
-          })}
+            </div>
+
+            {/* 2. Unit 2 Parwanoo Button (Chevron Right matching bright green button from Tailored Solutions) */}
+            <div className="w-full">
+              <button
+                type="button"
+                aria-pressed={activeTab === 'unit2'}
+                onClick={() => setActiveTab('unit2')}
+                className={`chevron-btn chevron-btn-right bg-[#28E99F] hover:bg-[#20D690] text-[#0C013D] shadow-md cursor-pointer transition-all duration-300 ${
+                  activeTab === 'unit2'
+                    ? 'opacity-100 scale-[1.02] filter drop-shadow(0 8px 18px rgba(40, 233, 159, 0.35))'
+                    : 'opacity-70 hover:opacity-95 scale-100'
+                }`}
+              >
+                <div className="flex items-center justify-center gap-2 sm:gap-3 mx-auto">
+                  <div className="flex flex-col text-left">
+                    <span className="text-[10px] sm:text-[11px] uppercase font-bold tracking-widest text-[#0C013D]/70 leading-tight font-Barlow">
+                      Unit 2
+                    </span>
+                    <span className="truncate text-xs sm:text-sm lg:text-[14px] font-black uppercase tracking-wide text-[#0C013D] leading-tight font-Barlow">
+                      Parwanoo
+                    </span>
+                  </div>
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.8"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    aria-hidden="true"
+                    className={`arrow-icon text-[#0C013D] transition-transform duration-300 ease-[cubic-bezier(.7,0,.2,1)] shrink-0 ${
+                      activeTab === 'unit2' ? 'rotate-180' : ''
+                    }`}
+                  >
+                    <path d="M6 9l6 6 6-6" />
+                  </svg>
+                </div>
+              </button>
+            </div>
+          </div>
         </div>
 
-        {/* Active Facility Detail View with Rotating #0C013D Border */}
+        {/* Active Facility Detail View with Animated Corner Border (assets1/corner-border.html) */}
         <AnimatePresence mode="wait">
           <motion.div
             key={activeTab}
@@ -208,18 +270,10 @@ export default function ManufacturingSection({ onOpenInquiry }) {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -15 }}
             transition={{ duration: 0.3 }}
-            className="relative rounded-2xl p-[3px] overflow-hidden shadow-xl mb-12 bg-slate-100"
+            className="relative rounded-none overflow-hidden shadow-xl mb-12 bg-white border border-slate-200 corner-border"
           >
-            {/* Animated Rotating Gradient Border with #0C013D */}
-            <div 
-              className="absolute top-1/2 left-1/2 w-[200vmax] h-[200vmax] animate-spin-border pointer-events-none"
-              style={{
-                background: 'conic-gradient(from 0deg at 50% 50%, #0C013D 0deg, #DE0001 90deg, #0C013D 180deg, #DE0001 270deg, #0C013D 360deg)',
-              }}
-            />
-
             {/* Inner Content Card */}
-            <div className="relative bg-white rounded-[13px] p-6 sm:p-8 lg:p-10 z-10 w-full h-full">
+            <div className="relative bg-white rounded-none p-6 sm:p-8 lg:p-10 z-10 w-full h-full">
             {/* Facility Header Row - Centered Logo and Unit Title */}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3.5 pb-6 border-b border-slate-200 mb-8 text-center">
               <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-[#0C013D] text-white flex items-center justify-center shrink-0 shadow-md">
@@ -331,28 +385,90 @@ export default function ManufacturingSection({ onOpenInquiry }) {
           </div>
         </div>
 
-        {/* Tab Switcher: Commissioning Support vs Research & Development */}
-        <div className="flex items-center justify-center flex-wrap gap-3 mb-8">
-          {engineeringServices.map((svc) => {
-            const isActive = activeServiceTab === svc.id;
-            return (
+        {/* Tab Switcher: Commissioning Support vs Research & Development styled matching Tailored Solutions upper two buttons */}
+        <div className="flex justify-center mb-8 sm:mb-10 w-full">
+          <div className="w-full max-w-md sm:max-w-lg md:max-w-xl grid grid-cols-2 gap-2 sm:gap-3">
+            {/* 1. Commissioning Support Button (Chevron Left matching dark button from Tailored Solutions) */}
+            <div className="w-full">
               <button
-                key={svc.id}
-                onClick={() => setActiveServiceTab(svc.id)}
-                className={`px-5 py-3 rounded-xl font-Barlow text-xs sm:text-sm font-bold uppercase tracking-wider transition-all duration-200 flex items-center gap-2.5 cursor-pointer ${
-                  isActive
-                    ? 'bg-[#0C013D] text-white shadow-md'
-                    : 'bg-slate-100 text-slate-600 hover:bg-slate-200 hover:text-[#0C013D]'
+                type="button"
+                aria-pressed={activeServiceTab === 'commissioning'}
+                onClick={() => setActiveServiceTab('commissioning')}
+                className={`chevron-btn chevron-btn-left bg-[#333144] hover:bg-[#252332] text-white shadow-md cursor-pointer transition-all duration-300 ${
+                  activeServiceTab === 'commissioning'
+                    ? 'opacity-100 scale-[1.02] filter drop-shadow(0 8px 18px rgba(12, 1, 61, 0.35))'
+                    : 'opacity-70 hover:opacity-95 scale-100'
                 }`}
               >
-                <span className={`w-2 h-2 rounded-full ${isActive ? 'bg-[#DE0001]' : 'bg-slate-400'}`} />
-                <span>{svc.tabLabel}</span>
+                <div className="flex items-center justify-center gap-2 sm:gap-3 mx-auto">
+                  <div className="flex flex-col text-left">
+                    <span className="text-[10px] sm:text-[11px] uppercase font-bold tracking-widest text-slate-300 leading-tight font-Barlow">
+                      Commissioning
+                    </span>
+                    <span className="truncate text-xs sm:text-sm lg:text-[14px] font-black uppercase tracking-wide text-white leading-tight font-Barlow">
+                      Support
+                    </span>
+                  </div>
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.8"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    aria-hidden="true"
+                    className={`arrow-icon text-white transition-transform duration-300 ease-[cubic-bezier(.7,0,.2,1)] shrink-0 ${
+                      activeServiceTab === 'commissioning' ? 'rotate-180' : ''
+                    }`}
+                  >
+                    <path d="M6 9l6 6 6-6" />
+                  </svg>
+                </div>
               </button>
-            );
-          })}
+            </div>
+
+            {/* 2. Research & Development Button (Chevron Right matching bright green button from Tailored Solutions) */}
+            <div className="w-full">
+              <button
+                type="button"
+                aria-pressed={activeServiceTab === 'rnd'}
+                onClick={() => setActiveServiceTab('rnd')}
+                className={`chevron-btn chevron-btn-right bg-[#28E99F] hover:bg-[#20D690] text-[#0C013D] shadow-md cursor-pointer transition-all duration-300 ${
+                  activeServiceTab === 'rnd'
+                    ? 'opacity-100 scale-[1.02] filter drop-shadow(0 8px 18px rgba(40, 233, 159, 0.35))'
+                    : 'opacity-70 hover:opacity-95 scale-100'
+                }`}
+              >
+                <div className="flex items-center justify-center gap-2 sm:gap-3 mx-auto">
+                  <div className="flex flex-col text-left">
+                    <span className="text-[10px] sm:text-[11px] uppercase font-bold tracking-widest text-[#0C013D]/70 leading-tight font-Barlow">
+                      Research &
+                    </span>
+                    <span className="truncate text-xs sm:text-sm lg:text-[14px] font-black uppercase tracking-wide text-[#0C013D] leading-tight font-Barlow">
+                      Development
+                    </span>
+                  </div>
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.8"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    aria-hidden="true"
+                    className={`arrow-icon text-[#0C013D] transition-transform duration-300 ease-[cubic-bezier(.7,0,.2,1)] shrink-0 ${
+                      activeServiceTab === 'rnd' ? 'rotate-180' : ''
+                    }`}
+                  >
+                    <path d="M6 9l6 6 6-6" />
+                  </svg>
+                </div>
+              </button>
+            </div>
+          </div>
         </div>
 
-        {/* Active Service Detail View with Rotating #0C013D Border */}
+        {/* Active Service Detail View with Animated Corner Border (assets1/corner-border.html) */}
         <AnimatePresence mode="wait">
           <motion.div
             key={activeServiceTab}
@@ -360,18 +476,10 @@ export default function ManufacturingSection({ onOpenInquiry }) {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -15 }}
             transition={{ duration: 0.3 }}
-            className="relative rounded-2xl p-[3px] overflow-hidden shadow-xl bg-slate-100"
+            className="relative rounded-none overflow-hidden shadow-xl bg-white border border-slate-200 corner-border"
           >
-            {/* Animated Rotating Gradient Border with #0C013D */}
-            <div 
-              className="absolute top-1/2 left-1/2 w-[200vmax] h-[200vmax] animate-spin-border pointer-events-none"
-              style={{
-                background: 'conic-gradient(from 0deg at 50% 50%, #0C013D 0deg, #DE0001 90deg, #0C013D 180deg, #DE0001 270deg, #0C013D 360deg)',
-              }}
-            />
-
             {/* Inner Content Card */}
-            <div className="relative bg-white rounded-[13px] p-6 sm:p-8 lg:p-10 z-10 w-full h-full">
+            <div className="relative bg-white rounded-none p-6 sm:p-8 lg:p-10 z-10 w-full h-full">
             {/* Service Header Row - Centered Logo and Title */}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3.5 pb-6 border-b border-slate-200 mb-8 text-center">
               <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-[#0C013D] text-white flex items-center justify-center shrink-0 shadow-md">

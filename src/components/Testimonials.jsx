@@ -154,8 +154,8 @@ export default function Testimonials() {
               </span>
             </div>
 
-            {/* Main Editorial Headline */}
-            <h2 className="font-editorial text-4xl sm:text-5xl lg:text-[58px] font-bold text-[#0C013D] leading-[1.04] tracking-tight mb-5">
+            {/* Main Headline in original website font (Antonio) */}
+            <h2 className="font-antonio text-4xl sm:text-5xl lg:text-[58px] font-bold text-[#0C013D] uppercase tracking-wide leading-[1.04] mb-5">
               Trust, in our customers’ words.
             </h2>
 
@@ -272,9 +272,6 @@ export default function Testimonials() {
                     ) : (
                       <span>{item.ini || item.name.slice(0, 2).toUpperCase()}</span>
                     )}
-                    <div className="absolute bottom-0 inset-x-0 bg-[#0C013D]/85 py-0.5 text-[10px] text-center font-bold tracking-widest uppercase text-white">
-                      CLIENT
-                    </div>
                   </div>
 
                   {/* Testimonial Quote & Author Info Column */}

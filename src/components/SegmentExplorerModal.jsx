@@ -214,7 +214,7 @@ export default function SegmentExplorerModal({
   const modalContent = (
     <section
       ref={containerRef}
-      className={`topic ${isIn ? 'in' : ''}`}
+      className={`topic ${isIn ? 'in' : ''} font-Barlow`}
       aria-label={currentTopic.name}
       style={{
         '--bg': currentTopic.bg,
@@ -231,11 +231,11 @@ export default function SegmentExplorerModal({
 
       {/* Top Navigation Bar: Back & Next Buttons (Strictly rounded-none) */}
       <div className="bar">
-        <button className="btn back" type="button" onClick={handleClose}>
+        <button className="btn back font-Barlow font-bold uppercase tracking-wider" type="button" onClick={handleClose}>
           {ICON.left}
           <span>All topics</span>
         </button>
-        <button className="btn next" type="button" onClick={handleNext}>
+        <button className="btn next font-Barlow font-bold uppercase tracking-wider" type="button" onClick={handleNext}>
           <span>Next: {nextTopic ? nextTopic.name : 'Next Topic'}</span>
           {ICON.right}
         </button>
@@ -243,7 +243,7 @@ export default function SegmentExplorerModal({
 
       {/* Main Body: Title with sliding words, Lede paragraph, and 3 Notes */}
       <div className="body">
-        <h2 className="title" tabIndex={-1}>
+        <h2 className="title font-antonio uppercase tracking-wide" tabIndex={-1}>
           {titleWords.map((word, i) => (
             <span key={i} className="w">
               <span style={{ '--i': i }}>{word}</span>
@@ -252,14 +252,14 @@ export default function SegmentExplorerModal({
           ))}
         </h2>
 
-        <p className="lede fade" style={{ '--i': 0 }}>
+        <p className="lede fade font-Barlow" style={{ '--i': 0 }}>
           {currentTopic.lede}
         </p>
 
-        <ul className="notes">
+        <ul className="notes font-Barlow">
           {(currentTopic.notes || []).map((note, i) => (
-            <li key={i} className="fade" style={{ '--i': i + 1 }}>
-              <strong>{note[0]}</strong>
+            <li key={i} className="fade font-Barlow" style={{ '--i': i + 1 }}>
+              <strong className="font-antonio uppercase tracking-wide">{note[0]}</strong>
               <span>{note[1]}</span>
             </li>
           ))}

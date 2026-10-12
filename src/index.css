@@ -383,6 +383,94 @@ body {
   will-change: transform;
 }
 
+/* =====================================================
+   Aartech Solonics Animated Corner Border
+   From assets1/corner-border.html
+   ===================================================== */
+.corner-border {
+  --cb-color: #DE0001;      /* brand red border colour */
+  --cb-thickness: 3px;      /* line thickness - preserved lean and crisp per spec */
+  --cb-duration: 8s;        /* one full loop */
+  --cb-w: 35%;              /* bracket width */
+  --cb-h: 40%;              /* bracket height */
+
+  position: relative;
+  border-radius: 0 !important;
+}
+
+/* top-right bracket & bottom-left bracket */
+.corner-border::before,
+.corner-border::after {
+  content: "";
+  position: absolute;
+  width: var(--cb-w);
+  height: var(--cb-h);
+  pointer-events: none;
+  background-repeat: no-repeat;
+  z-index: 20;
+}
+
+.corner-border::before {
+  top: 0;
+  right: 0;
+  background-image:
+    linear-gradient(var(--cb-color), var(--cb-color)),
+    linear-gradient(var(--cb-color), var(--cb-color));
+  background-position: top right, top right;
+  background-size: 0% var(--cb-thickness), var(--cb-thickness) 0%;
+  animation: cb-top-right var(--cb-duration) cubic-bezier(.65, 0, .35, 1) infinite;
+}
+
+.corner-border::after {
+  bottom: 0;
+  left: 0;
+  background-image:
+    linear-gradient(var(--cb-color), var(--cb-color)),
+    linear-gradient(var(--cb-color), var(--cb-color));
+  background-position: bottom left, bottom left;
+  background-size: var(--cb-thickness) 0%, 0% var(--cb-thickness);
+  animation: cb-bottom-left var(--cb-duration) cubic-bezier(.65, 0, .35, 1) infinite;
+}
+
+@keyframes cb-top-right {
+  0%        { background-size: 0%   var(--cb-thickness), var(--cb-thickness) 0%;   }
+  9%        { background-size: 100% var(--cb-thickness), var(--cb-thickness) 0%;   }
+  18%, 80%  { background-size: 100% var(--cb-thickness), var(--cb-thickness) 100%; }
+  90%       { background-size: 100% var(--cb-thickness), var(--cb-thickness) 0%;   }
+  98%, 100% { background-size: 0%   var(--cb-thickness), var(--cb-thickness) 0%;   }
+}
+
+@keyframes cb-bottom-left {
+  0%        { background-size: var(--cb-thickness) 0%,   0%   var(--cb-thickness); }
+  9%        { background-size: var(--cb-thickness) 100%, 0%   var(--cb-thickness); }
+  18%, 80%  { background-size: var(--cb-thickness) 100%, 100% var(--cb-thickness); }
+  90%       { background-size: var(--cb-thickness) 100%, 0%   var(--cb-thickness); }
+  98%, 100% { background-size: var(--cb-thickness) 0%,   0%   var(--cb-thickness); }
+}
+
+/* Static fallback */
+.corner-border.is-static::before {
+  animation: none;
+  background-size: 100% var(--cb-thickness), var(--cb-thickness) 100%;
+}
+.corner-border.is-static::after {
+  animation: none;
+  background-size: var(--cb-thickness) 100%, 100% var(--cb-thickness);
+}
+
+/* respects reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  .corner-border::before {
+    animation: none;
+    background-size: 100% var(--cb-thickness), var(--cb-thickness) 100%;
+  }
+  .corner-border::after {
+    animation: none;
+    background-size: var(--cb-thickness) 100%, 100% var(--cb-thickness);
+  }
+}
+
+
 /* ========================================================
    SMALL CURIOSITIES DESIGN SYSTEM: BUTTONS, MENUS & TOPICS
    ======================================================== */
@@ -590,6 +678,9 @@ body {
   background: var(--bg, #0C013D);
   color: var(--fg, #ffffff);
   clip-path: circle(0px at 50% 50%);
+  font-family: 'Barlow', sans-serif;
+  --sans: 'Barlow', sans-serif;
+  --serif: 'Antonio', 'Barlow Condensed', sans-serif;
 }
 
 .topic svg.art {
@@ -616,12 +707,17 @@ body {
   align-items: center;
   gap: .55rem;
   cursor: pointer;
-  font: 500 .95rem/1 var(--sans);
+  font-family: 'Barlow', sans-serif;
+  font-weight: 700;
+  font-size: .88rem;
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: .08em;
   color: inherit;
   background: transparent;
   border: 1.5px solid currentColor;
   border-radius: 0 !important;
-  padding: .8rem 1.15rem;
+  padding: .8rem 1.25rem;
   transition: background .3s ease, color .3s ease;
 }
 
@@ -651,12 +747,13 @@ body {
 
 .topic .title {
   margin: 0 0 1.6rem;
-  font-family: var(--serif);
-  font-weight: 400;
-  font-size: clamp(3.4rem, 10vw, 9rem);
-  line-height: .98;
-  letter-spacing: -.03em;
-  max-width: 9em;
+  font-family: 'Antonio', 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: clamp(3.2rem, 8.5vw, 7.5rem);
+  line-height: .95;
+  letter-spacing: .02em;
+  text-transform: uppercase;
+  max-width: 12em;
 }
 
 .topic .title:focus {
@@ -678,8 +775,12 @@ body {
 
 .topic .lede {
   margin: 0 0 2.2rem;
-  max-width: 38ch;
-  font: 400 clamp(1.05rem, 1.6vw, 1.3rem)/1.55 var(--sans);
+  max-width: 48ch;
+  font-family: 'Barlow', sans-serif;
+  font-weight: 400;
+  font-size: clamp(1.05rem, 1.6vw, 1.35rem);
+  line-height: 1.6;
+  letter-spacing: .01em;
 }
 
 .topic .notes {
@@ -692,15 +793,23 @@ body {
 }
 
 .topic .notes li {
-  border-left: 1.5px solid currentColor;
-  padding-left: 1rem;
-  font: 400 .98rem/1.55 var(--sans);
+  border-left: 2px solid currentColor;
+  padding-left: 1.15rem;
+  font-family: 'Barlow', sans-serif;
+  font-weight: 400;
+  font-size: .98rem;
+  line-height: 1.6;
 }
 
 .topic .notes strong {
   display: block;
-  margin-bottom: .3rem;
-  font: 400 1.2rem/1.2 var(--serif);
+  margin-bottom: .35rem;
+  font-family: 'Antonio', 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 1.35rem;
+  line-height: 1.2;
+  text-transform: uppercase;
+  letter-spacing: .04em;
 }
 
 .topic .fade {
@@ -919,6 +1028,56 @@ body {
 .aartech-about-btn:hover svg {
   transform: translateX(6px);
 }
+
+/* Sharp CTA button with sweep animation matching Meet Aartech button in About Us */
+.aartech-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 15px 32px;
+  border: 2px solid #0C013D;
+  border-radius: 0 !important;
+  color: #0C013D;
+  background-color: transparent;
+  font: 700 15px "Barlow", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  transition: color 0.35s ease;
+  cursor: pointer;
+}
+
+.aartech-cta-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #0C013D;
+  transform: translateX(-101%);
+  transition: transform 0.45s cubic-bezier(.2, .7, .2, 1);
+  z-index: -1;
+}
+
+.aartech-cta-btn:hover,
+.aartech-cta-btn:focus-visible {
+  color: #FAF3E3;
+}
+
+.aartech-cta-btn:hover::before,
+.aartech-cta-btn:focus-visible::before {
+  transform: none;
+}
+
+.aartech-cta-btn svg {
+  transition: transform 0.35s ease;
+}
+
+.aartech-cta-btn:hover svg {
+  transform: translateX(6px);
+}
+
 
 .aartech-about-rule {
   height: 1px;

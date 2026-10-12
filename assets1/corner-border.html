@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Corner Border – copy & paste</title>
+
+<!-- OPTIONAL: font used in the demo (remove if you use your own) -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;800&display=swap" rel="stylesheet">
+
+<style>
+/* =====================================================
+   1) COPY THIS CSS INTO YOUR STYLESHEET
+   ===================================================== */
+.corner-border {
+  --cb-color: #ff0000;      /* border colour            */
+  --cb-thickness: 10px;     /* line thickness           */
+  --cb-duration: 10s;       /* one full loop            */
+  --cb-w: 40%;              /* bracket width            */
+  --cb-h: 55%;              /* bracket height           */
+
+  position: relative;
+  padding: 12% 10%;         /* space between border and your content */
+}
+
+/* top-right bracket */
+.corner-border::before,
+.corner-border::after {
+  content: "";
+  position: absolute;
+  width: var(--cb-w);
+  height: var(--cb-h);
+  pointer-events: none;
+  background-repeat: no-repeat;
+}
+.corner-border::before {
+  top: 0; right: 0;
+  background-image:
+    linear-gradient(var(--cb-color), var(--cb-color)),
+    linear-gradient(var(--cb-color), var(--cb-color));
+  background-position: top right, top right;
+  background-size: 0% var(--cb-thickness), var(--cb-thickness) 0%;
+  animation: cb-top-right var(--cb-duration) cubic-bezier(.65,0,.35,1) infinite;
+}
+/* bottom-left bracket */
+.corner-border::after {
+  bottom: 0; left: 0;
+  background-image:
+    linear-gradient(var(--cb-color), var(--cb-color)),
+    linear-gradient(var(--cb-color), var(--cb-color));
+  background-position: bottom left, bottom left;
+  background-size: var(--cb-thickness) 0%, 0% var(--cb-thickness);
+  animation: cb-bottom-left var(--cb-duration) cubic-bezier(.65,0,.35,1) infinite;
+}
+
+/* your content fades in and out with the border */
+.corner-border > * {
+  animation: cb-fade var(--cb-duration) ease infinite both;
+}
+
+@keyframes cb-top-right {
+  0%       { background-size: 0%   var(--cb-thickness), var(--cb-thickness) 0%;   }
+  9%       { background-size: 100% var(--cb-thickness), var(--cb-thickness) 0%;   }
+  18%, 80% { background-size: 100% var(--cb-thickness), var(--cb-thickness) 100%; }
+  90%      { background-size: 100% var(--cb-thickness), var(--cb-thickness) 0%;   }
+  98%, 100%{ background-size: 0%   var(--cb-thickness), var(--cb-thickness) 0%;   }
+}
+@keyframes cb-bottom-left {
+  0%       { background-size: var(--cb-thickness) 0%,   0%   var(--cb-thickness); }
+  9%       { background-size: var(--cb-thickness) 100%, 0%   var(--cb-thickness); }
+  18%, 80% { background-size: var(--cb-thickness) 100%, 100% var(--cb-thickness); }
+  90%      { background-size: var(--cb-thickness) 100%, 0%   var(--cb-thickness); }
+  98%, 100%{ background-size: var(--cb-thickness) 0%,   0%   var(--cb-thickness); }
+}
+@keyframes cb-fade {
+  0%, 12%   { opacity: 0; transform: translateY(6px); }
+  22%, 76%  { opacity: 1; transform: none; }
+  84%, 100% { opacity: 0; transform: translateY(-4px); }
+}
+
+/* Add class "is-static" for a border that doesn't animate */
+.corner-border.is-static::before { animation: none; background-size: 100% var(--cb-thickness), var(--cb-thickness) 100%; }
+.corner-border.is-static::after  { animation: none; background-size: var(--cb-thickness) 100%, 100% var(--cb-thickness); }
+.corner-border.is-static > *     { animation: none; }
+
+/* respects "reduce motion" settings */
+@media (prefers-reduced-motion: reduce) {
+  .corner-border::before { animation: none; background-size: 100% var(--cb-thickness), var(--cb-thickness) 100%; }
+  .corner-border::after  { animation: none; background-size: var(--cb-thickness) 100%, 100% var(--cb-thickness); }
+  .corner-border > *     { animation: none; }
+}
+
+/* =====================================================
+   DEMO STYLES ONLY – not needed in your site
+   ===================================================== */
+body { margin: 0; font-family: "Montserrat", system-ui, sans-serif; background: #fff; color: #111; }
+.demo { max-width: 720px; margin: 40px auto; padding: 0 16px; }
+.demo .corner-border { text-align: center; }
+.small { font-weight: 800; letter-spacing: .28em; font-size: 14px; margin: 0; }
+.big   { font-weight: 800; font-size: clamp(34px, 9vw, 64px); text-transform: uppercase; color: #ff0000; margin: 6px 0 10px; line-height: 1.05; }
+.tag   { font-weight: 500; letter-spacing: .24em; font-size: 13px; text-transform: uppercase; color: #3f3f46; margin: 0; }
+</style>
+</head>
+<body>
+
+<!-- =====================================================
+     2) COPY THIS HTML – put anything inside the wrapper
+     ===================================================== -->
+<div class="demo">
+  <div class="corner-border">
+    <p class="small">YOUR</p>
+    <h2 class="big">Creative</h2>
+    <p class="tag">Messaging here</p>
+  </div>
+</div>
+
+<!--
+  CUSTOMISE (inline or in your own CSS):
+  <div class="corner-border" style="--cb-color:#0a84ff; --cb-thickness:6px; --cb-duration:6s">
+  <div class="corner-border is-static">   → no animation
+-->
+</body>
+</html>

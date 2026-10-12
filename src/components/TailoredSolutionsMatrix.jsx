@@ -38,7 +38,7 @@ const BRAND_CLIENTS = [
     id: 0,
     name: "NTPC Limited",
     renderLogo: () => (
-      <svg viewBox="0 0 150 44" className="h-8 sm:h-9 w-auto" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg viewBox="0 0 100 38" className="h-[52px] sm:h-[64px] lg:h-[74px] w-auto max-w-[85%] object-contain" fill="none" xmlns="http://www.w3.org/2000/svg">
         <g transform="translate(2, 2)">
           <path d="M12 2C8 7 5 14 7 21c2 6 7 11 13 13-3-2-6-7-7-12-1-5 2-10 6-15-2 2-5 6-7 12z" fill="#00843D" />
           <path d="M19 5c-3 3-4 8-2 13 2 5 6 9 11 11-2-2-5-6-6-10-1-4 2-8 5-12-2 1-4 5-7 8z" fill="#005B94" />
@@ -52,8 +52,8 @@ const BRAND_CLIENTS = [
     id: 1,
     name: "Adani Power",
     renderLogo: () => (
-      <svg viewBox="0 0 150 44" className="h-8 sm:h-9 w-auto" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <g transform="translate(4, 4)">
+      <svg viewBox="0 0 94 38" className="h-[52px] sm:h-[64px] lg:h-[74px] w-auto max-w-[85%] object-contain" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g transform="translate(3, 3)">
           <path d="M4 22C4 12 12 4 22 4" stroke="#7B1FA2" strokeWidth="4" strokeLinecap="round" />
           <path d="M11 25C11 17 17 11 25 11" stroke="#00A3E0" strokeWidth="4" strokeLinecap="round" />
           <path d="M18 28C18 22 22 18 28 18" stroke="#133B5C" strokeWidth="4" strokeLinecap="round" />
@@ -67,8 +67,8 @@ const BRAND_CLIENTS = [
     id: 2,
     name: "Jindal Power",
     renderLogo: () => (
-      <svg viewBox="0 0 150 44" className="h-8 sm:h-9 w-auto" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <g transform="translate(4, 4)">
+      <svg viewBox="0 0 102 38" className="h-[52px] sm:h-[64px] lg:h-[74px] w-auto max-w-[85%] object-contain" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g transform="translate(3, 3)">
           <polygon points="12,2 20,16 13,16 18,30 6,15 13,15" fill="#D8232A" />
           <text x="27" y="21" fontFamily="'Antonio', sans-serif" fontWeight="700" fontSize="21" fill="#1B365D" letterSpacing="0.04em">JINDAL</text>
           <text x="28" y="31" fontFamily="'Barlow', sans-serif" fontWeight="700" fontSize="8.5" fill="#D8232A" letterSpacing="0.18em">POWER</text>
@@ -80,8 +80,8 @@ const BRAND_CLIENTS = [
     id: 3,
     name: "Hindalco Mahan",
     renderLogo: () => (
-      <svg viewBox="0 0 160 44" className="h-8 sm:h-9 w-auto" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <g transform="translate(4, 4)">
+      <svg viewBox="0 0 146 38" className="h-[52px] sm:h-[64px] lg:h-[74px] w-auto max-w-[85%] object-contain" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g transform="translate(3, 3)">
           <circle cx="14" cy="18" r="6" fill="#DA291C" />
           <path d="M14 6v3M14 27v3M4 18h3M21 18h3M7 11l2 2M19 23l2 2M7 25l2-2M19 13l2-2" stroke="#F2A900" strokeWidth="1.8" strokeLinecap="round" />
           <text x="30" y="20" fontFamily="'Antonio', sans-serif" fontWeight="700" fontSize="20" fill="#DA291C" letterSpacing="0.04em">HINDALCO</text>
@@ -94,8 +94,8 @@ const BRAND_CLIENTS = [
     id: 4,
     name: "CSTPS",
     renderLogo: () => (
-      <svg viewBox="0 0 150 44" className="h-8 sm:h-9 w-auto" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <g transform="translate(4, 4)">
+      <svg viewBox="0 0 106 38" className="h-[52px] sm:h-[64px] lg:h-[74px] w-auto max-w-[85%] object-contain" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g transform="translate(3, 3)">
           <rect x="3" y="6" width="20" height="23" rx="2" fill="#0A2540" />
           <path d="M13 8l-4 10h5l-3 9 7-11h-5z" fill="#C8102E" />
           <text x="30" y="21" fontFamily="'Antonio', sans-serif" fontWeight="700" fontSize="21" fill="#0A2540" letterSpacing="0.04em">CSTPS</text>
@@ -108,8 +108,8 @@ const BRAND_CLIENTS = [
     id: 5,
     name: "Damodar Valley Corporation",
     renderLogo: () => (
-      <svg viewBox="0 0 160 44" className="h-8 sm:h-9 w-auto" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <g transform="translate(4, 4)">
+      <svg viewBox="0 0 162 38" className="h-[52px] sm:h-[64px] lg:h-[74px] w-auto max-w-[85%] object-contain" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g transform="translate(3, 3)">
           <circle cx="15" cy="18" r="12" stroke="#003E7E" strokeWidth="2.2" fill="#F8FAFC" />
           <path d="M8 18c3-2 10-2 14 0M8 22c3-2 10-2 14 0" stroke="#138808" strokeWidth="1.8" strokeLinecap="round" />
           <text x="34" y="20" fontFamily="'Antonio', sans-serif" fontWeight="700" fontSize="21" fill="#003E7E" letterSpacing="0.05em">DVC</text>
@@ -122,8 +122,8 @@ const BRAND_CLIENTS = [
     id: 6,
     name: "Indian Oil",
     renderLogo: () => (
-      <svg viewBox="0 0 150 44" className="h-8 sm:h-9 w-auto" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <g transform="translate(4, 4)">
+      <svg viewBox="0 0 120 38" className="h-[52px] sm:h-[64px] lg:h-[74px] w-auto max-w-[85%] object-contain" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g transform="translate(3, 3)">
           <circle cx="15" cy="18" r="13" fill="#F47920" />
           <rect x="2" y="14" width="26" height="7.5" fill="#002B49" />
           <text x="34" y="21" fontFamily="'Barlow', sans-serif" fontWeight="800" fontSize="17" fill="#002B49" letterSpacing="0.02em">IndianOil</text>
@@ -136,8 +136,8 @@ const BRAND_CLIENTS = [
     id: 7,
     name: "BHEL",
     renderLogo: () => (
-      <svg viewBox="0 0 150 44" className="h-8 sm:h-9 w-auto" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <g transform="translate(4, 4)">
+      <svg viewBox="0 0 110 38" className="h-[52px] sm:h-[64px] lg:h-[74px] w-auto max-w-[85%] object-contain" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g transform="translate(3, 3)">
           <polygon points="15,3 25,9 25,25 15,31 5,25 5,9" stroke="#004C87" strokeWidth="2.2" fill="#F8FAFC" />
           <circle cx="15" cy="17" r="4.5" fill="#C8102E" />
           <text x="33" y="21" fontFamily="'Antonio', sans-serif" fontWeight="700" fontSize="22" fill="#004C87" letterSpacing="0.06em">BHEL</text>
@@ -150,8 +150,8 @@ const BRAND_CLIENTS = [
     id: 8,
     name: "Power Grid Corporation",
     renderLogo: () => (
-      <svg viewBox="0 0 160 44" className="h-8 sm:h-9 w-auto" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <g transform="translate(4, 4)">
+      <svg viewBox="0 0 130 38" className="h-[52px] sm:h-[64px] lg:h-[74px] w-auto max-w-[85%] object-contain" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g transform="translate(3, 3)">
           <path d="M8 29L14 5l6 24M10 20h8M12 12h4" stroke="#003399" strokeWidth="1.8" strokeLinecap="round" />
           <circle cx="14" cy="5" r="2.5" fill="#008040" />
           <text x="30" y="20" fontFamily="'Antonio', sans-serif" fontWeight="700" fontSize="19" fill="#008040" letterSpacing="0.04em">POWERGRID</text>
@@ -164,8 +164,8 @@ const BRAND_CLIENTS = [
     id: 9,
     name: "Tata Power",
     renderLogo: () => (
-      <svg viewBox="0 0 150 44" className="h-8 sm:h-9 w-auto" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <g transform="translate(4, 4)">
+      <svg viewBox="0 0 152 38" className="h-[52px] sm:h-[64px] lg:h-[74px] w-auto max-w-[85%] object-contain" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g transform="translate(3, 3)">
           <path d="M6 8c4 0 7 3.5 7 8s-3 8-7 8M20 8c-4 0-7 3.5-7 8s3 8 7 8" stroke="#00509E" strokeWidth="2.5" strokeLinecap="round" />
           <text x="29" y="20" fontFamily="'Antonio', sans-serif" fontWeight="700" fontSize="20" fill="#00509E" letterSpacing="0.05em">TATA POWER</text>
           <text x="30" y="30" fontFamily="'Barlow', sans-serif" fontWeight="600" fontSize="7.5" fill="#475569" letterSpacing="0.14em">LEADERSHIP WITH TRUST</text>
@@ -177,8 +177,8 @@ const BRAND_CLIENTS = [
     id: 10,
     name: "State Electricity Boards",
     renderLogo: () => (
-      <svg viewBox="0 0 160 44" className="h-8 sm:h-9 w-auto" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <g transform="translate(4, 4)">
+      <svg viewBox="0 0 166 38" className="h-[52px] sm:h-[64px] lg:h-[74px] w-auto max-w-[85%] object-contain" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g transform="translate(3, 3)">
           <polygon points="14,2 24,14 16,14 22,30 8,15 15,15" fill="#F59E0B" />
           <text x="30" y="20" fontFamily="'Antonio', sans-serif" fontWeight="700" fontSize="18" fill="#0284C7" letterSpacing="0.04em">STATE ELECTRICITY</text>
           <text x="31" y="30" fontFamily="'Barlow', sans-serif" fontWeight="600" fontSize="7.5" fill="#475569" letterSpacing="0.12em">BOARDS & DISCOMS</text>
@@ -569,9 +569,9 @@ export default function TailoredSolutionsMatrix({ onOpenInquiry }) {
 
           <div className="flex overflow-hidden w-full">
             <div
-              className="marquee-track flex items-center gap-6 sm:gap-8 py-2 shrink-0 will-change-transform"
+              className="marquee-track flex items-center gap-6 sm:gap-8 lg:gap-10 py-3 shrink-0 will-change-transform"
               style={{
-                animation: 'marquee 32s linear infinite',
+                animation: 'marquee 38s linear infinite',
                 animationPlayState: isMarqueePaused ? 'paused' : 'running',
               }}
             >
@@ -580,7 +580,7 @@ export default function TailoredSolutionsMatrix({ onOpenInquiry }) {
                   key={idx}
                   onMouseEnter={() => setIsMarqueePaused(true)}
                   onMouseLeave={() => setIsMarqueePaused(false)}
-                  className="flex items-center justify-center px-4 py-2.5 rounded-none bg-white border border-slate-200/90 shadow-md hover:shadow-2xl hover:scale-105 transition-all duration-300 w-48 sm:w-56 h-20 sm:h-22 shrink-0 cursor-pointer select-none group"
+                  className="flex items-center justify-center px-5 py-3 sm:px-6 sm:py-4 rounded-none bg-white border border-slate-200/90 shadow-md hover:shadow-2xl hover:scale-105 transition-all duration-300 w-60 sm:w-72 lg:w-80 h-24 sm:h-28 lg:h-32 shrink-0 cursor-pointer select-none group"
                   title={client.name}
                 >
                   {client.renderLogo()}
