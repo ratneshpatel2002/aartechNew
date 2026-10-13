@@ -168,8 +168,8 @@ export default function ManufacturingSection({ onOpenInquiry }) {
           </div>
 
           {/* Quick Credibility Pill */}
-          <div className="flex items-center gap-3 bg-white border border-slate-200 rounded-xl p-3.5 sm:p-4 shadow-sm self-start lg:self-end">
-            <div className="w-10 h-10 rounded-lg bg-[#B80001]/10 flex items-center justify-center text-[#B80001]">
+          <div className="flex items-center gap-3 bg-white border border-slate-200 rounded-none p-3.5 sm:p-4 shadow-sm self-start lg:self-end">
+            <div className="w-10 h-10 rounded-none bg-[#B80001]/10 flex items-center justify-center text-[#B80001]">
               <Award size={22} />
             </div>
             <div>
@@ -276,7 +276,7 @@ export default function ManufacturingSection({ onOpenInquiry }) {
             <div className="relative bg-white rounded-none p-6 sm:p-8 lg:p-10 z-10 w-full h-full">
             {/* Facility Header Row - Centered Logo and Unit Title */}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3.5 pb-6 border-b border-slate-200 mb-8 text-center">
-              <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-[#0C013D] text-white flex items-center justify-center shrink-0 shadow-md">
+              <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-none bg-[#0C013D] text-white flex items-center justify-center shrink-0 shadow-md">
                 <IconComp size={26} />
               </div>
               <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold font-antonio text-[#0C013D] uppercase tracking-wide">
@@ -288,7 +288,7 @@ export default function ManufacturingSection({ onOpenInquiry }) {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
               
               {/* Left Column: Infrastructure & Floor Features */}
-              <div className="bg-white rounded-xl border border-slate-200 p-6 sm:p-7 shadow-xs">
+              <div className="bg-white rounded-none border border-slate-200 p-6 sm:p-7 shadow-xs">
                 <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#0C013D] font-Barlow mb-4 pb-3 border-b border-slate-100">
                   <Layers size={16} className="text-[#B80001]" />
                   <span>Manufacturing Infrastructure & Floor Capabilities</span>
@@ -305,7 +305,7 @@ export default function ManufacturingSection({ onOpenInquiry }) {
               </div>
 
               {/* Right Column: QAP / FAT Testing Rig Protocol */}
-              <div className="bg-white rounded-xl border border-slate-200 p-6 sm:p-7 shadow-xs">
+              <div className="bg-white rounded-none border border-slate-200 p-6 sm:p-7 shadow-xs">
                 <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#0C013D] font-Barlow mb-4 pb-3 border-b border-slate-100">
                   <ShieldCheck size={16} className="text-[#B80001]" />
                   <span>{activeFacility.qaTitle}</span>
@@ -324,12 +324,12 @@ export default function ManufacturingSection({ onOpenInquiry }) {
             </div>
 
             {/* Technical Machinery Panoramic Image */}
-            <div className="mt-8 rounded-xl overflow-hidden border border-slate-200 bg-white relative">
-              <div className="h-44 sm:h-56 lg:h-64 w-full relative overflow-hidden">
+            <div className="mt-8 rounded-none overflow-hidden border border-slate-200 bg-white relative">
+              <div className="h-44 sm:h-56 lg:h-64 w-full relative overflow-hidden rounded-none">
                 <img
                   src={activeFacility.image}
                   alt={activeFacility.title}
-                  className="w-full h-full object-cover object-center"
+                  className="w-full h-full object-cover object-center rounded-none"
                   loading="eager"
                 />
               </div>
@@ -374,8 +374,8 @@ export default function ManufacturingSection({ onOpenInquiry }) {
           </div>
 
           {/* Quick Credibility Pill */}
-          <div className="flex items-center gap-3 bg-white border border-slate-200 rounded-xl p-3.5 sm:p-4 shadow-sm self-start lg:self-end">
-            <div className="w-10 h-10 rounded-lg bg-[#0C013D]/10 flex items-center justify-center text-[#0C013D]">
+          <div className="flex items-center gap-3 bg-white border border-slate-200 rounded-none p-3.5 sm:p-4 shadow-sm self-start lg:self-end">
+            <div className="w-10 h-10 rounded-none bg-[#0C013D]/10 flex items-center justify-center text-[#0C013D]">
               <Compass size={22} />
             </div>
             <div>
@@ -482,7 +482,7 @@ export default function ManufacturingSection({ onOpenInquiry }) {
             <div className="relative bg-white rounded-none p-6 sm:p-8 lg:p-10 z-10 w-full h-full">
             {/* Service Header Row - Centered Logo and Title */}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3.5 pb-6 border-b border-slate-200 mb-8 text-center">
-              <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-[#0C013D] text-white flex items-center justify-center shrink-0 shadow-md">
+              <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-none bg-[#0C013D] text-white flex items-center justify-center shrink-0 shadow-md">
                 <ServiceIcon size={26} />
               </div>
               <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold font-antonio text-[#0C013D] uppercase tracking-wide">
@@ -494,7 +494,7 @@ export default function ManufacturingSection({ onOpenInquiry }) {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
               
               {/* Left Column */}
-              <div className="bg-white rounded-xl border border-slate-200 p-6 sm:p-7 shadow-xs">
+              <div className="bg-white rounded-none border border-slate-200 p-6 sm:p-7 shadow-xs">
                 <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#0C013D] font-Barlow mb-4 pb-3 border-b border-slate-100">
                   <Layers size={16} className="text-[#B80001]" />
                   <span>{activeService.col1Title}</span>
@@ -511,7 +511,7 @@ export default function ManufacturingSection({ onOpenInquiry }) {
               </div>
 
               {/* Right Column */}
-              <div className="bg-white rounded-xl border border-slate-200 p-6 sm:p-7 shadow-xs">
+              <div className="bg-white rounded-none border border-slate-200 p-6 sm:p-7 shadow-xs">
                 <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#0C013D] font-Barlow mb-4 pb-3 border-b border-slate-100">
                   <ShieldCheck size={16} className="text-[#B80001]" />
                   <span>{activeService.col2Title}</span>
@@ -530,12 +530,12 @@ export default function ManufacturingSection({ onOpenInquiry }) {
             </div>
 
             {/* Panoramic Image Banner */}
-            <div className="mt-8 rounded-xl overflow-hidden border border-slate-200 bg-white relative">
-              <div className="h-44 sm:h-56 lg:h-64 w-full relative overflow-hidden">
+            <div className="mt-8 rounded-none overflow-hidden border border-slate-200 bg-white relative">
+              <div className="h-44 sm:h-56 lg:h-64 w-full relative overflow-hidden rounded-none">
                 <img
                   src={activeService.image}
                   alt={activeService.title}
-                  className="w-full h-full object-cover object-center"
+                  className="w-full h-full object-cover object-center rounded-none"
                   loading="eager"
                 />
               </div>
